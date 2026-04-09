@@ -23,20 +23,17 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   }
 
-  .header h1 {
-    font-size: 24px;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-  }
+  .header-icon { font-size: 52px; margin-bottom: 12px; }
+  .header h1 { font-size: 22px; margin-bottom: 6px; letter-spacing: 1px; }
+  .header p { font-size: 13px; opacity: 0.75; }
 
-  .header p {
-    font-size: 14px;
-    opacity: 0.8;
-  }
-
-  .header-icon {
-    font-size: 48px;
-    margin-bottom: 12px;
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    margin-top: 10px;
   }
 
   .container {
@@ -46,9 +43,9 @@
   }
 
   .section-title {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
-    margin: 20px 0 10px;
+    margin: 16px 0 10px;
     padding-right: 8px;
     border-right: 3px solid #0f3460;
   }
@@ -56,12 +53,12 @@
   .lesson-card {
     background: white;
     border-radius: 16px;
-    padding: 18px 20px;
-    margin-bottom: 12px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    gap: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
@@ -72,69 +69,48 @@
   .lesson-card:active {
     transform: scale(0.98);
     border-color: #0f3460;
-    box-shadow: 0 4px 15px rgba(15,52,96,0.2);
+    box-shadow: 0 4px 15px rgba(15,52,96,0.15);
   }
 
-  .lesson-number {
-    background: linear-gradient(135deg, #0f3460, #533483);
-    color: white;
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
+  .lesson-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 22px;
     flex-shrink: 0;
   }
+
+  .c1 { background: #e8f4fd; }
+  .c2 { background: #e8fdf0; }
+  .c3 { background: #fdf4e8; }
+  .c4 { background: #f4e8fd; }
+  .c5 { background: #fde8e8; }
+  .c6 { background: #e8fdfd; }
+  .c7 { background: #fdfde8; }
+  .c8 { background: #f0f0f0; }
 
   .lesson-info { flex: 1; }
 
   .lesson-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
 
   .lesson-desc {
-    font-size: 12px;
-    color: #888;
+    font-size: 11px;
+    color: #999;
   }
 
   .lesson-arrow {
     color: #ccc;
-    font-size: 18px;
+    font-size: 20px;
   }
 
-  .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    padding: 12px 0 20px;
-    display: flex;
-    justify-content: space-around;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-    border-radius: 20px 20px 0 0;
-  }
-
-  .nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-    color: #999;
-    cursor: pointer;
-    padding: 0 20px;
-  }
-
-  .nav-item.active { color: #0f3460; }
-  .nav-item span:first-child { font-size: 22px; }
-
-  .spacer { height: 80px; }
+  .spacer { height: 30px; }
 </style>
 </head>
 <body>
@@ -142,64 +118,89 @@
 <div class="header">
   <div class="header-icon">🧠</div>
   <h1>منطق پایه دهم</h1>
-  <p>دروس و محتوای آموزشی</p>
+  <p>محتوای آموزشی جامع</p>
+  <div class="badge">دبیرستان · پایه دهم</div>
 </div>
 
 <div class="container">
-  <div class="section-title">فصل‌های درسی</div>
 
-  <a class="lesson-card" href="lesson1.html">
-    <div class="lesson-number">۱</div>
+  <div class="section-title">محتوای اصلی</div>
+
+  <a class="lesson-card" href="darsname.html">
+    <div class="lesson-icon c1">📖</div>
     <div class="lesson-info">
-      <div class="lesson-title">فصل اول: کلیات منطق</div>
-      <div class="lesson-desc">تعریف منطق، تاریخچه و اهمیت آن</div>
+      <div class="lesson-title">درسنامه</div>
+      <div class="lesson-desc">متن کامل دروس و توضیحات</div>
     </div>
     <div class="lesson-arrow">‹</div>
   </a>
 
-  <a class="lesson-card" href="lesson2.html">
-    <div class="lesson-number">۲</div>
+  <a class="lesson-card" href="ketab.html">
+    <div class="lesson-icon c2">📚</div>
     <div class="lesson-info">
-      <div class="lesson-title">فصل دوم: مفهوم و ماهیت</div>
-      <div class="lesson-desc">انواع مفاهیم و تعریف‌ها</div>
+      <div class="lesson-title">کتاب درسی</div>
+      <div class="lesson-desc">کتاب رسمی منطق پایه دهم</div>
     </div>
     <div class="lesson-arrow">‹</div>
   </a>
 
-  <a class="lesson-card" href="lesson3.html">
-    <div class="lesson-number">۳</div>
+  <a class="lesson-card" href="powerpoint.html">
+    <div class="lesson-icon c3">📊</div>
     <div class="lesson-info">
-      <div class="lesson-title">فصل سوم: قضیه و حکم</div>
-      <div class="lesson-desc">انواع قضایا و احکام منطقی</div>
+      <div class="lesson-title">پاورپوینت تمام دروس</div>
+      <div class="lesson-desc">اسلایدهای آموزشی همه فصل‌ها</div>
     </div>
     <div class="lesson-arrow">‹</div>
   </a>
 
-  <a class="lesson-card" href="lesson4.html">
-    <div class="lesson-number">۴</div>
+  <a class="lesson-card" href="jadval.html">
+    <div class="lesson-icon c4">🎯</div>
     <div class="lesson-info">
-      <div class="lesson-title">فصل چهارم: استدلال</div>
-      <div class="lesson-desc">قیاس، استقراء و تمثیل</div>
+      <div class="lesson-title">جدول هدف و محتوا</div>
+      <div class="lesson-desc">اهداف و سرفصل‌های دوره</div>
+    </div>
+    <div class="lesson-arrow">‹</div>
+  </a>
+
+  <div class="section-title">مطالب تکمیلی</div>
+
+  <a class="lesson-card" href="chalesh.html">
+    <div class="lesson-icon c5">🧩</div>
+    <div class="lesson-info">
+      <div class="lesson-title">مباحث چالشی منطق</div>
+      <div class="lesson-desc">سوالات و مباحث پیشرفته</div>
+    </div>
+    <div class="lesson-arrow">‹</div>
+  </a>
+
+  <a class="lesson-card" href="tolid.html">
+    <div class="lesson-icon c6">🎬</div>
+    <div class="lesson-info">
+      <div class="lesson-title">تولید محتوا</div>
+      <div class="lesson-desc">ویدیو و محتوای آموزشی تکمیلی</div>
+    </div>
+    <div class="lesson-arrow">‹</div>
+  </a>
+
+  <a class="lesson-card" href="soal.html">
+    <div class="lesson-icon c7">📝</div>
+    <div class="lesson-info">
+      <div class="lesson-title">نمونه سوال امتحان</div>
+      <div class="lesson-desc">آزمون‌های تمرینی و نمونه سوالات</div>
+    </div>
+    <div class="lesson-arrow">‹</div>
+  </a>
+
+  <a class="lesson-card" href="about.html">
+    <div class="lesson-icon c8">ℹ️</div>
+    <div class="lesson-info">
+      <div class="lesson-title">درباره ما</div>
+      <div class="lesson-desc">معرفی برنامه و سازنده</div>
     </div>
     <div class="lesson-arrow">‹</div>
   </a>
 
   <div class="spacer"></div>
-</div>
-
-<div class="bottom-nav">
-  <div class="nav-item active">
-    <span>🏠</span>
-    <span>خانه</span>
-  </div>
-  <div class="nav-item">
-    <span>📚</span>
-    <span>فایل‌ها</span>
-  </div>
-  <div class="nav-item">
-    <span>💬</span>
-    <span>چت</span>
-  </div>
 </div>
 
 </body>
