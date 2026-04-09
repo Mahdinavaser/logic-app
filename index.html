@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منطق پایه دهم</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f0f4f8;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 30px 20px 40px;
+    text-align: center;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .header h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  .header p {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  .header-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .container {
+    padding: 20px 16px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 14px;
+    color: #666;
+    margin: 20px 0 10px;
+    padding-right: 8px;
+    border-right: 3px solid #0f3460;
+  }
+
+  .lesson-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid transparent;
+  }
+
+  .lesson-card:active {
+    transform: scale(0.98);
+    border-color: #0f3460;
+    box-shadow: 0 4px 15px rgba(15,52,96,0.2);
+  }
+
+  .lesson-number {
+    background: linear-gradient(135deg, #0f3460, #533483);
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .lesson-info { flex: 1; }
+
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .lesson-desc {
+    font-size: 12px;
+    color: #888;
+  }
+
+  .lesson-arrow {
+    color: #ccc;
+    font-size: 18px;
+  }
+
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 12px 0 20px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    border-radius: 20px 20px 0 0;
+  }
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #999;
+    cursor: pointer;
+    padding: 0 20px;
+  }
+
+  .nav-item.active { color: #0f3460; }
+  .nav-item span:first-child { font-size: 22px; }
+
+  .spacer { height: 80px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-icon">🧠</div>
+  <h1>منطق پایه دهم</h1>
+  <p>دروس و محتوای آموزشی</p>
+</div>
+
+<div class="container">
+  <div class="section-title">فصل‌های درسی</div>
+
+  <a class="lesson-card" href="lesson1.html">
+    <div class="lesson-number">۱</div>
+    <div class="lesson-info">
+      <div class="lesson-title">فصل اول: کلیات منطق</div>
+      <div class="lesson-desc">تعریف منطق، تاریخچه و اهمیت آن</div>
+    </div>
+    <div class="lesson-arrow">‹</div>
+  </a>
+
+  <a class="lesson-card" href="lesson2.html">
+    <div class="lesson-number">۲</div>
+    <div class="lesson-info">
+      <div class="lesson-title">فصل دوم: مفهوم و ماهیت</div>
+      <div class="lesson-desc">انواع مفاهیم و تعریف‌ها</div>
+    </div>
+    <div class="lesson-arrow">‹</div>
+  </a>
+
+  <a class="lesson-card" href="lesson3.html">
+    <div class="lesson-number">۳</div>
+    <div class="lesson-info">
+      <div class="lesson-title">فصل سوم: قضیه و حکم</div>
+      <div class="lesson-desc">انواع قضایا و احکام منطقی</div>
+    </div>
+    <div class="lesson-arrow">‹</div>
+  </a>
+
+  <a class="lesson-card" href="lesson4.html">
+    <div class="lesson-number">۴</div>
+    <div class="lesson-info">
+      <div class="lesson-title">فصل چهارم: استدلال</div>
+      <div class="lesson-desc">قیاس، استقراء و تمثیل</div>
+    </div>
+    <div class="lesson-arrow">‹</div>
+  </a>
+
+  <div class="spacer"></div>
+</div>
+
+<div class="bottom-nav">
+  <div class="nav-item active">
+    <span>🏠</span>
+    <span>خانه</span>
+  </div>
+  <div class="nav-item">
+    <span>📚</span>
+    <span>فایل‌ها</span>
+  </div>
+  <div class="nav-item">
+    <span>💬</span>
+    <span>چت</span>
+  </div>
+</div>
+
+</body>
+</html>
