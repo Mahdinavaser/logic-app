@@ -61,55 +61,104 @@
     color: #1a1a2e;
   }
 
-  .main-file-card {
-    background: linear-gradient(135deg, #0f3460, #533483);
-    border-radius: 18px;
-    padding: 20px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    box-shadow: 0 6px 20px rgba(15,52,96,0.35);
-    text-decoration: none;
-    color: white;
-    transition: all 0.2s;
-  }
-
-  .main-file-card:active { transform: scale(0.98); }
-
-  .main-icon {
-    width: 58px;
-    height: 58px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    flex-shrink: 0;
-  }
-
-  .main-info { flex: 1; }
-  .main-info h3 { font-size: 17px; margin-bottom: 5px; }
-  .main-info p { font-size: 12px; opacity: 0.8; line-height: 1.6; }
-
-  .main-btn {
-    background: white;
-    color: #0f3460;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: inherit;
-    white-space: nowrap;
-  }
-
   .section-title {
     font-size: 13px;
     color: #666;
     margin: 0 0 12px;
+    padding-right: 8px;
+    border-right: 3px solid #0f3460;
+  }
+
+  .file-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  .file-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .file-icon {
+    width: 58px;
+    height: 58px;
+    background: linear-gradient(135deg, #0f3460, #533483);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .file-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .file-info p {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .file-badge {
+    display: inline-block;
+    background: #e8f0fd;
+    color: #0f3460;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 5px;
+  }
+
+  .action-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .action-btn {
+    flex: 1;
+    padding: 12px 10px;
+    border-radius: 12px;
+    border: none;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .action-btn:active { transform: scale(0.97); }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #0f3460, #533483);
+    color: white;
+  }
+
+  .btn-secondary {
+    background: #e8f0fd;
+    color: #0f3460;
+  }
+
+  .section-title2 {
+    font-size: 13px;
+    color: #666;
+    margin: 20px 0 12px;
     padding-right: 8px;
     border-right: 3px solid #0f3460;
   }
@@ -147,10 +196,7 @@
     margin-bottom: 2px;
   }
 
-  .chapter-sub {
-    font-size: 11px;
-    color: #999;
-  }
+  .chapter-sub { font-size: 11px; color: #999; }
 
   .chapter-tag {
     background: #f0f4f8;
@@ -177,19 +223,33 @@
 <div class="container">
 
   <div class="info-box">
-    📌 درسنامه کامل منطق پایه دهم شامل تمام ۱۰ فصل در یک فایل جامع. برای مشاهده یا دانلود روی دکمه کلیک کنید.
+    📌 درسنامه کامل منطق پایه دهم شامل تمام ۱۰ فصل. برای مشاهده داخل اپ روی "مشاهده" و برای ذخیره روی "دانلود" کلیک کنید.
   </div>
 
-  <a class="main-file-card" href="files/darsname.pdf" target="_blank">
-    <div class="main-icon">📕</div>
-    <div class="main-info">
-      <h3>درسنامه کامل منطق</h3>
-      <p>تمام ۱۰ فصل · پایه دهم<br>قابل مشاهده و دانلود</p>
-    </div>
-    <button class="main-btn">📥 دانلود</button>
-  </a>
+  <div class="section-title">📄 فایل درسنامه</div>
 
-  <div class="section-title">فهرست فصل‌های کتاب</div>
+  <div class="file-card">
+    <div class="file-top">
+      <div class="file-icon">📕</div>
+      <div class="file-info">
+        <h3>درسنامه کامل منطق</h3>
+        <p>تمام ۱۰ فصل · پایه دهم</p>
+        <span class="file-badge">PDF · قابل مشاهده در اپ</span>
+      </div>
+    </div>
+    <div class="action-row">
+      <a class="action-btn btn-primary"
+         href="viewer.html?file=files/darsname.pdf&title=درسنامه منطق&back=darsname.html">
+        👁️ مشاهده
+      </a>
+      <a class="action-btn btn-secondary"
+         href="files/darsname.pdf" download>
+        📥 دانلود
+      </a>
+    </div>
+  </div>
+
+  <div class="section-title2">فهرست فصل‌های کتاب</div>
 
   <div class="chapter-card">
     <div class="chapter-num">۱</div>
