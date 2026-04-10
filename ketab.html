@@ -50,73 +50,6 @@
     margin: 0 auto;
   }
 
-  .book-cover {
-    background: linear-gradient(135deg, #0f3460, #533483);
-    border-radius: 20px;
-    padding: 28px 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 8px 25px rgba(15,52,96,0.35);
-  }
-
-  .book-cover .cover-icon { font-size: 64px; margin-bottom: 12px; }
-  .book-cover h3 { font-size: 20px; margin-bottom: 6px; }
-  .book-cover p { font-size: 13px; opacity: 0.8; line-height: 1.7; }
-
-  .cover-tags {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 14px;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    background: rgba(255,255,255,0.18);
-    border-radius: 20px;
-    padding: 5px 14px;
-    font-size: 12px;
-  }
-
-  .action-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-
-  .action-btn {
-    flex: 1;
-    padding: 14px 10px;
-    border-radius: 14px;
-    border: none;
-    font-size: 14px;
-    font-family: inherit;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-
-  .action-btn:active { transform: scale(0.97); }
-  .action-btn span:first-child { font-size: 24px; }
-
-  .btn-primary {
-    background: linear-gradient(135deg, #0f3460, #533483);
-    color: white;
-    box-shadow: 0 4px 15px rgba(15,52,96,0.3);
-  }
-
-  .btn-secondary {
-    background: white;
-    color: #0f3460;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  }
-
   .section-title {
     font-size: 13px;
     color: #666;
@@ -125,28 +58,115 @@
     border-right: 3px solid #0f3460;
   }
 
-  .info-card {
+  .book-card {
     background: white;
-    border-radius: 14px;
-    padding: 16px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   }
 
-  .info-row {
+  .book-top {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
     border-bottom: 1px solid #f0f0f0;
-    font-size: 14px;
   }
 
-  .info-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .info-row:first-child { padding-top: 0; }
+  .book-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    flex-shrink: 0;
+  }
 
-  .info-label { color: #888; font-size: 13px; }
-  .info-value { font-weight: 600; color: #1a1a2e; }
+  .icon-blue { background: linear-gradient(135deg, #0f3460, #533483); }
+  .icon-green { background: linear-gradient(135deg, #1a5c1a, #388e3c); }
+
+  .book-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .book-info p {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .book-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+
+  .badge-blue { background: #e8f0fd; color: #0f3460; }
+  .badge-green { background: #e8fde8; color: #2e7d32; }
+
+  .action-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .action-btn {
+    flex: 1;
+    padding: 12px 10px;
+    border-radius: 12px;
+    border: none;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .action-btn:active { transform: scale(0.97); }
+
+  .btn-primary-blue {
+    background: linear-gradient(135deg, #0f3460, #533483);
+    color: white;
+  }
+
+  .btn-secondary-blue {
+    background: #e8f0fd;
+    color: #0f3460;
+  }
+
+  .btn-primary-green {
+    background: linear-gradient(135deg, #1a5c1a, #388e3c);
+    color: white;
+  }
+
+  .btn-secondary-green {
+    background: #e8fde8;
+    color: #2e7d32;
+  }
+
+  .info-box {
+    background: #e8f4fd;
+    border-right: 4px solid #0f3460;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #1a1a2e;
+  }
 
   .spacer { height: 30px; }
 </style>
@@ -157,56 +177,55 @@
   <a href="index.html" class="back-btn">›</a>
   <div class="header-text">
     <h2>📚 کتاب درسی</h2>
-    <p>منطق پایه دهم</p>
+    <p>منطق پایه دهم · ۲ کتاب</p>
   </div>
 </div>
 
 <div class="container">
 
-  <div class="book-cover">
-    <div class="cover-icon">📚</div>
-    <h3>منطق</h3>
-    <p>کتاب درسی رسمی<br>پایه دهم دبیرستان</p>
-    <div class="cover-tags">
-      <span class="tag">وزارت آموزش و پرورش</span>
-      <span class="tag">پایه دهم</span>
-      <span class="tag">۱۰ فصل</span>
+  <div class="info-box">
+    📌 دو منبع اصلی درس منطق پایه دهم. برای مشاهده یا دانلود روی دکمه‌های هر کتاب کلیک کنید.
+  </div>
+
+  <div class="section-title">📚 کتاب‌های درسی</div>
+
+  <!-- کتاب اول -->
+  <div class="book-card">
+    <div class="book-top">
+      <div class="book-icon icon-blue">📘</div>
+      <div class="book-info">
+        <h3>منطق</h3>
+        <p>کتاب رسمی وزارت آموزش و پرورش<br>پایه دهم دبیرستان</p>
+        <span class="book-badge badge-blue">کتاب رسمی</span>
+      </div>
+    </div>
+    <div class="action-row">
+      <a class="action-btn btn-primary-blue" href="files/ketab-rasmi.pdf" target="_blank">
+        👁️ مشاهده
+      </a>
+      <a class="action-btn btn-secondary-blue" href="files/ketab-rasmi.pdf" download>
+        📥 دانلود
+      </a>
     </div>
   </div>
 
-  <div class="action-row">
-    <a class="action-btn btn-primary" href="files/ketab.pdf" target="_blank">
-      <span>👁️</span>
-      <span>مشاهده</span>
-    </a>
-    <a class="action-btn btn-secondary" href="files/ketab.pdf" download>
-      <span>📥</span>
-      <span>دانلود</span>
-    </a>
-  </div>
-
-  <div class="section-title">مشخصات کتاب</div>
-
-  <div class="info-card">
-    <div class="info-row">
-      <span class="info-label">نام کتاب</span>
-      <span class="info-value">منطق</span>
+  <!-- کتاب دوم -->
+  <div class="book-card">
+    <div class="book-top">
+      <div class="book-icon icon-green">📗</div>
+      <div class="book-info">
+        <h3>منطق — مجتبی محمودی</h3>
+        <p>کتاب کمک‌آموزشی<br>مناسب برای درک عمیق‌تر مباحث</p>
+        <span class="book-badge badge-green">کمک‌آموزشی</span>
+      </div>
     </div>
-    <div class="info-row">
-      <span class="info-label">پایه تحصیلی</span>
-      <span class="info-value">دهم دبیرستان</span>
-    </div>
-    <div class="info-row">
-      <span class="info-label">تعداد فصل</span>
-      <span class="info-value">۱۰ فصل</span>
-    </div>
-    <div class="info-row">
-      <span class="info-label">ناشر</span>
-      <span class="info-value">وزارت آموزش و پرورش</span>
-    </div>
-    <div class="info-row">
-      <span class="info-label">فرمت فایل</span>
-      <span class="info-value">PDF</span>
+    <div class="action-row">
+      <a class="action-btn btn-primary-green" href="files/ketab-mahmoudi.pdf" target="_blank">
+        👁️ مشاهده
+      </a>
+      <a class="action-btn btn-secondary-green" href="files/ketab-mahmoudi.pdf" download>
+        📥 دانلود
+      </a>
     </div>
   </div>
 
