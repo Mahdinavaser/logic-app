@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>درسنامه - منطق پایه دهم</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f0f4f8;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 20px 16px 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .back-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .header-text h2 { font-size: 18px; }
+  .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
+
+  .container {
+    padding: 20px 16px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .info-box {
+    background: #e8f4fd;
+    border-right: 4px solid #0f3460;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #1a1a2e;
+  }
+
+  .main-file-card {
+    background: linear-gradient(135deg, #0f3460, #533483);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 6px 20px rgba(15,52,96,0.35);
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s;
+  }
+
+  .main-file-card:active { transform: scale(0.98); }
+
+  .main-icon {
+    width: 58px;
+    height: 58px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    flex-shrink: 0;
+  }
+
+  .main-info { flex: 1; }
+  .main-info h3 { font-size: 17px; margin-bottom: 5px; }
+  .main-info p { font-size: 12px; opacity: 0.8; line-height: 1.6; }
+
+  .main-btn {
+    background: white;
+    color: #0f3460;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .section-title {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 12px;
+    padding-right: 8px;
+    border-right: 3px solid #0f3460;
+  }
+
+  .chapter-card {
+    background: white;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .chapter-num {
+    background: linear-gradient(135deg, #0f3460, #533483);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .chapter-info { flex: 1; }
+
+  .chapter-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .chapter-sub {
+    font-size: 11px;
+    color: #999;
+  }
+
+  .chapter-tag {
+    background: #f0f4f8;
+    color: #0f3460;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .spacer { height: 30px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="back-btn">›</a>
+  <div class="header-text">
+    <h2>📖 درسنامه</h2>
+    <p>منطق پایه دهم · ۱۰ فصل</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="info-box">
+    📌 درسنامه کامل منطق پایه دهم شامل تمام ۱۰ فصل در یک فایل جامع. برای مشاهده یا دانلود روی دکمه کلیک کنید.
+  </div>
+
+  <a class="main-file-card" href="files/darsname.pdf" target="_blank">
+    <div class="main-icon">📕</div>
+    <div class="main-info">
+      <h3>درسنامه کامل منطق</h3>
+      <p>تمام ۱۰ فصل · پایه دهم<br>قابل مشاهده و دانلود</p>
+    </div>
+    <button class="main-btn">📥 دانلود</button>
+  </a>
+
+  <div class="section-title">فهرست فصل‌های کتاب</div>
+
+  <div class="chapter-card">
+    <div class="chapter-num">۱</div>
+    <div class="chapter-info">
+      <div class="chapter-title">منطق، ترازوی اندیشه</div>
+      <div class="chapter-sub">تعریف و اهمیت منطق</div>
+    </div>
+    <div class="chapter-tag">فصل ۱</div>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-num">۲</div>
+    <div class="chapter-info">
+      <div class="chapter-title">لفظ و معنا</div>
+      <div class="chapter-sub">رابطه الفاظ و مفاهیم</div>
+    </div>
+    <div class="chapter-tag">فصل ۲</div>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-num">۳</div>
+    <div class="chapter-info">
+      <div class="chapter-title">مفهوم و مصداق</div>
+      <div class="chapter-sub">انواع مفاهیم و مصادیق</div>
+    </div>
+    <div class="chapter-tag">فصل ۳</div>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-num">۴</div>
+    <div class="chapter-info">
+      <div class="chapter-title">اقسام و شرایط تعریف</div>
+      <div class="chapter-sub">روش‌های تعریف مفاهیم</div>
+    </div>
+    <div class="chapter-tag">فصل ۴</div>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-num">۵</div>
+    <div class="chapter-info">
+      <div class="chapter-title">اقسام استدلال استقرائی</div>
+      <div class="chapter-sub">انواع استدلال از جزء به کل</div>
+    </div>
+    <div class="chapter-tag">فصل ۵</div>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-num">۶</div>
+    <div class="chapter-info">
+      <div class="chapter-title">قضیه تحمیلی</div>
+      <div class="chapter-sub">ساختار و انواع قضایا</div>
+    </div>
+    <div class="chapter-tag">فصل ۶</div>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-num">۷</div>
+    <div class="chapter-info">
+      <div class="chapter-title">احکام قضایای حملی</div>
+      <div class="chapter-sub">تناقض، تضاد و عکس قضایا</div>
+    </div>
+    <div class="chapter-tag">فصل ۷</div>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-num">۸</div>
+    <div class="chapter-info">
+      <div class="chapter-title">قیاس اقترانی</div>
+      <div class="chapter-sub">ساختار و اشکال قیاس</div>
+    </div>
+    <div class="chapter-tag">فصل ۸</div>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-num">۹</div>
+    <div class="chapter-info">
+      <div class="chapter-title">قضیه شرطی و قیاس استثنایی</div>
+      <div class="chapter-sub">قضایای شرطی و استثنایی</div>
+    </div>
+    <div class="chapter-tag">فصل ۹</div>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-num">۱۰</div>
+    <div class="chapter-info">
+      <div class="chapter-title">سنجشگری در تفکر</div>
+      <div class="chapter-sub">تفکر انتقادی و مغالطات</div>
+    </div>
+    <div class="chapter-tag">فصل ۱۰</div>
+  </div>
+
+  <div class="spacer"></div>
+</div>
+
+</body>
+</html>
