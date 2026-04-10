@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نمونه سوال - منطق پایه دهم</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f0f4f8;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1a5c1a 0%, #2e7d32 50%, #388e3c 100%);
+    color: white;
+    padding: 20px 16px 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .back-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .header-text h2 { font-size: 18px; }
+  .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
+
+  .container {
+    padding: 20px 16px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .info-box {
+    background: #e8fde8;
+    border-right: 4px solid #2e7d32;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #1a1a2e;
+  }
+
+  .section-title {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 12px;
+    padding-right: 8px;
+    border-right: 3px solid #2e7d32;
+  }
+
+  .file-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+
+  .file-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 15px rgba(46,125,50,0.2);
+  }
+
+  .file-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .pdf-bg { background: #e8fde8; }
+  .ppt-bg { background: #fff4ee; }
+
+  .file-info { flex: 1; }
+
+  .file-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .file-meta { font-size: 11px; color: #999; }
+
+  .btn-view {
+    background: linear-gradient(135deg, #1a5c1a, #388e3c);
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .exam-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+
+  .exam-card:active { transform: scale(0.98); }
+
+  .exam-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #1a5c1a, #388e3c);
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    color: white;
+  }
+
+  .exam-info { flex: 1; }
+
+  .exam-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .exam-meta { font-size: 11px; color: #999; }
+
+  .exam-badge {
+    background: #e8fde8;
+    color: #2e7d32;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .spacer { height: 30px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="back-btn">›</a>
+  <div class="header-text">
+    <h2>📝 نمونه سوال امتحان</h2>
+    <p>منطق پایه دهم · آزمون‌های تمرینی</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="info-box">
+    📝 نمونه سوالات امتحانی منطق پایه دهم برای تمرین و آمادگی بیشتر. هر فایل را دانلود کنید و پس از حل، با پاسخنامه مقایسه کنید.
+  </div>
+
+  <div class="section-title">📄 نمونه سوالات PDF</div>
+
+  <a class="file-card" href="files/soal-midterm.pdf" target="_blank">
+    <div class="file-icon pdf-bg">📝</div>
+    <div class="file-info">
+      <div class="file-name">نمونه سوال نیم‌سال اول</div>
+      <div class="file-meta">PDF · فصل‌های ۱ تا ۵</div>
+    </div>
+    <button class="btn-view">مشاهده</button>
+  </a>
+
+  <a class="file-card" href="files/soal-final.pdf" target="_blank">
+    <div class="file-icon pdf-bg">📝</div>
+    <div class="file-info">
+      <div class="file-name">نمونه سوال نیم‌سال دوم</div>
+      <div class="file-meta">PDF · فصل‌های ۶ تا ۱۰</div>
+    </div>
+    <button class="btn-view">مشاهده</button>
+  </a>
+
+  <a class="file-card" href="files/soal-yearly.pdf" target="_blank">
+    <div class="file-icon pdf-bg">📝</div>
+    <div class="file-info">
+      <div class="file-name">نمونه سوال سالانه</div>
+      <div class="file-meta">PDF · تمام فصل‌ها</div>
+    </div>
+    <button class="btn-view">مشاهده</button>
+  </a>
+
+  <a class="file-card" href="files/soal-pasokh.pdf" target="_blank">
+    <div class="file-icon pdf-bg">✅</div>
+    <div class="file-info">
+      <div class="file-name">پاسخنامه سوالات</div>
+      <div class="file-meta">PDF · پاسخ تشریحی</div>
+    </div>
+    <button class="btn-view">مشاهده</button>
+  </a>
+
+  <div class="section-title" style="margin-top: 20px;">📊 اسلایدهای مرور امتحانی</div>
+
+  <a class="file-card" href="files/soal-morur.pptx" download>
+    <div class="file-icon ppt-bg">📙</div>
+    <div class="file-info">
+      <div class="file-name">اسلایدهای مرور کل کتاب</div>
+      <div class="file-meta">PowerPoint · جمع‌بندی امتحانی</div>
+    </div>
+    <button class="btn-view">📥 دانلود</button>
+  </a>
+
+  <div class="section-title" style="margin-top: 20px;">🏆 سوالات فصل به فصل</div>
+
+  <a class="exam-card" href="files/soal-chapters.pdf" target="_blank">
+    <div class="exam-icon">📚</div>
+    <div class="exam-info">
+      <div class="exam-title">سوالات تفکیکی فصل‌ها</div>
+      <div class="exam-meta">PDF · سوال برای هر ۱۰ فصل</div>
+    </div>
+    <div class="exam-badge">۱۰ فصل</div>
+  </a>
+
+  <a class="exam-card" href="files/soal-challenge.pdf" target="_blank">
+    <div class="exam-icon">🧩</div>
+    <div class="exam-info">
+      <div class="exam-title">سوالات چالشی و تحلیلی</div>
+      <div class="exam-meta">PDF · سطح پیشرفته</div>
+    </div>
+    <div class="exam-badge">پیشرفته</div>
+  </a>
+
+  <div class="spacer"></div>
+</div>
+
+</body>
+</html>
