@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جدول هدف و محتوا - منطق پایه دهم</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f0f4f8;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 20px 16px 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .back-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .header-text h2 { font-size: 18px; }
+  .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
+
+  .container {
+    padding: 20px 16px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .info-box {
+    background: #f4e8fd;
+    border-right: 4px solid #533483;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #1a1a2e;
+  }
+
+  .section-title {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 12px;
+    padding-right: 8px;
+    border-right: 3px solid #533483;
+  }
+
+  .chapter-block {
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .chapter-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .chapter-num {
+    background: linear-gradient(135deg, #533483, #0f3460);
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .chapter-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+
+  .goal-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .goal-row:last-child { margin-bottom: 0; }
+
+  .goal-dot {
+    width: 7px;
+    height: 7px;
+    background: #533483;
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .goal-text { color: #444; }
+
+  .pdf-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #533483, #0f3460);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .pdf-btn:active { transform: scale(0.98); }
+
+  .spacer { height: 30px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="back-btn">›</a>
+  <div class="header-text">
+    <h2>🎯 جدول هدف و محتوا</h2>
+    <p>منطق پایه دهم · ۱۰ فصل</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="info-box">
+    🎯 اهداف آموزشی و سرفصل‌های هر فصل از درس منطق پایه دهم. دانش‌آموزان با مطالعه این بخش می‌دانند در هر فصل چه یاد می‌گیرند.
+  </div>
+
+  <a class="pdf-btn" href="files/jadval.pdf" target="_blank">
+    📥 دانلود جدول کامل هدف و محتوا
+  </a>
+
+  <div class="section-title">اهداف فصل‌های درسی</div>
+
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-num">۱</div>
+      <div class="chapter-name">منطق، ترازوی اندیشه</div>
+    </div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با تعریف و اهمیت منطق</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">درک نقش منطق در تنظیم تفکر صحیح</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با تاریخچه علم منطق</div></div>
+  </div>
+
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-num">۲</div>
+      <div class="chapter-name">لفظ و معنا</div>
+    </div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت رابطه لفظ و معنا</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین دلالت مطابقی، تضمنی و التزامی</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی انواع الفاظ از نظر منطقی</div></div>
+  </div>
+
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-num">۳</div>
+      <div class="chapter-name">مفهوم و مصداق</div>
+    </div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین مفهوم و مصداق</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع مفاهیم کلی و جزئی</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی نسب اربعه بین مفاهیم</div></div>
+  </div>
+
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-num">۴</div>
+      <div class="chapter-name">اقسام و شرایط تعریف</div>
+    </div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع تعریف (حد و رسم)</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با شرایط تعریف صحیح</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تشخیص تعریف‌های نادرست</div></div>
+  </div>
+
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-num">۵</div>
+      <div class="chapter-name">اقسام استدلال استقرائی</div>
+    </div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت استدلال استقرائی و انواع آن</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین استقراء تام و ناقص</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">کاربرد استدلال استقرائی در علوم</div></div>
+  </div>
+
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-num">۶</div>
+      <div class="chapter-name">قضیه تحمیلی</div>
+    </div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت ساختار قضیه و اجزای آن</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین قضایای موجبه و سالبه</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی کمیت و کیفیت قضایا</div></div>
+  </div>
+
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-num">۷</div>
+      <div class="chapter-name">احکام قضایای حملی</div>
+    </div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت رابطه تناقض و تضاد</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">یادگیری قواعد عکس قضایا</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">کاربرد احکام در استدلال‌های منطقی</div></div>
+  </div>
+
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-num">۸</div>
+      <div class="chapter-name">قیاس اقترانی</div>
+    </div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت ساختار قیاس اقترانی</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی اشکال چهارگانه قیاس</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تشخیص قیاس‌های معتبر و نامعتبر</div></div>
+  </div>
+
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-num">۹</div>
+      <div class="chapter-name">قضیه شرطی و قیاس استثنایی</div>
+    </div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع قضایای شرطی</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">یادگیری ساختار قیاس استثنایی</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین وضع و رفع در قیاس</div></div>
+  </div>
+
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-num">۱۰</div>
+      <div class="chapter-name">سنجشگری در تفکر</div>
+    </div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با تفکر انتقادی و اهمیت آن</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع مغالطات رایج</div></div>
+    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تقویت مهارت تحلیل و ارزیابی استدلال</div></div>
+  </div>
+
+  <div class="spacer"></div>
+</div>
+
+</body>
+</html>
