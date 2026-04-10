@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تولید محتوا - منطق پایه دهم</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f0f4f8;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #006d5b 0%, #00897b 50%, #00acc1 100%);
+    color: white;
+    padding: 20px 16px 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .back-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .header-text h2 { font-size: 18px; }
+  .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
+
+  .container {
+    padding: 20px 16px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .info-box {
+    background: #e8fdfd;
+    border-right: 4px solid #00acc1;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #1a1a2e;
+  }
+
+  .section-title {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 12px;
+    padding-right: 8px;
+    border-right: 3px solid #00acc1;
+  }
+
+  .file-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+
+  .file-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 15px rgba(0,172,193,0.2);
+  }
+
+  .file-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .pdf-bg  { background: #e8fdfd; }
+  .ppt-bg  { background: #fff4ee; }
+  .vid-bg  { background: #e8f4fd; }
+
+  .file-info { flex: 1; }
+
+  .file-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .file-meta { font-size: 11px; color: #999; }
+
+  .btn-view {
+    background: linear-gradient(135deg, #006d5b, #00acc1);
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .content-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-right: 4px solid #00acc1;
+  }
+
+  .content-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .content-icon { font-size: 22px; }
+
+  .content-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #006d5b;
+  }
+
+  .content-text {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.8;
+  }
+
+  .spacer { height: 30px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="back-btn">›</a>
+  <div class="header-text">
+    <h2>🎬 تولید محتوا</h2>
+    <p>منطق پایه دهم · محتوای تکمیلی</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="info-box">
+    🎬 در این بخش محتوای آموزشی تکمیلی شامل فایل‌های PDF، اسلایدها و منابع کمک‌آموزشی قرار دارد.
+  </div>
+
+  <div class="section-title">📄 فایل‌های PDF</div>
+
+  <a class="file-card" href="files/tolid-pdf1.pdf" target="_blank">
+    <div class="file-icon pdf-bg">📗</div>
+    <div class="file-info">
+      <div class="file-name">خلاصه درس منطق</div>
+      <div class="file-meta">PDF · خلاصه تمام فصل‌ها</div>
+    </div>
+    <button class="btn-view">مشاهده</button>
+  </a>
+
+  <a class="file-card" href="files/tolid-pdf2.pdf" target="_blank">
+    <div class="file-icon pdf-bg">📗</div>
+    <div class="file-info">
+      <div class="file-name">نکات کلیدی منطق</div>
+      <div class="file-meta">PDF · نکات مهم امتحانی</div>
+    </div>
+    <button class="btn-view">مشاهده</button>
+  </a>
+
+  <div class="section-title" style="margin-top: 20px;">📊 اسلایدهای تکمیلی</div>
+
+  <a class="file-card" href="files/tolid-ppt1.pptx" download>
+    <div class="file-icon ppt-bg">📙</div>
+    <div class="file-info">
+      <div class="file-name">اسلایدهای تکمیلی منطق</div>
+      <div class="file-meta">PowerPoint · محتوای کمک‌آموزشی</div>
+    </div>
+    <button class="btn-view">📥 دانلود</button>
+  </a>
+
+  <div class="section-title" style="margin-top: 20px;">💡 راهنمای مطالعه</div>
+
+  <div class="content-card">
+    <div class="content-header">
+      <span class="content-icon">📌</span>
+      <span class="content-title">چگونه منطق بخوانیم؟</span>
+    </div>
+    <div class="content-text">
+      ابتدا درسنامه هر فصل را بخوانید، سپس اسلایدها را مرور کنید و در پایان با نمونه سوالات تمرین کنید.
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="content-header">
+      <span class="content-icon">🗓️</span>
+      <span class="content-title">برنامه‌ریزی مطالعه</span>
+    </div>
+    <div class="content-text">
+      برای هر فصل حداقل ۲ جلسه مطالعه در نظر بگیرید. جلسه اول برای خواندن و جلسه دوم برای تمرین و مرور.
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="content-header">
+      <span class="content-icon">✏️</span>
+      <span class="content-title">روش یادداشت‌برداری</span>
+    </div>
+    <div class="content-text">
+      مفاهیم کلیدی هر فصل را با مثال یادداشت کنید. نمودار و جدول برای مباحث مثل نسب اربعه بسیار کمک‌کننده است.
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+</div>
+
+</body>
+</html>
