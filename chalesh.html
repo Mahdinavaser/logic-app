@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مباحث چالشی - منطق پایه دهم</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f0f4f8;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #7b0000 0%, #a50000 50%, #c0392b 100%);
+    color: white;
+    padding: 20px 16px 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .back-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .header-text h2 { font-size: 18px; }
+  .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
+
+  .container {
+    padding: 20px 16px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .info-box {
+    background: #fde8e8;
+    border-right: 4px solid #c0392b;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #1a1a2e;
+  }
+
+  .section-title {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 12px;
+    padding-right: 8px;
+    border-right: 3px solid #c0392b;
+  }
+
+  .file-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+
+  .file-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 15px rgba(192,57,43,0.2);
+  }
+
+  .file-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .pdf-bg { background: #fde8e8; }
+  .ppt-bg { background: #fff4ee; }
+
+  .file-info { flex: 1; }
+
+  .file-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .file-meta {
+    font-size: 11px;
+    color: #999;
+  }
+
+  .btn-view {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .challenge-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-right: 4px solid #c0392b;
+  }
+
+  .challenge-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .challenge-icon {
+    font-size: 22px;
+  }
+
+  .challenge-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #c0392b;
+  }
+
+  .challenge-text {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.8;
+  }
+
+  .spacer { height: 30px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="back-btn">›</a>
+  <div class="header-text">
+    <h2>🧩 مباحث چالشی منطق</h2>
+    <p>منطق پایه دهم · سوالات پیشرفته</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="info-box">
+    🧩 این بخش برای دانش‌آموزانی است که می‌خواهند عمیق‌تر با منطق آشنا شوند. مباحث چالشی، سوالات تحلیلی و نکات پیشرفته اینجاست.
+  </div>
+
+  <div class="section-title">📄 فایل‌های مباحث چالشی</div>
+
+  <a class="file-card" href="files/chalesh.pdf" target="_blank">
+    <div class="file-icon pdf-bg">📕</div>
+    <div class="file-info">
+      <div class="file-name">مباحث چالشی منطق</div>
+      <div class="file-meta">PDF · سوالات تحلیلی و پیشرفته</div>
+    </div>
+    <button class="btn-view">مشاهده</button>
+  </a>
+
+  <a class="file-card" href="files/chalesh.pptx" download>
+    <div class="file-icon ppt-bg">📙</div>
+    <div class="file-info">
+      <div class="file-name">اسلایدهای چالشی</div>
+      <div class="file-meta">PowerPoint · نکات پیشرفته</div>
+    </div>
+    <button class="btn-view">📥 دانلود</button>
+  </a>
+
+  <div class="section-title" style="margin-top: 20px;">🔥 نمونه مباحث چالشی</div>
+
+  <div class="challenge-card">
+    <div class="challenge-header">
+      <span class="challenge-icon">🔴</span>
+      <span class="challenge-title">مغالطات رایج در استدلال</span>
+    </div>
+    <div class="challenge-text">
+      چگونه یک استدلال ظاهراً درست می‌تواند از نظر منطقی نادرست باشد؟ بررسی انواع مغالطات و روش شناسایی آن‌ها.
+    </div>
+  </div>
+
+  <div class="challenge-card">
+    <div class="challenge-header">
+      <span class="challenge-icon">🔴</span>
+      <span class="challenge-title">تناقض و تضاد در قضایا</span>
+    </div>
+    <div class="challenge-text">
+      تفاوت دقیق بین تناقض، تضاد و تداخل قضایا و کاربرد آن‌ها در اثبات و رد استدلال‌های منطقی.
+    </div>
+  </div>
+
+  <div class="challenge-card">
+    <div class="challenge-header">
+      <span class="challenge-icon">🔴</span>
+      <span class="challenge-title">قیاس‌های پیچیده</span>
+    </div>
+    <div class="challenge-text">
+      تحلیل قیاس‌های چندمرحله‌ای و بررسی اعتبار اشکال مختلف قیاس اقترانی در مسائل واقعی.
+    </div>
+  </div>
+
+  <div class="challenge-card">
+    <div class="challenge-header">
+      <span class="challenge-icon">🔴</span>
+      <span class="challenge-title">سنجشگری در تفکر روزمره</span>
+    </div>
+    <div class="challenge-text">
+      چگونه منطق را در زندگی واقعی به کار ببریم؟ تحلیل اخبار، مناظره‌ها و استدلال‌های روزمره.
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+</div>
+
+</body>
+</html>
