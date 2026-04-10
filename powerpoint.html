@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پاورپوینت - منطق پایه دهم</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f0f4f8;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 20px 16px 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .back-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .header-text h2 { font-size: 18px; }
+  .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
+
+  .container {
+    padding: 20px 16px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .info-box {
+    background: #fff4ee;
+    border-right: 4px solid #e8590c;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #1a1a2e;
+  }
+
+  .section-title {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 12px;
+    padding-right: 8px;
+    border-right: 3px solid #e8590c;
+  }
+
+  .ppt-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+
+  .ppt-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 15px rgba(232,89,12,0.2);
+  }
+
+  .ppt-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #e8590c, #f08c00);
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    color: white;
+  }
+
+  .ppt-num {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .ppt-info { flex: 1; }
+
+  .ppt-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .ppt-meta {
+    font-size: 11px;
+    color: #999;
+  }
+
+  .btn-dl {
+    background: linear-gradient(135deg, #e8590c, #f08c00);
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .spacer { height: 30px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="back-btn">›</a>
+  <div class="header-text">
+    <h2>📊 پاورپوینت تمام دروس</h2>
+    <p>منطق پایه دهم · ۱۰ فصل</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="info-box">
+    📌 اسلایدهای آموزشی تمام فصل‌های منطق پایه دهم. هر فایل را می‌توانید دانلود و در PowerPoint باز کنید.
+  </div>
+
+  <div class="section-title">📊 اسلایدهای آموزشی</div>
+
+  <a class="ppt-card" href="files/ppt-f1.pptx" download>
+    <div class="ppt-icon"><span class="ppt-num">۱</span></div>
+    <div class="ppt-info">
+      <div class="ppt-title">منطق، ترازوی اندیشه</div>
+      <div class="ppt-meta">PowerPoint · فصل اول</div>
+    </div>
+    <button class="btn-dl">📥 دانلود</button>
+  </a>
+
+  <a class="ppt-card" href="files/ppt-f2.pptx" download>
+    <div class="ppt-icon"><span class="ppt-num">۲</span></div>
+    <div class="ppt-info">
+      <div class="ppt-title">لفظ و معنا</div>
+      <div class="ppt-meta">PowerPoint · فصل دوم</div>
+    </div>
+    <button class="btn-dl">📥 دانلود</button>
+  </a>
+
+  <a class="ppt-card" href="files/ppt-f3.pptx" download>
+    <div class="ppt-icon"><span class="ppt-num">۳</span></div>
+    <div class="ppt-info">
+      <div class="ppt-title">مفهوم و مصداق</div>
+      <div class="ppt-meta">PowerPoint · فصل سوم</div>
+    </div>
+    <button class="btn-dl">📥 دانلود</button>
+  </a>
+
+  <a class="ppt-card" href="files/ppt-f4.pptx" download>
+    <div class="ppt-icon"><span class="ppt-num">۴</span></div>
+    <div class="ppt-info">
+      <div class="ppt-title">اقسام و شرایط تعریف</div>
+      <div class="ppt-meta">PowerPoint · فصل چهارم</div>
+    </div>
+    <button class="btn-dl">📥 دانلود</button>
+  </a>
+
+  <a class="ppt-card" href="files/ppt-f5.pptx" download>
+    <div class="ppt-icon"><span class="ppt-num">۵</span></div>
+    <div class="ppt-info">
+      <div class="ppt-title">اقسام استدلال استقرائی</div>
+      <div class="ppt-meta">PowerPoint · فصل پنجم</div>
+    </div>
+    <button class="btn-dl">📥 دانلود</button>
+  </a>
+
+  <a class="ppt-card" href="files/ppt-f6.pptx" download>
+    <div class="ppt-icon"><span class="ppt-num">۶</span></div>
+    <div class="ppt-info">
+      <div class="ppt-title">قضیه تحمیلی</div>
+      <div class="ppt-meta">PowerPoint · فصل ششم</div>
+    </div>
+    <button class="btn-dl">📥 دانلود</button>
+  </a>
+
+  <a class="ppt-card" href="files/ppt-f7.pptx" download>
+    <div class="ppt-icon"><span class="ppt-num">۷</span></div>
+    <div class="ppt-info">
+      <div class="ppt-title">احکام قضایای حملی</div>
+      <div class="ppt-meta">PowerPoint · فصل هفتم</div>
+    </div>
+    <button class="btn-dl">📥 دانلود</button>
+  </a>
+
+  <a class="ppt-card" href="files/ppt-f8.pptx" download>
+    <div class="ppt-icon"><span class="ppt-num">۸</span></div>
+    <div class="ppt-info">
+      <div class="ppt-title">قیاس اقترانی</div>
+      <div class="ppt-meta">PowerPoint · فصل هشتم</div>
+    </div>
+    <button class="btn-dl">📥 دانلود</button>
+  </a>
+
+  <a class="ppt-card" href="files/ppt-f9.pptx" download>
+    <div class="ppt-icon"><span class="ppt-num">۹</span></div>
+    <div class="ppt-info">
+      <div class="ppt-title">قضیه شرطی و قیاس استثنایی</div>
+      <div class="ppt-meta">PowerPoint · فصل نهم</div>
+    </div>
+    <button class="btn-dl">📥 دانلود</button>
+  </a>
+
+  <a class="ppt-card" href="files/ppt-f10.pptx" download>
+    <div class="ppt-icon"><span class="ppt-num">۱۰</span></div>
+    <div class="ppt-info">
+      <div class="ppt-title">سنجشگری در تفکر</div>
+      <div class="ppt-meta">PowerPoint · فصل دهم</div>
+    </div>
+    <button class="btn-dl">📥 دانلود</button>
+  </a>
+
+  <div class="spacer"></div>
+</div>
+
+</body>
+</html>
