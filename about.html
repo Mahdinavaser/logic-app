@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>درباره ما - منطق پایه دهم</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f0f4f8;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 20px 16px 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .back-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .header-text h2 { font-size: 18px; }
+  .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
+
+  .container {
+    padding: 20px 16px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .profile-card {
+    background: linear-gradient(135deg, #0f3460, #533483);
+    border-radius: 20px;
+    padding: 28px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 25px rgba(15,52,96,0.35);
+  }
+
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin: 0 auto 16px;
+  }
+
+  .profile-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .profile-role {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 16px;
+  }
+
+  .profile-tags {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background: rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 12px;
+    padding-right: 8px;
+    border-right: 3px solid #0f3460;
+  }
+
+  .info-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+  }
+
+  .info-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .info-row:first-child { padding-top: 0; }
+
+  .info-label {
+    color: #888;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .info-value { font-weight: 600; color: #1a1a2e; }
+
+  .about-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-right: 4px solid #0f3460;
+    font-size: 14px;
+    line-height: 2;
+    color: #444;
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .stat-box {
+    flex: 1;
+    background: white;
+    border-radius: 14px;
+    padding: 16px 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .stat-num {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f3460;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: #999;
+  }
+
+  .spacer { height: 30px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="back-btn">›</a>
+  <div class="header-text">
+    <h2>ℹ️ درباره ما</h2>
+    <p>اپلیکیشن آموزشی منطق</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="profile-card">
+    <div class="profile-avatar">👩‍🏫</div>
+    <div class="profile-name">معلم منطق پایه دهم</div>
+    <div class="profile-role">دبیر منطق · دبیرستان</div>
+    <div class="profile-tags">
+      <span class="tag">منطق</span>
+      <span class="tag">پایه دهم</span>
+      <span class="tag">دبیرستان</span>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">۱۰</div>
+      <div class="stat-label">فصل درسی</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">۸</div>
+      <div class="stat-label">بخش اپ</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">۱۰۰٪</div>
+      <div class="stat-label">رایگان</div>
+    </div>
+  </div>
+
+  <div class="section-title">درباره این اپلیکیشن</div>
+
+  <div class="about-card">
+    این اپلیکیشن آموزشی برای دانش‌آموزان پایه دهم طراحی شده است و تمام محتوای درس منطق را به شکلی ساده و قابل دسترس ارائه می‌دهد. هدف ما کمک به یادگیری بهتر و آمادگی بیشتر برای امتحانات است.
+  </div>
+
+  <div class="section-title">مشخصات اپلیکیشن</div>
+
+  <div class="info-card">
+    <div class="info-row">
+      <span class="info-label">📚 نام درس</span>
+      <span class="info-value">منطق</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">🎓 پایه تحصیلی</span>
+      <span class="info-value">دهم دبیرستان</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">📖 تعداد فصل</span>
+      <span class="info-value">۱۰ فصل</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">📱 نسخه اپ</span>
+      <span class="info-value">۱.۰</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">🔄 آخرین بروزرسانی</span>
+      <span class="info-value">۱۴۰۴</span>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+</div>
+
+</body>
+</html>
