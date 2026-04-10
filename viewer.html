@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نمایش فایل</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #1a1a2e;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+
+  .back-btn {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .header-title {
+    font-size: 15px;
+    font-weight: 600;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .dl-btn {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .viewer-frame {
+    flex: 1;
+    width: 100%;
+    border: none;
+    background: white;
+  }
+
+  .loading-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .loading-icon { font-size: 56px; }
+
+  .loading-text {
+    font-size: 15px;
+    opacity: 0.8;
+  }
+
+  .loading-sub {
+    font-size: 12px;
+    opacity: 0.5;
+  }
+
+  .error-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .error-icon { font-size: 56px; }
+  .error-text { font-size: 15px; opacity: 0.9; }
+  .error-sub { font-size: 12px; opacity: 0.6; line-height: 1.8; }
+
+  .retry-btn {
+    background: #0f3460;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a id="backBtn" href="index.html" class="back-btn">›</a>
+  <div class="header-title" id="fileTitle">در حال بارگذاری...</div>
+  <a id="dlBtn" href="#" download class="dl-btn">📥 دانلود</a>
+</div>
+
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-icon">📄</div>
+  <div class="loading-text">در حال بارگذاری فایل...</div>
+  <div class="loading-sub">لطفاً صبر کنید</div>
+</div>
+
+<iframe class="viewer-frame" id="viewerFrame" style="display:none;" src=""></iframe>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const file = params.get('file');
+  const title = params.get('title');
+  const back = params.get('back');
+
+  // تنظیم عنوان و دکمه‌ها
+  if (title) document.getElementById('fileTitle').textContent = title;
+  if (back) document.getElementById('backBtn').href = back;
+  if (file) document.getElementById('dlBtn').href = file;
+
+  if (file) {
+    const frame = document.getElementById('viewerFrame');
+    const loading = document.getElementById('loadingScreen');
+
+    // مسیر PDF.js viewer
+    const pdfJsViewer = 'pdfjs/viewer.html?file=';
+
+    // مسیر کامل فایل
+    const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+    const fileUrl = baseUrl + file;
+
+    // بارگذاری با PDF.js
+    frame.src = pdfJsViewer + encodeURIComponent(fileUrl);
+
+    frame.onload = function() {
+      loading.style.display = 'none';
+      frame.style.display = 'block';
+    };
+
+    // اگه ۱۵ ثانیه لود نشد
+    setTimeout(() => {
+      if (frame.style.display === 'none') {
+        loading.innerHTML = `
+          <div class="error-icon">⚠️</div>
+          <div class="error-text">مشکل در بارگذاری</div>
+          <div class="error-sub">فایل موجود نیست یا اتصال اینترنت ضعیف است</div>
+          <a href="${file}" download>
+            <button class="retry-btn">📥 دانلود مستقیم فایل</button>
+          </a>
+        `;
+      }
+    }, 15000);
+  }
+</script>
+
+</body>
+</html>
