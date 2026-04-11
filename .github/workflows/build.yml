@@ -28,25 +28,36 @@ jobs:
         uses: android-actions/setup-android@v2
 
       - name: Install Capacitor
-        run: |
-          npm install -g @capacitor/cli
-          npm install @capacitor/core @capacitor/android
+        run: npm install
 
       - name: Copy web files to www
         run: |
           mkdir -p www/files
           cp *.html www/
-          cp -r files/* www/files/
+          cp -r files/. www/files/
+
+      - name: Check copied files
+        run: |
+          echo "=== www folder contents ==="
+          ls -la www/
+          echo "=== www/files contents ==="
+          ls -la www/files/
 
       - name: Init Capacitor
-        run: |
-          npx cap init "منطق پایه دهم" "com.logic.grade10" --web-dir www
+        run: npx cap init "منطق پایه دهم" "com.logic.grade10" --web-dir www
 
       - name: Add Android Platform
         run: npx cap add android
 
       - name: Copy Web Assets
         run: npx cap copy android
+
+      - name: Check Android Assets
+        run: |
+          echo "=== Android assets ==="
+          ls -la android/app/src/main/assets/
+          echo "=== Android assets/files ==="
+          ls -la android/app/src/main/assets/files/
 
       - name: Build APK
         run: |
