@@ -69,90 +69,73 @@
     border-right: 3px solid #00acc1;
   }
 
-  .file-card {
+  .image-card {
     background: white;
-    border-radius: 16px;
-    padding: 16px 18px;
-    margin-bottom: 10px;
-    display: flex;
+    border-radius: 20px;
+    padding: 12px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  .image-wrapper {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #f0f4f8;
+    cursor: pointer;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 14px;
+  }
+
+  .image-num {
+    text-align: center;
+    padding: 10px 0 4px;
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  /* Modal برای نمایش بزرگ */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.92);
+    z-index: 1000;
+    flex-direction: column;
     align-items: center;
-    gap: 14px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.2s;
+    justify-content: center;
   }
 
-  .file-card:active {
-    transform: scale(0.98);
-    box-shadow: 0 4px 15px rgba(0,172,193,0.2);
-  }
+  .modal.active { display: flex; }
 
-  .file-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 13px;
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
-    flex-shrink: 0;
   }
 
-  .pdf-bg  { background: #e8fdfd; }
-  .ppt-bg  { background: #fff4ee; }
-  .vid-bg  { background: #e8f4fd; }
-
-  .file-info { flex: 1; }
-
-  .file-name {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 3px;
-  }
-
-  .file-meta { font-size: 11px; color: #999; }
-
-  .btn-view {
-    background: linear-gradient(135deg, #006d5b, #00acc1);
-    color: white;
-    border: none;
-    padding: 9px 14px;
-    border-radius: 10px;
-    font-size: 12px;
-    cursor: pointer;
-    font-family: inherit;
-    white-space: nowrap;
-  }
-
-  .content-card {
-    background: white;
-    border-radius: 16px;
-    padding: 18px;
-    margin-bottom: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    border-right: 4px solid #00acc1;
-  }
-
-  .content-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-  }
-
-  .content-icon { font-size: 22px; }
-
-  .content-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #006d5b;
-  }
-
-  .content-text {
-    font-size: 13px;
-    color: #555;
-    line-height: 1.8;
+  .modal img {
+    max-width: 95%;
+    max-height: 90vh;
+    border-radius: 12px;
+    object-fit: contain;
   }
 
   .spacer { height: 30px; }
@@ -164,81 +147,66 @@
   <a href="index.html" class="back-btn">›</a>
   <div class="header-text">
     <h2>🎬 تولید محتوا</h2>
-    <p>منطق پایه دهم · محتوای تکمیلی</p>
+    <p>منطق پایه دهم · ۴ تصویر</p>
   </div>
 </div>
 
 <div class="container">
 
   <div class="info-box">
-    🎬 در این بخش محتوای آموزشی تکمیلی شامل فایل‌های PDF، اسلایدها و منابع کمک‌آموزشی قرار دارد.
+    🎬 برای مشاهده بزرگ‌تر روی هر تصویر کلیک کنید.
   </div>
 
-  <div class="section-title">📄 فایل‌های PDF</div>
+  <div class="section-title">🖼️ تصاویر آموزشی</div>
 
-  <a class="file-card" href="files/tolid-pdf1.pdf" target="_blank">
-    <div class="file-icon pdf-bg">📗</div>
-    <div class="file-info">
-      <div class="file-name">خلاصه درس منطق</div>
-      <div class="file-meta">PDF · خلاصه تمام فصل‌ها</div>
+  <div class="image-card">
+    <div class="image-wrapper" onclick="openModal('files/image-1.jpg')">
+      <img src="files/image-1.jpg" alt="تصویر ۱" loading="lazy">
     </div>
-    <button class="btn-view">مشاهده</button>
-  </a>
-
-  <a class="file-card" href="files/tolid-pdf2.pdf" target="_blank">
-    <div class="file-icon pdf-bg">📗</div>
-    <div class="file-info">
-      <div class="file-name">نکات کلیدی منطق</div>
-      <div class="file-meta">PDF · نکات مهم امتحانی</div>
-    </div>
-    <button class="btn-view">مشاهده</button>
-  </a>
-
-  <div class="section-title" style="margin-top: 20px;">📊 اسلایدهای تکمیلی</div>
-
-  <a class="file-card" href="files/tolid-ppt1.pptx" download>
-    <div class="file-icon ppt-bg">📙</div>
-    <div class="file-info">
-      <div class="file-name">اسلایدهای تکمیلی منطق</div>
-      <div class="file-meta">PowerPoint · محتوای کمک‌آموزشی</div>
-    </div>
-    <button class="btn-view">📥 دانلود</button>
-  </a>
-
-  <div class="section-title" style="margin-top: 20px;">💡 راهنمای مطالعه</div>
-
-  <div class="content-card">
-    <div class="content-header">
-      <span class="content-icon">📌</span>
-      <span class="content-title">چگونه منطق بخوانیم؟</span>
-    </div>
-    <div class="content-text">
-      ابتدا درسنامه هر فصل را بخوانید، سپس اسلایدها را مرور کنید و در پایان با نمونه سوالات تمرین کنید.
-    </div>
+    <div class="image-num">تصویر ۱</div>
   </div>
 
-  <div class="content-card">
-    <div class="content-header">
-      <span class="content-icon">🗓️</span>
-      <span class="content-title">برنامه‌ریزی مطالعه</span>
+  <div class="image-card">
+    <div class="image-wrapper" onclick="openModal('files/image-2.jpg')">
+      <img src="files/image-2.jpg" alt="تصویر ۲" loading="lazy">
     </div>
-    <div class="content-text">
-      برای هر فصل حداقل ۲ جلسه مطالعه در نظر بگیرید. جلسه اول برای خواندن و جلسه دوم برای تمرین و مرور.
-    </div>
+    <div class="image-num">تصویر ۲</div>
   </div>
 
-  <div class="content-card">
-    <div class="content-header">
-      <span class="content-icon">✏️</span>
-      <span class="content-title">روش یادداشت‌برداری</span>
+  <div class="image-card">
+    <div class="image-wrapper" onclick="openModal('files/image-3.jpg')">
+      <img src="files/image-3.jpg" alt="تصویر ۳" loading="lazy">
     </div>
-    <div class="content-text">
-      مفاهیم کلیدی هر فصل را با مثال یادداشت کنید. نمودار و جدول برای مباحث مثل نسب اربعه بسیار کمک‌کننده است.
+    <div class="image-num">تصویر ۳</div>
+  </div>
+
+  <div class="image-card">
+    <div class="image-wrapper" onclick="openModal('files/image-4.jpg')">
+      <img src="files/image-4.jpg" alt="تصویر ۴" loading="lazy">
     </div>
+    <div class="image-num">تصویر ۴</div>
   </div>
 
   <div class="spacer"></div>
 </div>
+
+<!-- Modal نمایش بزرگ -->
+<div class="modal" id="imageModal" onclick="closeModal()">
+  <button class="modal-close">✕</button>
+  <img id="modalImg" src="" alt="">
+</div>
+
+<script>
+  function openModal(src) {
+    document.getElementById('modalImg').src = src;
+    document.getElementById('imageModal').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('imageModal').classList.remove('active');
+    document.getElementById('modalImg').src = '';
+  }
+</script>
 
 </body>
 </html>
