@@ -35,10 +35,7 @@ jobs:
           mkdir -p www/files
           cp *.html www/
           cp -r files/. www/files/
-
-      - name: Check copied files
-        run: |
-          echo "=== www folder contents ==="
+          echo "=== www contents ==="
           ls -la www/
           echo "=== www/files contents ==="
           ls -la www/files/
@@ -52,11 +49,16 @@ jobs:
       - name: Copy Web Assets
         run: npx cap copy android
 
-      - name: Check Android Assets
+      - name: Move files to correct location
         run: |
-          echo "=== Android assets ==="
+          if [ -d "android/app/src/main/assets/public" ]; then
+            echo "Moving from public to assets root..."
+            cp -r android/app/src/main/assets/public/. android/app/src/main/assets/
+            rm -rf android/app/src/main/assets/public
+          fi
+          echo "=== Final Android assets ==="
           ls -la android/app/src/main/assets/
-          echo "=== Android assets/files ==="
+          echo "=== Final Android assets/files ==="
           ls -la android/app/src/main/assets/files/
 
       - name: Build APK
