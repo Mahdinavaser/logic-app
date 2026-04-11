@@ -50,7 +50,7 @@
     margin: 0 auto;
   }
 
-  .profile-card {
+  .bismillah-card {
     background: linear-gradient(135deg, #0f3460, #533483);
     border-radius: 20px;
     padding: 28px 20px;
@@ -60,10 +60,31 @@
     box-shadow: 0 8px 25px rgba(15,52,96,0.35);
   }
 
+  .bismillah-text {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  .dorood-text {
+    font-size: 14px;
+    opacity: 0.85;
+  }
+
+  .profile-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
   .profile-avatar {
     width: 80px;
     height: 80px;
-    background: rgba(255,255,255,0.2);
+    background: linear-gradient(135deg, #0f3460, #533483);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -73,85 +94,56 @@
   }
 
   .profile-name {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
+    color: #1a1a2e;
     margin-bottom: 6px;
   }
 
   .profile-role {
-    font-size: 14px;
-    opacity: 0.85;
-    margin-bottom: 16px;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 14px;
+    line-height: 1.6;
   }
 
-  .profile-tags {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    background: rgba(255,255,255,0.18);
+  .profile-badge {
+    display: inline-block;
+    background: #e8f0fd;
+    color: #0f3460;
     border-radius: 20px;
-    padding: 5px 14px;
+    padding: 5px 16px;
     font-size: 12px;
+    font-weight: 600;
   }
 
-  .section-title {
+  .about-card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  .about-card .section-title {
     font-size: 13px;
     color: #666;
-    margin: 0 0 12px;
+    margin-bottom: 14px;
     padding-right: 8px;
     border-right: 3px solid #0f3460;
   }
 
-  .info-card {
-    background: white;
-    border-radius: 16px;
-    padding: 18px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  }
-
-  .info-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 11px 0;
-    border-bottom: 1px solid #f0f0f0;
+  .about-text {
     font-size: 14px;
-  }
-
-  .info-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .info-row:first-child { padding-top: 0; }
-
-  .info-label {
-    color: #888;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .info-value { font-weight: 600; color: #1a1a2e; }
-
-  .about-card {
-    background: white;
-    border-radius: 16px;
-    padding: 18px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    border-right: 4px solid #0f3460;
-    font-size: 14px;
-    line-height: 2;
-    color: #444;
+    line-height: 2.2;
+    color: #333;
+    text-align: justify;
   }
 
   .stats-row {
     display: flex;
     gap: 10px;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
 
   .stat-box {
@@ -175,6 +167,37 @@
     color: #999;
   }
 
+  .info-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .section-title {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 12px;
+    padding-right: 8px;
+    border-right: 3px solid #0f3460;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+  }
+
+  .info-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .info-row:first-child { padding-top: 0; }
+
+  .info-label { color: #888; font-size: 13px; }
+  .info-value { font-weight: 600; color: #1a1a2e; font-size: 13px; }
+
   .spacer { height: 30px; }
 </style>
 </head>
@@ -190,14 +213,26 @@
 
 <div class="container">
 
+  <div class="bismillah-card">
+    <div class="bismillah-text">بسمه تعالی</div>
+    <div class="dorood-text">درود و مهر</div>
+  </div>
+
   <div class="profile-card">
     <div class="profile-avatar">👩‍🏫</div>
-    <div class="profile-name">معلم منطق پایه دهم</div>
-    <div class="profile-role">دبیر منطق · دبیرستان</div>
-    <div class="profile-tags">
-      <span class="tag">منطق</span>
-      <span class="tag">پایه دهم</span>
-      <span class="tag">دبیرستان</span>
+    <div class="profile-name">سرکار خانم سپیده نیک‌نام</div>
+    <div class="profile-role">سرگروه محترم استان خوزستان</div>
+    <span class="profile-badge">پیشگام و مجری طرح</span>
+  </div>
+
+  <div class="about-card">
+    <div class="section-title">درباره این اپلیکیشن</div>
+    <div class="about-text">
+      با کمال احترام، اپلیکیشن معرفی شده با بهره‌گیری از محتوای ارزشمند تولید شده توسط همکاران گرامیِ استان خوزستان توسعه یافته است. هدف از ساخت این اپلیکیشن، ارائه ابزاری مفید و کاربردی برای درس منطق است.
+      <br><br>
+      پیشگام و مجری این طرح سرکار خانم سپیده نیک‌نام، سرگروه محترم استان خوزستان، بوده‌اند.
+      <br><br>
+      امید است این اپلیکیشن مورد استفاده و بهره‌برداری شایسته قرار گیرد.
     </div>
   </div>
 
@@ -216,34 +251,31 @@
     </div>
   </div>
 
-  <div class="section-title">درباره این اپلیکیشن</div>
-
-  <div class="about-card">
-    این اپلیکیشن آموزشی برای دانش‌آموزان پایه دهم طراحی شده است و تمام محتوای درس منطق را به شکلی ساده و قابل دسترس ارائه می‌دهد. هدف ما کمک به یادگیری بهتر و آمادگی بیشتر برای امتحانات است.
-  </div>
-
-  <div class="section-title">مشخصات اپلیکیشن</div>
-
   <div class="info-card">
+    <div class="section-title">مشخصات اپلیکیشن</div>
     <div class="info-row">
       <span class="info-label">📚 نام درس</span>
       <span class="info-value">منطق</span>
     </div>
     <div class="info-row">
       <span class="info-label">🎓 پایه تحصیلی</span>
-      <span class="info-value">دهم دبیرستان</span>
+      <span class="info-value">دهم </span>
     </div>
     <div class="info-row">
       <span class="info-label">📖 تعداد فصل</span>
       <span class="info-value">۱۰ فصل</span>
     </div>
     <div class="info-row">
+      <span class="info-label">🏛️ استان</span>
+      <span class="info-value">خوزستان</span>
+    </div>
+    <div class="info-row">
       <span class="info-label">📱 نسخه اپ</span>
       <span class="info-value">۱.۰</span>
     </div>
     <div class="info-row">
-      <span class="info-label">🔄 آخرین بروزرسانی</span>
-      <span class="info-value">۱۴۰۴</span>
+      <span class="info-label">🔄 سال تولید</span>
+      <span class="info-value">۱۴۰۵</span>
     </div>
   </div>
 
