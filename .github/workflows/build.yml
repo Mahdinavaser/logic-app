@@ -32,9 +32,15 @@ jobs:
           npm install -g @capacitor/cli
           npm install @capacitor/core @capacitor/android
 
+      - name: Copy web files to www
+        run: |
+          mkdir -p www/files
+          cp *.html www/
+          cp -r files/* www/files/
+
       - name: Init Capacitor
         run: |
-          npx cap init "منطق پایه دهم" "com.logic.grade10" --web-dir .
+          npx cap init "منطق پایه دهم" "com.logic.grade10" --web-dir www
 
       - name: Add Android Platform
         run: npx cap add android
