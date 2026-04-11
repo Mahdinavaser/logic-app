@@ -1,0 +1,10 @@
+{
+  "appId": "com.logic.grade10",
+  "appName": "منطق پایه دهم",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  }
+}
