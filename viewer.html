@@ -35,9 +35,17 @@
   if (back) document.getElementById('backBtn').href = back;
 
   if (file) {
-    // مسیر کامل فایل
-    const fullPath = 'file:///android_asset/' + file;
-    // استفاده از PDF.js
+    // تشخیص محیط
+    const isAndroid = window.location.href.startsWith('file:///android_asset');
+    
+    let fullPath;
+    if (isAndroid) {
+      fullPath = 'file:///android_asset/' + file;
+    } else {
+      // آنلاین - مسیر کامل از root
+      fullPath = window.location.origin + '/logic-app/' + file;
+    }
+    
     const viewerUrl = 'pdfjs/viewer.html?file=' + encodeURIComponent(fullPath);
     document.getElementById('viewerFrame').src = viewerUrl;
   }
