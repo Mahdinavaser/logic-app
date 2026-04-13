@@ -6,111 +6,12 @@
 <title>نمایش فایل</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: #1a1a2e;
-    color: white;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .header {
-    background: linear-gradient(135deg, #1a1a2e, #0f3460);
-    padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  }
-
-  .back-btn {
-    background: rgba(255,255,255,0.15);
-    border: none;
-    color: white;
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    font-size: 22px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-
-  .header-title {
-    font-size: 15px;
-    font-weight: 600;
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .dl-btn {
-    background: rgba(255,255,255,0.15);
-    border: none;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 10px;
-    font-size: 12px;
-    cursor: pointer;
-    font-family: inherit;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .viewer-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  embed, iframe {
-    flex: 1;
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: white;
-  }
-
-  .fallback {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    padding: 30px;
-    text-align: center;
-  }
-
-  .fallback-icon { font-size: 64px; }
-  .fallback-title { font-size: 17px; font-weight: 600; }
-  .fallback-sub { font-size: 13px; opacity: 0.7; line-height: 1.8; }
-
-  .dl-big {
-    background: linear-gradient(135deg, #0f3460, #533483);
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 14px;
-    font-size: 16px;
-    font-family: inherit;
-    cursor: pointer;
-    text-decoration: none;
-    margin-top: 8px;
-  }
+  body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #1a1a2e; color: white; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+  .header { background: linear-gradient(135deg, #1a1a2e, #0f3460); padding: 14px 16px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+  .back-btn { background: rgba(255,255,255,0.15); border: none; color: white; width: 36px; height: 36px; border-radius: 10px; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; text-decoration: none; flex-shrink: 0; }
+  .header-title { font-size: 15px; font-weight: 600; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .viewer-container { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  iframe { flex: 1; width: 100%; height: 100%; border: none; background: white; }
 </style>
 </head>
 <body>
@@ -118,25 +19,10 @@
 <div class="header">
   <a id="backBtn" href="index.html" class="back-btn">›</a>
   <div class="header-title" id="fileTitle">در حال بارگذاری...</div>
-  <a id="dlBtn" href="#" class="dl-btn">📥 دانلود</a>
 </div>
 
-<div class="viewer-container" id="viewerContainer">
-
-  <!-- نمایش فایل -->
-  <iframe id="fileFrame" src="" style="display:none;"></iframe>
-
-  <!-- اگه نشد نمایش داد -->
-  <div class="fallback" id="fallback" style="display:none;">
-    <div class="fallback-icon">📄</div>
-    <div class="fallback-title" id="fallbackTitle">فایل آماده دانلود است</div>
-    <div class="fallback-sub">
-      برای مشاهده این فایل روی گوشی،<br>
-      ابتدا دانلود کنید و سپس باز کنید.
-    </div>
-    <a id="fallbackDl" href="#" class="dl-big">📥 دانلود فایل</a>
-  </div>
-
+<div class="viewer-container">
+  <iframe id="viewerFrame" src=""></iframe>
 </div>
 
 <script>
@@ -145,30 +31,15 @@
   const title = params.get('title');
   const back = params.get('back');
 
-  if (title) {
-    document.getElementById('fileTitle').textContent = title;
-    document.getElementById('fallbackTitle').textContent = title;
-  }
+  if (title) document.getElementById('fileTitle').textContent = title;
   if (back) document.getElementById('backBtn').href = back;
+
   if (file) {
-    document.getElementById('dlBtn').href = file;
-    document.getElementById('fallbackDl').href = file;
-
-    const frame = document.getElementById('fileFrame');
-    frame.src = file;
-    frame.style.display = 'block';
-
-    // اگه ۸ ثانیه لود نشد، fallback نشون بده
-    const timer = setTimeout(() => {
-      frame.style.display = 'none';
-      document.getElementById('fallback').style.display = 'flex';
-    }, 8000);
-
-    frame.onload = () => {
-      clearTimeout(timer);
-      frame.style.display = 'block';
-      document.getElementById('fallback').style.display = 'none';
-    };
+    // مسیر کامل فایل
+    const fullPath = 'file:///android_asset/' + file;
+    // استفاده از PDF.js
+    const viewerUrl = 'pdfjs/viewer.html?file=' + encodeURIComponent(fullPath);
+    document.getElementById('viewerFrame').src = viewerUrl;
   }
 </script>
 
