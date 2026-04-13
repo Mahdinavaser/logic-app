@@ -34,7 +34,7 @@
 
 <div id="loading">
   <div class="loading-spinner"></div>
-  <div class="loading-text">در حال بارگذاری فایل...</div>
+  <div class="loading-text">در حال ب��رگذاری فایل...</div>
 </div>
 
 <div id="pdf-container" style="display:none;"></div>
@@ -45,10 +45,10 @@
   <div class="error-sub" id="errorMsg"></div>
 </div>
 
-<script type="module">
-  import * as pdfjsLib from './pdfjs/pdf.mjs';
-  
-  pdfjsLib.GlobalWorkerOptions.workerSrc = './pdfjs/pdf.worker.mjs';
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  // Set worker path from CDN
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
   const params = new URLSearchParams(window.location.search);
   let filePath = params.get('file');
@@ -82,8 +82,7 @@
         url = 'file:///android_asset/' + normalizedPath;
       }
       
-      const loadingTask = pdfjsLib.getDocument(url);
-      const pdf = await loadingTask.promise;
+      const pdf = await pdfjsLib.getDocument(url).promise;
       
       document.getElementById('loading').style.display = 'none';
       const container = document.getElementById('pdf-container');
@@ -102,10 +101,12 @@
         canvas.height = viewport.height;
         container.appendChild(canvas);
 
-        await page.render({
+        const renderContext = {
           canvasContext: canvas.getContext('2d'),
           viewport: viewport
-        }).promise;
+        };
+        
+        await page.render(renderContext).promise;
       }
     } catch (err) {
       console.error('PDF Loading Error:', err);
