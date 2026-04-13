@@ -33,10 +33,11 @@ jobs:
       - name: Copy web files to www
         run: |
           mkdir -p www/files
+          mkdir -p www/pdfjs
           cp *.html www/
           cp -r files/. www/files/
+          cp -r pdfjs/. www/pdfjs/
           mv www/files/Jadval.pdf www/files/jadval.pdf 2>/dev/null || true
-
       - name: Init and Add Android
         run: |
           npx cap init "منطق پایه دهم" "com.logic.grade10" --web-dir www
