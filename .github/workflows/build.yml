@@ -38,6 +38,26 @@ jobs:
           cp -r files/. www/files/
           cp -r pdfjs/. www/pdfjs/
           mv www/files/Jadval.pdf www/files/jadval.pdf 2>/dev/null || true
+          
+          # ساخت فایل config.js برای مسیردهی
+          cat > www/config.js << 'EOF'
+          window.APP_CONFIG = {
+            isAndroid: window.location.href.startsWith('file:///android_asset'),
+            getFileUrl: function(path) {
+              if (this.isAndroid) {
+                return 'file:///android_asset/' + path;
+              }
+              return window.location.origin + '/logic-app/' + path;
+            },
+            getPdfViewerUrl: function(path) {
+              var fileUrl = this.getFileUrl(path);
+              if (this.isAndroid) {
+                return 'file:///android_asset/pdfjs/viewer.html?file=' + encodeURIComponent(fileUrl);
+              }
+              return window.location.origin + '/logic-app/pdfjs/viewer.html?file=' + encodeURIComponent(fileUrl);
+            }
+          };
+          EOF
       - name: Init and Add Android
         run: |
           npx cap init "منطق پایه دهم" "com.logic.grade10" --web-dir www
