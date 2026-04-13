@@ -35,31 +35,53 @@ jobs:
           mkdir -p www/files
           cp *.html www/
           cp -r files/. www/files/
-          echo "=== www contents ==="
-          ls -la www/
-          echo "=== www/files contents ==="
-          ls -la www/files/
+          mv www/files/Jadval.pdf www/files/jadval.pdf 2>/dev/null || true
 
-      - name: Init Capacitor
-        run: npx cap init "منطق پایه دهم" "com.logic.grade10" --web-dir www
+      - name: Init and Add Android
+        run: |
+          npx cap init "منطق پایه دهم" "com.logic.grade10" --web-dir www
+          npx cap add android
+          npx cap copy android
 
-      - name: Add Android Platform
-        run: npx cap add android
-
-      - name: Copy Web Assets
-        run: npx cap copy android
-
-      - name: Move files to correct location
+      - name: Move files if needed
         run: |
           if [ -d "android/app/src/main/assets/public" ]; then
-            echo "Moving from public to assets root..."
             cp -r android/app/src/main/assets/public/. android/app/src/main/assets/
             rm -rf android/app/src/main/assets/public
           fi
-          echo "=== Final Android assets ==="
-          ls -la android/app/src/main/assets/
-          echo "=== Final Android assets/files ==="
-          ls -la android/app/src/main/assets/files/
+
+      - name: Patch MainActivity to load from file system
+        run: |
+          MAIN_ACTIVITY=$(find android -name "MainActivity.java" | head -1)
+          echo "Found MainActivity: $MAIN_ACTIVITY"
+          cat > $MAIN_ACTIVITY << 'EOF'
+          package com.logic.grade10;
+          
+          import android.os.Bundle;
+          import android.webkit.WebSettings;
+          import android.webkit.WebView;
+          import android.webkit.WebViewClient;
+          import com.getcapacitor.BridgeActivity;
+          
+          public class MainActivity extends BridgeActivity {
+            @Override
+            public void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+              WebView webView = getBridge().getWebView();
+              WebSettings settings = webView.getSettings();
+              settings.setJavaScriptEnabled(true);
+              settings.setDomStorageEnabled(true);
+              settings.setAllowFileAccess(true);
+              settings.setAllowContentAccess(true);
+              settings.setAllowFileAccessFromFileURLs(true);
+              settings.setAllowUniversalAccessFromFileURLs(true);
+              settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+              webView.setWebViewClient(new WebViewClient());
+              webView.loadUrl("file:///android_asset/index.html");
+            }
+          }
+          EOF
+          echo "MainActivity patched successfully"
 
       - name: Build APK
         run: |
