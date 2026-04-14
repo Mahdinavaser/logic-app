@@ -7,12 +7,14 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { 
+    /* اولویت دادن به فونت وزیر طبق کد شما */
     font-family: 'Vazir', 'B Titr', 'B Nazanin', 'XB Roya', sans-serif; 
     background: #1a1a2e; 
     color: white; 
     height: 100vh; 
     display: flex; 
     flex-direction: column; 
+    /* اضافه شدن کدهای اصلاح جهت و چیدمان متن */
     direction: rtl;
     text-align: right;
   }
@@ -68,12 +70,14 @@
     position: relative;
   }
   .text-layer {
+    /* برای انطباق لایه روی بوم PDF، ویژگی absolute حفظ شده است */
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 10;
+    /* اعمال تنظیمات راست‌چین برای لایه متن */
     direction: rtl;
     text-align: right;
   }
@@ -101,19 +105,16 @@
 </div>
 
 <div id="pdf-container" style="display:none;"></div>
+
 <div id="error">
   <div class="error-icon">⚠️</div>
   <div class="error-text">فایل بارگذاری نشد</div>
   <div class="error-sub" id="errorMsg"></div>
 </div>
 
-<!-- CHANGED: Now using type="module" to properly load your local .mjs files -->
-<script type="module">
-  // 1. Import PDF.js from your local pdfjs folder
-  import * as pdfjsLib from './pdfjs/pdf.mjs';
-
-  // 2. Set the worker to your local pdf.worker.mjs
-  pdfjsLib.GlobalWorkerOptions.workerSrc = './pdfjs/pdf.worker.mjs';
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
   const params = new URLSearchParams(window.location.search);
   let filePath = params.get('file');
@@ -130,7 +131,7 @@
   }
 
   function normalizeFilePath(path) {
-    path = path.replace(/^\\/+/, '');
+    path = path.replace(/^\/+/, '');
     return path;
   }
 
@@ -143,11 +144,12 @@
         url = 'file:///android_asset/' + normalizedPath;
       }
       
-      // 3. Set the cMapUrl to point to your new local cmaps folder
+      // PDF Document بارگذاری
       const loadingTask = pdfjsLib.getDocument({
         url: url,
-        cMapUrl: './pdfjs/cmaps/', 
+        cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
         cMapPacked: true,
+        standardFontDataUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/standard_fonts/',
         disableAutoFetch: false,
         disableStream: false
       });
@@ -160,12 +162,17 @@
       
       const totalPages = pdf.numPages;
       document.getElementById('pageInfo').textContent = totalPages + ' صفحه';
+
+      // Scale را برای کیفیت بهتر تنظیم کن
       const scale = 1.5;
 
       for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
         const page = await pdf.getPage(pageNum);
+        
+        // Viewport با scale مناسب
         const viewport = page.getViewport({ scale: scale });
         
+        // Canvas برای rendering تصویر
         const canvas = document.createElement('canvas');
         canvas.className = 'pdf-page';
         canvas.width = viewport.width;
@@ -177,10 +184,11 @@
         pageWrapper.style.width = canvas.width + 'px';
         pageWrapper.style.height = canvas.height + 'px';
         pageWrapper.style.boxShadow = '0 4px 12px rgba(0,0,0,0.5)';
-        
         pageWrapper.appendChild(canvas);
+
         container.appendChild(pageWrapper);
 
+        // Canvas Rendering
         const renderContext = {
           canvasContext: canvas.getContext('2d'),
           viewport: viewport,
@@ -189,6 +197,7 @@
         
         await page.render(renderContext).promise;
 
+        // Text Layer - برای بهتر شدن فونت و متن
         try {
           const textContent = await page.getTextContent();
           const textLayerDiv = document.createElement('div');
@@ -196,7 +205,8 @@
           textLayerDiv.style.width = canvas.width + 'px';
           textLayerDiv.style.height = canvas.height + 'px';
           pageWrapper.appendChild(textLayerDiv);
-          
+
+          // Text layer rendering
           await pdfjsLib.renderTextLayer({
             textContent: textContent,
             container: textLayerDiv,
@@ -219,5 +229,6 @@
     showError('فایلی مشخص نشده');
   }
 </script>
+
 </body>
 </html>
