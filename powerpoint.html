@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -6,14 +6,12 @@
 <title>پاورپوینت - منطق پایه دهم</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
     background: #f0f4f8;
     color: #1a1a2e;
     min-height: 100vh;
   }
-
   .header {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     color: white;
@@ -24,7 +22,6 @@
     border-radius: 0 0 24px 24px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   }
-
   .back-btn {
     background: rgba(255,255,255,0.2);
     border: none;
@@ -40,16 +37,13 @@
     text-decoration: none;
     flex-shrink: 0;
   }
-
   .header-text h2 { font-size: 18px; }
   .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
-
   .container {
     padding: 20px 16px;
     max-width: 500px;
     margin: 0 auto;
   }
-
   .info-box {
     background: #fff4ee;
     border-right: 4px solid #e8590c;
@@ -60,15 +54,14 @@
     line-height: 1.8;
     color: #1a1a2e;
   }
-
   .section-title {
     font-size: 13px;
+    font-weight: bold;
     color: #666;
-    margin: 0 0 12px;
+    margin: 20px 0 12px;
     padding-right: 8px;
     border-right: 3px solid #e8590c;
   }
-
   .file-card {
     background: white;
     border-radius: 16px;
@@ -76,14 +69,12 @@
     margin-bottom: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   }
-
   .file-top {
     display: flex;
     align-items: center;
     gap: 14px;
     margin-bottom: 16px;
   }
-
   .file-icon {
     width: 56px;
     height: 56px;
@@ -95,23 +86,29 @@
     font-size: 28px;
     flex-shrink: 0;
   }
-
   .file-info h3 {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 4px;
   }
-
   .file-info p {
     font-size: 12px;
     color: #888;
   }
-
+  .file-badge {
+    display: inline-block;
+    background: #fff4ee;
+    color: #e8590c;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 5px;
+  }
   .action-row {
     display: flex;
     gap: 10px;
   }
-
   .action-btn {
     flex: 1;
     padding: 12px 10px;
@@ -128,19 +125,58 @@
     text-decoration: none;
     transition: all 0.2s;
   }
-
   .action-btn:active { transform: scale(0.97); }
-
-  .btn-primary {
-    background: linear-gradient(135deg, #e8590c, #f08c00);
-    color: white;
-  }
-
   .btn-secondary {
     background: #fff4ee;
     color: #e8590c;
+    border: 1px solid #fde4d7;
   }
 
+  /* استایل‌های مربوط به لیست بخش‌ها */
+  .chapter-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .chapter-card {
+    background: white;
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .chapter-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+  .chapter-card:active {
+    transform: scale(0.98);
+  }
+  .chapter-num {
+    background: linear-gradient(135deg, #e8590c, #f08c00);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  .chapter-info { flex: 1; }
+  .chapter-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .chapter-sub { font-size: 11px; color: #999; }
   .spacer { height: 30px; }
 </style>
 </head>
@@ -150,36 +186,123 @@
   <a href="index.html" class="back-btn">›</a>
   <div class="header-text">
     <h2>📊 پاورپوینت تمام دروس</h2>
-    <p>منطق پایه دهم · همه فصل‌ها</p>
+    <p>منطق پایه دهم · ۹ بخش</p>
   </div>
 </div>
 
 <div class="container">
-
   <div class="info-box">
-    📌 اسلایدهای آموزشی تمام ۱۰ فصل منطق پایه دهم در یک فایل جامع. برای مشاهده داخل اپ روی "مشاهده" کلیک کنید.
+    📌 اسلایدهای آموزشی منطق پایه دهم. برای مشاهده هر بخش روی آن کلیک کنید. جهت دانلود یکجای تمام اسلایدها از دکمه دانلود استفاده نمایید.
   </div>
 
-  <div class="section-title">📊 اسلایدهای آموزشی</div>
-
+  <div class="section-title">📥 دانلود فایل کامل</div>
   <div class="file-card">
     <div class="file-top">
       <div class="file-icon">📊</div>
       <div class="file-info">
         <h3>پاورپوینت تمام دروس</h3>
-        <p>PDF · همه ۱۰ فصل منطق پایه دهم</p>
+        <p>PDF · نسخه کامل</p>
+        <span class="file-badge">لینک دانلود مستقیم</span>
       </div>
     </div>
     <div class="action-row">
-      <a class="action-btn btn-primary"
-         href="viewer.html?file=files/ppt-all.pdf&title=پاورپوینت تمام دروس&back=powerpoint.html">
-        👁️ مشاهده
-      </a>
-      <a class="action-btn btn-secondary" href="files/ppt-all.pdf" download>
-        📥 دانلود
+      <a class="action-btn btn-secondary" href="https://up.20script.ir/do.php?filename=5e7a-ppt-all.pdf" target="_blank" rel="noopener noreferrer">
+        📥 دانلود فایل کامل
       </a>
     </div>
   </div>
+
+  <div class="section-title">فهرست اسلایدها (برای مطالعه کلیک کنید)</div>
+
+  <a href="image-viewer.html?folder=files/ppt/sec1&pages=30&title=بخش ۱&back=powerpoint.html" class="chapter-link">
+    <div class="chapter-card">
+      <div class="chapter-num">۱</div>
+      <div class="chapter-info">
+        <div class="chapter-title">بخش اول</div>
+        <div class="chapter-sub">مشاهده اسلایدها (۳۰ صفحه)</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="image-viewer.html?folder=files/ppt/sec2&pages=23&title=بخش ۲&back=powerpoint.html" class="chapter-link">
+    <div class="chapter-card">
+      <div class="chapter-num">۲</div>
+      <div class="chapter-info">
+        <div class="chapter-title">بخش دوم</div>
+        <div class="chapter-sub">مشاهده اسلایدها (۲۳ صفحه)</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="image-viewer.html?folder=files/ppt/sec3&pages=14&title=بخش ۳&back=powerpoint.html" class="chapter-link">
+    <div class="chapter-card">
+      <div class="chapter-num">۳</div>
+      <div class="chapter-info">
+        <div class="chapter-title">بخش سوم</div>
+        <div class="chapter-sub">مشاهده اسلایدها (۱۴ صفحه)</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="image-viewer.html?folder=files/ppt/sec4&pages=12&title=بخش ۴&back=powerpoint.html" class="chapter-link">
+    <div class="chapter-card">
+      <div class="chapter-num">۴</div>
+      <div class="chapter-info">
+        <div class="chapter-title">بخش چهارم</div>
+        <div class="chapter-sub">مشاهده اسلایدها (۱۲ صفحه)</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="image-viewer.html?folder=files/ppt/sec5&pages=19&title=بخش ۵&back=powerpoint.html" class="chapter-link">
+    <div class="chapter-card">
+      <div class="chapter-num">۵</div>
+      <div class="chapter-info">
+        <div class="chapter-title">بخش پنجم</div>
+        <div class="chapter-sub">مشاهده اسلایدها (۱۹ صفحه)</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="image-viewer.html?folder=files/ppt/sec6&pages=21&title=بخش ۶&back=powerpoint.html" class="chapter-link">
+    <div class="chapter-card">
+      <div class="chapter-num">۶</div>
+      <div class="chapter-info">
+        <div class="chapter-title">بخش ششم</div>
+        <div class="chapter-sub">مشاهده اسلایدها (۲۱ صفحه)</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="image-viewer.html?folder=files/ppt/sec7&pages=16&title=بخش ۷&back=powerpoint.html" class="chapter-link">
+    <div class="chapter-card">
+      <div class="chapter-num">۷</div>
+      <div class="chapter-info">
+        <div class="chapter-title">بخش هفتم</div>
+        <div class="chapter-sub">مشاهده اسلایدها (۱۶ صفحه)</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="image-viewer.html?folder=files/ppt/sec8&pages=18&title=بخش ۸&back=powerpoint.html" class="chapter-link">
+    <div class="chapter-card">
+      <div class="chapter-num">۸</div>
+      <div class="chapter-info">
+        <div class="chapter-title">بخش هشتم</div>
+        <div class="chapter-sub">مشاهده اسلایدها (۱۸ صفحه)</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="image-viewer.html?folder=files/ppt/sec9&pages=18&title=بخش ۹&back=powerpoint.html" class="chapter-link">
+    <div class="chapter-card">
+      <div class="chapter-num">۹</div>
+      <div class="chapter-info">
+        <div class="chapter-title">بخش نهم</div>
+        <div class="chapter-sub">مشاهده اسلایدها (۱۸ صفحه)</div>
+      </div>
+    </div>
+  </a>
 
   <div class="spacer"></div>
 </div>
