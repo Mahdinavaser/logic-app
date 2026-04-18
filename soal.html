@@ -6,14 +6,12 @@
 <title>نمونه سوال - منطق پایه دهم</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
     background: #f0f4f8;
     color: #1a1a2e;
     min-height: 100vh;
   }
-
   .header {
     background: linear-gradient(135deg, #1a5c1a 0%, #2e7d32 50%, #388e3c 100%);
     color: white;
@@ -24,7 +22,6 @@
     border-radius: 0 0 24px 24px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   }
-
   .back-btn {
     background: rgba(255,255,255,0.2);
     border: none;
@@ -40,16 +37,13 @@
     text-decoration: none;
     flex-shrink: 0;
   }
-
   .header-text h2 { font-size: 18px; }
   .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
-
   .container {
     padding: 20px 16px;
     max-width: 500px;
     margin: 0 auto;
   }
-
   .info-box {
     background: #e8fde8;
     border-right: 4px solid #2e7d32;
@@ -60,15 +54,14 @@
     line-height: 1.8;
     color: #1a1a2e;
   }
-
   .section-title {
     font-size: 13px;
+    font-weight: bold;
     color: #666;
     margin: 20px 0 10px;
     padding-right: 8px;
     border-right: 3px solid #2e7d32;
   }
-
   .file-card {
     background: white;
     border-radius: 16px;
@@ -76,14 +69,12 @@
     margin-bottom: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   }
-
   .file-top {
     display: flex;
     align-items: center;
     gap: 14px;
     margin-bottom: 14px;
   }
-
   .file-icon {
     width: 46px;
     height: 46px;
@@ -94,33 +85,27 @@
     font-size: 22px;
     flex-shrink: 0;
   }
-
   .green-icon { background: #e8fde8; }
   .blue-icon  { background: #e8f4fd; }
   .red-icon   { background: #fde8e8; }
   .yellow-icon{ background: #fdfde8; }
-
   .file-info { flex: 1; }
-
   .file-name {
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 3px;
   }
-
   .file-meta { font-size: 11px; color: #999; }
-
   .action-row {
     display: flex;
     gap: 8px;
   }
-
   .action-btn {
     flex: 1;
     padding: 10px 8px;
     border-radius: 10px;
     border: none;
-    font-size: 12px;
+    font-size: 13px;
     font-family: inherit;
     cursor: pointer;
     display: flex;
@@ -131,39 +116,19 @@
     text-decoration: none;
     transition: all 0.2s;
   }
-
   .action-btn:active { transform: scale(0.97); }
-
   .btn-green {
     background: linear-gradient(135deg, #1a5c1a, #388e3c);
     color: white;
   }
-
-  .btn-green-light {
-    background: #e8fde8;
-    color: #2e7d32;
-  }
-
   .btn-blue {
     background: linear-gradient(135deg, #0f3460, #533483);
     color: white;
   }
-
-  .btn-blue-light {
-    background: #e8f0fd;
-    color: #0f3460;
-  }
-
   .btn-red {
     background: linear-gradient(135deg, #c0392b, #e74c3c);
     color: white;
   }
-
-  .btn-red-light {
-    background: #fde8e8;
-    color: #c0392b;
-  }
-
   .group-card {
     background: white;
     border-radius: 18px;
@@ -171,7 +136,6 @@
     margin-bottom: 14px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   }
-
   .group-header {
     display: flex;
     align-items: center;
@@ -180,7 +144,6 @@
     padding-bottom: 14px;
     border-bottom: 1px solid #f0f0f0;
   }
-
   .group-icon {
     width: 44px;
     height: 44px;
@@ -191,15 +154,12 @@
     font-size: 22px;
     flex-shrink: 0;
   }
-
   .group-title {
     font-size: 15px;
     font-weight: 700;
     margin-bottom: 3px;
   }
-
   .group-sub { font-size: 12px; color: #888; }
-
   .sub-file {
     display: flex;
     align-items: center;
@@ -207,30 +167,24 @@
     padding: 10px 0;
     border-bottom: 1px solid #f8f8f8;
   }
-
   .sub-file:last-child { border-bottom: none; padding-bottom: 0; }
   .sub-file:first-child { padding-top: 0; }
-
   .sub-icon { font-size: 20px; flex-shrink: 0; }
-
   .sub-info { flex: 1; }
   .sub-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
   .sub-meta { font-size: 11px; color: #aaa; }
-
   .sub-actions { display: flex; gap: 6px; }
-
   .sub-btn {
-    padding: 7px 12px;
+    padding: 8px 16px;
     border-radius: 8px;
     border: none;
-    font-size: 11px;
+    font-size: 12px;
     font-family: inherit;
     cursor: pointer;
     font-weight: 600;
     text-decoration: none;
     white-space: nowrap;
   }
-
   .spacer { height: 30px; }
 </style>
 </head>
@@ -240,14 +194,13 @@
   <a href="index.html" class="back-btn">›</a>
   <div class="header-text">
     <h2>📝 نمونه سوال امتحان</h2>
-    <p>منطق پایه دهم · ۱۴ فایل</p>
+    <p>منطق پایه دهم · آرشیو کامل</p>
   </div>
 </div>
 
 <div class="container">
-
   <div class="info-box">
-    📝 مجموعه کامل نمونه سوالات، آزمون‌ها و پاسخنامه‌های منطق پایه دهم. برای مشاهده داخل اپ روی "مشاهده" و برای ذخیره روی "دانلود" کلیک کنید.
+    📝 مجموعه کامل نمونه سوالات، آزمون‌ها و پاسخنامه‌های منطق پایه دهم. برای مطالعه روی دکمه "مشاهده" کلیک کنید.
   </div>
 
   <!-- بخش اول: نمونه سوالات A تا G -->
@@ -258,12 +211,11 @@
       <div class="file-icon green-icon">📝</div>
       <div class="file-info">
         <div class="file-name">نمونه سوال A</div>
-        <div class="file-meta">PDF · منطق پایه دهم</div>
+        <div class="file-meta">تصاویر · منطق پایه دهم</div>
       </div>
     </div>
     <div class="action-row">
-      <a class="action-btn btn-green" href="viewer.html?file=files/soal-a.pdf&title=نمونه سوال A&back=soal.html">👁️ مشاهده</a>
-      <a class="action-btn btn-green-light" href="files/soal-a.pdf" download>📥 دانلود</a>
+      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-a&pages=4&title=نمونه سوال A&back=soal.html">👁️ مشاهده (۴ صفحه)</a>
     </div>
   </div>
 
@@ -272,12 +224,11 @@
       <div class="file-icon green-icon">📝</div>
       <div class="file-info">
         <div class="file-name">نمونه سوال B</div>
-        <div class="file-meta">PDF · منطق پایه دهم</div>
+        <div class="file-meta">تصاویر · منطق پایه دهم</div>
       </div>
     </div>
     <div class="action-row">
-      <a class="action-btn btn-green" href="viewer.html?file=files/soal-b.pdf&title=نمونه سوال B&back=soal.html">👁️ مشاهده</a>
-      <a class="action-btn btn-green-light" href="files/soal-b.pdf" download>📥 دانلود</a>
+      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-b&pages=4&title=نمونه سوال B&back=soal.html">👁️ مشاهده (۴ صفحه)</a>
     </div>
   </div>
 
@@ -286,12 +237,11 @@
       <div class="file-icon green-icon">📝</div>
       <div class="file-info">
         <div class="file-name">نمونه سوال C</div>
-        <div class="file-meta">PDF · منطق پایه دهم</div>
+        <div class="file-meta">تصاویر · منطق پایه دهم</div>
       </div>
     </div>
     <div class="action-row">
-      <a class="action-btn btn-green" href="viewer.html?file=files/soal-c.pdf&title=نمونه سوال C&back=soal.html">👁️ مشاهده</a>
-      <a class="action-btn btn-green-light" href="files/soal-c.pdf" download>📥 دانلود</a>
+      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-c&pages=5&title=نمونه سوال C&back=soal.html">👁️ مشاهده (۵ صفحه)</a>
     </div>
   </div>
 
@@ -300,12 +250,11 @@
       <div class="file-icon green-icon">📝</div>
       <div class="file-info">
         <div class="file-name">نمونه سوال D</div>
-        <div class="file-meta">PDF · منطق پایه دهم</div>
+        <div class="file-meta">تصاویر · منطق پایه دهم</div>
       </div>
     </div>
     <div class="action-row">
-      <a class="action-btn btn-green" href="viewer.html?file=files/soal-d.pdf&title=نمونه سوال D&back=soal.html">👁️ مشاهده</a>
-      <a class="action-btn btn-green-light" href="files/soal-d.pdf" download>📥 دانلود</a>
+      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-d&pages=5&title=نمونه سوال D&back=soal.html">👁️ مشاهده (۵ صفحه)</a>
     </div>
   </div>
 
@@ -314,12 +263,11 @@
       <div class="file-icon green-icon">📝</div>
       <div class="file-info">
         <div class="file-name">نمونه سوال E</div>
-        <div class="file-meta">PDF · منطق پایه دهم</div>
+        <div class="file-meta">تصاویر · منطق پایه دهم</div>
       </div>
     </div>
     <div class="action-row">
-      <a class="action-btn btn-green" href="viewer.html?file=files/soal-e.pdf&title=نمونه سوال E&back=soal.html">👁️ مشاهده</a>
-      <a class="action-btn btn-green-light" href="files/soal-e.pdf" download>📥 دانلود</a>
+      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-e&pages=4&title=نمونه سوال E&back=soal.html">👁️ مشاهده (۴ صفحه)</a>
     </div>
   </div>
 
@@ -328,12 +276,11 @@
       <div class="file-icon green-icon">📝</div>
       <div class="file-info">
         <div class="file-name">نمونه سوال F</div>
-        <div class="file-meta">PDF · منطق پایه دهم</div>
+        <div class="file-meta">تصاویر · منطق پایه دهم</div>
       </div>
     </div>
     <div class="action-row">
-      <a class="action-btn btn-green" href="viewer.html?file=files/soal-f.pdf&title=نمونه سوال F&back=soal.html">👁️ مشاهده</a>
-      <a class="action-btn btn-green-light" href="files/soal-f.pdf" download>📥 دانلود</a>
+      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-f&pages=3&title=نمونه سوال F&back=soal.html">👁️ مشاهده (۳ صفحه)</a>
     </div>
   </div>
 
@@ -342,24 +289,22 @@
       <div class="file-icon green-icon">📝</div>
       <div class="file-info">
         <div class="file-name">نمونه سوال G</div>
-        <div class="file-meta">PDF · منطق پایه دهم</div>
+        <div class="file-meta">تصاویر · منطق پایه دهم</div>
       </div>
     </div>
     <div class="action-row">
-      <a class="action-btn btn-green" href="viewer.html?file=files/soal-g.pdf&title=نمونه سوال G&back=soal.html">👁️ مشاهده</a>
-      <a class="action-btn btn-green-light" href="files/soal-g.pdf" download>📥 دانلود</a>
+      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-g&pages=3&title=نمونه سوال G&back=soal.html">👁️ مشاهده (۳ صفحه)</a>
     </div>
   </div>
 
   <!-- بخش دوم: امتحان نوبت دوم ۱۴۰۴ -->
   <div class="section-title">📋 امتحان نوبت دوم ۱۴۰۴</div>
-
   <div class="group-card">
     <div class="group-header">
       <div class="group-icon blue-icon">📋</div>
       <div>
         <div class="group-title">امتحان نوبت دوم ۱۴۰۴</div>
-        <div class="group-sub">۲ سوال + ۱ پاسخنامه</div>
+        <div class="group-sub">۲ سری سوال + پاسخنامه</div>
       </div>
     </div>
 
@@ -367,11 +312,10 @@
       <div class="sub-icon">📄</div>
       <div class="sub-info">
         <div class="sub-name">امتحان نوبت دوم — ۱</div>
-        <div class="sub-meta">PDF · ۱۴۰۴</div>
+        <div class="sub-meta">تصاویر · ۱۴۰۴</div>
       </div>
       <div class="sub-actions">
-        <a class="sub-btn btn-blue" href="viewer.html?file=files/emtehan-nobat2-1.pdf&title=امتحان نوبت دوم ۱&back=soal.html">👁️</a>
-        <a class="sub-btn btn-blue-light" href="files/emtehan-nobat2-1.pdf" download>📥</a>
+        <a class="sub-btn btn-blue" href="image-viewer.html?folder=files/soal/nobat2-1&pages=3&title=امتحان نوبت دوم ۱&back=soal.html">👁️ مشاهده</a>
       </div>
     </div>
 
@@ -379,11 +323,10 @@
       <div class="sub-icon">📄</div>
       <div class="sub-info">
         <div class="sub-name">امتحان نوبت دوم — ۲</div>
-        <div class="sub-meta">PDF · ۱۴۰۴</div>
+        <div class="sub-meta">تصاویر · ۱۴۰۴</div>
       </div>
       <div class="sub-actions">
-        <a class="sub-btn btn-blue" href="viewer.html?file=files/emtehan-nobat2-2.pdf&title=امتحان نوبت دوم ۲&back=soal.html">👁️</a>
-        <a class="sub-btn btn-blue-light" href="files/emtehan-nobat2-2.pdf" download>📥</a>
+        <a class="sub-btn btn-blue" href="image-viewer.html?folder=files/soal/nobat2-2&pages=3&title=امتحان نوبت دوم ۲&back=soal.html">👁️ مشاهده</a>
       </div>
     </div>
 
@@ -391,72 +334,44 @@
       <div class="sub-icon">✅</div>
       <div class="sub-info">
         <div class="sub-name">پاسخنامه نوبت دوم</div>
-        <div class="sub-meta">PDF · پاسخ تشریحی</div>
+        <div class="sub-meta">تصاویر · پاسخ تشریحی</div>
       </div>
       <div class="sub-actions">
-        <a class="sub-btn btn-red" href="viewer.html?file=files/pasokh-nobat2.pdf&title=پاسخنامه نوبت دوم&back=soal.html">👁️</a>
-        <a class="sub-btn btn-red-light" href="files/pasokh-nobat2.pdf" download>📥</a>
+        <a class="sub-btn btn-red" href="image-viewer.html?folder=files/soal/pasokh&pages=3&title=پاسخنامه نوبت دوم&back=soal.html">👁️ مشاهده</a>
       </div>
     </div>
   </div>
 
   <!-- بخش سوم: آزمون صبح و عصر -->
   <div class="section-title">🌅 آزمون‌های صبح و عصر</div>
-
   <div class="group-card">
     <div class="group-header">
       <div class="group-icon yellow-icon">🌅</div>
       <div>
         <div class="group-title">آزمون‌های صبح و عصر</div>
-        <div class="group-sub">۲ آزمون + ۲ پاسخنامه</div>
+        <div class="group-sub">به همراه پاسخنامه تشریحی</div>
       </div>
     </div>
 
     <div class="sub-file">
       <div class="sub-icon">🌄</div>
       <div class="sub-info">
-        <div class="sub-name">آزمون صبح</div>
-        <div class="sub-meta">PDF · منطق پایه دهم</div>
+        <div class="sub-name">آزمون صبح + پاسخنامه</div>
+        <div class="sub-meta">تصاویر · سوال و جواب باهم</div>
       </div>
       <div class="sub-actions">
-        <a class="sub-btn btn-blue" href="viewer.html?file=files/azmoon-sobh.pdf&title=آزمون صبح&back=soal.html">👁️</a>
-        <a class="sub-btn btn-blue-light" href="files/azmoon-sobh.pdf" download>📥</a>
-      </div>
-    </div>
-
-    <div class="sub-file">
-      <div class="sub-icon">✅</div>
-      <div class="sub-info">
-        <div class="sub-name">پاسخنامه آزمون صبح</div>
-        <div class="sub-meta">PDF · پاسخ تشریحی</div>
-      </div>
-      <div class="sub-actions">
-        <a class="sub-btn btn-red" href="viewer.html?file=files/pasokh-sobh.pdf&title=پاسخنامه آزمون صبح&back=soal.html">👁️</a>
-        <a class="sub-btn btn-red-light" href="files/pasokh-sobh.pdf" download>📥</a>
+        <a class="sub-btn btn-blue" href="image-viewer.html?folder=files/soal/azsobhasr/sobh&pages=5&title=آزمون صبح و پاسخنامه&back=soal.html">👁️ مشاهده</a>
       </div>
     </div>
 
     <div class="sub-file">
       <div class="sub-icon">🌆</div>
       <div class="sub-info">
-        <div class="sub-name">آزمون عصر</div>
-        <div class="sub-meta">PDF · منطق پایه دهم</div>
+        <div class="sub-name">آزمون عصر + پاسخنامه</div>
+        <div class="sub-meta">تصاویر · سوال و جواب باهم</div>
       </div>
       <div class="sub-actions">
-        <a class="sub-btn btn-blue" href="viewer.html?file=files/azmoon-asr.pdf&title=آزمون عصر&back=soal.html">👁️</a>
-        <a class="sub-btn btn-blue-light" href="files/azmoon-asr.pdf" download>📥</a>
-      </div>
-    </div>
-
-    <div class="sub-file">
-      <div class="sub-icon">✅</div>
-      <div class="sub-info">
-        <div class="sub-name">پاسخنامه آزمون عصر</div>
-        <div class="sub-meta">PDF · پاسخ تشریحی</div>
-      </div>
-      <div class="sub-actions">
-        <a class="sub-btn btn-red" href="viewer.html?file=files/pasokh-asr.pdf&title=پاسخنامه آزمون عصر&back=soal.html">👁️</a>
-        <a class="sub-btn btn-red-light" href="files/pasokh-asr.pdf" download>📥</a>
+        <a class="sub-btn btn-blue" href="image-viewer.html?folder=files/soal/azsobhasr/asr&pages=6&title=آزمون عصر و پاسخنامه&back=soal.html">👁️ مشاهده</a>
       </div>
     </div>
   </div>
@@ -465,4 +380,4 @@
 </div>
 
 </body>
-         </html>
+</html>
