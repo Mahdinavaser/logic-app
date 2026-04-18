@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نمایش درسنامه</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: 'Vazir', 'B Titr', 'B Nazanin', 'XB Roya', sans-serif; 
+    background: #1a1a2e; 
+    color: white; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+  }
+  .header { 
+    background: linear-gradient(135deg, #1a1a2e, #0f3460); 
+    padding: 14px 16px; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    flex-shrink: 0; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+    z-index: 10;
+  }
+  .back-btn { 
+    background: rgba(255,255,255,0.15); 
+    border: none; 
+    color: white; 
+    width: 36px; 
+    height: 36px; 
+    border-radius: 10px; 
+    font-size: 22px; 
+    text-decoration: none;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+  }
+  .back-btn:hover { background: rgba(255,255,255,0.2); }
+  .header-title { 
+    font-size: 15px; 
+    font-weight: 600; 
+    flex: 1; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
+  .page-info { font-size: 12px; opacity: 0.7; }
+  #image-container { 
+    flex: 1; 
+    overflow-y: auto; 
+    background: #525659; 
+    padding: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+  }
+  .lesson-image { 
+    width: 100%; 
+    max-width: 800px; 
+    height: auto; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5); 
+    border-radius: 4px;
+    background-color: white; 
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a id="backBtn" href="darsname.html" class="back-btn">›</a>
+  <div class="header-title" id="fileTitle">در حال بارگذاری...</div>
+  <div class="page-info" id="pageInfo"></div>
+</div>
+
+<div id="image-container">
+  <!-- Images will be automatically injected here by JavaScript -->
+</div>
+
+<script>
+  // 1. Get the parameters from the URL
+  const params = new URLSearchParams(window.location.search);
+  const folder = params.get('folder'); 
+  const pagesCount = parseInt(params.get('pages')) || 0; 
+  const title = params.get('title');
+  const back = params.get('back');
+
+  // 2. Set Header info
+  if (title) document.getElementById('fileTitle').textContent = title;
+  if (back) document.getElementById('backBtn').href = back;
+  if (pagesCount > 0) document.getElementById('pageInfo').textContent = pagesCount + ' صفحه';
+
+  // 3. Load the images
+  const container = document.getElementById('image-container');
+
+  if (folder && pagesCount > 0) {
+    // Make sure folder path ends with a slash
+    const safeFolder = folder.endsWith('/') ? folder : folder + '/';
+
+    for (let i = 1; i <= pagesCount; i++) {
+      const img = document.createElement('img');
+      img.setAttribute('loading', 'lazy'); // Crucial for Android memory management!
+      img.className = 'lesson-image';
+      img.src = safeFolder + i + '.jpg';
+      img.alt = 'صفحه ' + i;
+      
+      container.appendChild(img);
+    }
+  } else {
+    document.getElementById('fileTitle').textContent = 'خطا در بارگذاری';
+    container.innerHTML = '<p style="color: white; margin-top: 20px; font-family: Tahoma;">مسیر فایل یا تعداد صفحات مشخص نشده است.</p>';
+  }
+</script>
+</body>
+</html>
