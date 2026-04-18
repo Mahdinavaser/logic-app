@@ -1,6 +1,6 @@
 {
   "appId": "com.logic.grade10",
-  "appName": "منطق پایه دهم",
+  "appName": "ManTika",
   "webDir": "www",
   "android": {
     "allowMixedContent": true,
