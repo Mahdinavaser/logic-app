@@ -98,6 +98,12 @@ jobs:
               settings.setAllowFileAccessFromFileURLs(true);
               settings.setAllowUniversalAccessFromFileURLs(true);
               settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+              
+              // NEW: Enable native multi-touch Pinch-to-Zoom!
+              settings.setSupportZoom(true);
+              settings.setBuiltInZoomControls(true);
+              settings.setDisplayZoomControls(false);
+              
               webView.setWebViewClient(new WebViewClient());
               webView.loadUrl("file:///android_asset/index.html");
             }
