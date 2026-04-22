@@ -6,14 +6,12 @@
 <title>تولید محتوا - منطق پایه دهم</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
     background: #f0f4f8;
     color: #1a1a2e;
     min-height: 100vh;
   }
-
   .header {
     background: linear-gradient(135deg, #006d5b 0%, #00897b 50%, #00acc1 100%);
     color: white;
@@ -24,7 +22,6 @@
     border-radius: 0 0 24px 24px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   }
-
   .back-btn {
     background: rgba(255,255,255,0.2);
     border: none;
@@ -40,16 +37,13 @@
     text-decoration: none;
     flex-shrink: 0;
   }
-
   .header-text h2 { font-size: 18px; }
   .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
-
   .container {
     padding: 20px 16px;
     max-width: 500px;
     margin: 0 auto;
   }
-
   .info-box {
     background: #e8fdfd;
     border-right: 4px solid #00acc1;
@@ -60,84 +54,70 @@
     line-height: 1.8;
     color: #1a1a2e;
   }
-
   .section-title {
     font-size: 13px;
+    font-weight: bold;
     color: #666;
-    margin: 0 0 12px;
+    margin: 20px 0 12px;
     padding-right: 8px;
     border-right: 3px solid #00acc1;
   }
-
-  .image-card {
+  .file-card {
     background: white;
-    border-radius: 20px;
-    padding: 12px;
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .file-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
     margin-bottom: 14px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   }
-
-  .image-wrapper {
-    width: 100%;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #f0f4f8;
-    cursor: pointer;
-  }
-
-  .image-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 14px;
-  }
-
-  .image-num {
-    text-align: center;
-    padding: 10px 0 4px;
-    font-size: 12px;
-    color: #aaa;
-  }
-
-  /* Modal برای نمایش بزرگ */
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.92);
-    z-index: 1000;
-    flex-direction: column;
+  .file-icon {
+    width: 46px;
+    height: 46px;
+    background: #e8fdfd;
+    border-radius: 12px;
+    display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .modal.active { display: flex; }
-
-  .modal-close {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    background: rgba(255,255,255,0.2);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
     font-size: 22px;
+    flex-shrink: 0;
+  }
+  .file-info { flex: 1; }
+  .file-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  .file-meta { font-size: 11px; color: #999; }
+  .action-row {
+    display: flex;
+    gap: 8px;
+  }
+  .action-btn {
+    flex: 1;
+    padding: 10px 8px;
+    border-radius: 10px;
+    border: none;
+    font-size: 13px;
+    font-family: inherit;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
   }
-
-  .modal img {
-    max-width: 95%;
-    max-height: 90vh;
-    border-radius: 12px;
-    object-fit: contain;
+  .action-btn:active { transform: scale(0.97); }
+  .btn-cyan {
+    background: linear-gradient(135deg, #00897b, #00acc1);
+    color: white;
   }
-
   .spacer { height: 30px; }
 </style>
 </head>
@@ -147,66 +127,102 @@
   <a href="index.html" class="back-btn">›</a>
   <div class="header-text">
     <h2>🎬 تولید محتوا</h2>
-    <p>منطق پایه دهم · ۴ تصویر</p>
+    <p>منطق پایه دهم · محتوای تکمیلی</p>
   </div>
 </div>
 
 <div class="container">
-
   <div class="info-box">
-    🎬 برای مشاهده بزرگ‌تر روی هر تصویر کلیک کنید.
+    🎬 در این بخش می‌توانید جداول، چارت‌ها و محتواهای تولید شده اختصاصی برای درس منطق را مشاهده کنید. روی دکمه "مشاهده" کلیک کنید.
   </div>
 
-  <div class="section-title">🖼️ تصاویر آموزشی</div>
+  <div class="section-title">📊 چارت‌ها و جداول</div>
 
-  <div class="image-card">
-    <div class="image-wrapper" onclick="openModal('files/image-1.jpg')">
-      <img src="files/image-1.jpg" alt="تصویر ۱" loading="lazy">
+  <div class="file-card">
+    <div class="file-top">
+      <div class="file-icon">📊</div>
+      <div class="file-info">
+        <div class="file-name">جدول درس ۱</div>
+        <div class="file-meta">تصویر · خلاصه‌سازی مفهومی</div>
+      </div>
     </div>
-    <div class="image-num">تصویر ۱</div>
+    <div class="action-row">
+      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch1&pages=1&title=جدول درس ۱&back=tolid.html">👁️ مشاهده جدول</a>
+    </div>
   </div>
 
-  <div class="image-card">
-    <div class="image-wrapper" onclick="openModal('files/image-2.jpg')">
-      <img src="files/image-2.jpg" alt="تصویر ۲" loading="lazy">
+  <div class="file-card">
+    <div class="file-top">
+      <div class="file-icon">🔗</div>
+      <div class="file-info">
+        <div class="file-name">ترکیب درس ۳ و ۶</div>
+        <div class="file-meta">تصویر · نمودار ارتباطی</div>
+      </div>
     </div>
-    <div class="image-num">تصویر ۲</div>
+    <div class="action-row">
+      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch3-6&pages=1&title=ترکیب درس ۳ و ۶&back=tolid.html">👁️ مشاهده تصویر</a>
+    </div>
   </div>
 
-  <div class="image-card">
-    <div class="image-wrapper" onclick="openModal('files/image-3.jpg')">
-      <img src="files/image-3.jpg" alt="تصویر ۳" loading="lazy">
+  <div class="file-card">
+    <div class="file-top">
+      <div class="file-icon">📉</div>
+      <div class="file-info">
+        <div class="file-name">چارت درس ۶</div>
+        <div class="file-meta">تصویر · دسته‌بندی قضایا</div>
+      </div>
     </div>
-    <div class="image-num">تصویر ۳</div>
+    <div class="action-row">
+      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch6&pages=1&title=چارت درس ۶&back=tolid.html">👁️ مشاهده چارت</a>
+    </div>
   </div>
 
-  <div class="image-card">
-    <div class="image-wrapper" onclick="openModal('files/image-4.jpg')">
-      <img src="files/image-4.jpg" alt="تصویر ۴" loading="lazy">
+  <div class="section-title">📑 ارائه‌ها و اسلایدها</div>
+
+  <div class="file-card">
+    <div class="file-top">
+      <div class="file-icon">📽️</div>
+      <div class="file-info">
+        <div class="file-name">پاورپوینت درس ۶</div>
+        <div class="file-meta">تصاویر · قضیه حملی (۱۳ صفحه)</div>
+      </div>
     </div>
-    <div class="image-num">تصویر ۴</div>
+    <div class="action-row">
+      <!-- You didn't specify the page count for ch6ppt, so I put 14 based on our previous logic. Change "pages=14" if it has a different number of images! -->
+      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch6ppt&pages=14&title=پاورپوینت درس ۶&back=tolid.html">👁️ مشاهده اسلایدها</a>
+    </div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-top">
+      <div class="file-icon">📽️</div>
+      <div class="file-info">
+        <div class="file-name">پاورپوینت درس ۸</div>
+        <div class="file-meta">تصاویر · اسلایدهای آموزشی (۱۸ صفحه)</div>
+      </div>
+    </div>
+    <div class="action-row">
+      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/pptch8&pages=18&title=پاورپوینت درس ۸&back=tolid.html">👁️ مشاهده اسلایدها</a>
+    </div>
+  </div>
+
+  <div class="section-title">🎨 محتوای گرافیکی</div>
+
+  <div class="file-card">
+    <div class="file-top">
+      <div class="file-icon">🎨</div>
+      <div class="file-info">
+        <div class="file-name">تصاویر تولید محتوا</div>
+        <div class="file-meta">تصاویر · گرافیک آموزشی (۴ صفحه)</div>
+      </div>
+    </div>
+    <div class="action-row">
+      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/tm&pages=4&title=تصاویر تولید محتوا&back=tolid.html">👁️ مشاهده تصاویر</a>
+    </div>
   </div>
 
   <div class="spacer"></div>
 </div>
-
-<!-- Modal نمایش بزرگ -->
-<div class="modal" id="imageModal" onclick="closeModal()">
-  <button class="modal-close">✕</button>
-  <img id="modalImg" src="" alt="">
-</div>
-
-<script>
-  function openModal(src) {
-    document.getElementById('modalImg').src = src;
-    document.getElementById('imageModal').classList.add('active');
-  }
-
-  function closeModal() {
-    document.getElementById('imageModal').classList.remove('active');
-    document.getElementById('modalImg').src = '';
-  }
-</script>
 
 </body>
 </html>
