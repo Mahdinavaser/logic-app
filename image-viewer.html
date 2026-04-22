@@ -2,7 +2,8 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- CHANGED: maximum-scale=5.0 and user-scalable=yes added to allow zooming -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>نمایش درسنامه</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,6 +14,8 @@
     height: 100vh; 
     display: flex; 
     flex-direction: column; 
+    /* CHANGED: Tells the browser to handle pinch gestures natively */
+    touch-action: pan-x pan-y pinch-zoom;
   }
   .header { 
     background: linear-gradient(135deg, #1a1a2e, #0f3460); 
@@ -75,33 +78,27 @@
   <div class="page-info" id="pageInfo"></div>
 </div>
 
-<div id="image-container">
-  <!-- Images will be automatically injected here by JavaScript -->
-</div>
+<div id="image-container"></div>
 
 <script>
-  // 1. Get the parameters from the URL
   const params = new URLSearchParams(window.location.search);
   const folder = params.get('folder'); 
   const pagesCount = parseInt(params.get('pages')) || 0; 
   const title = params.get('title');
   const back = params.get('back');
 
-  // 2. Set Header info
   if (title) document.getElementById('fileTitle').textContent = title;
   if (back) document.getElementById('backBtn').href = back;
   if (pagesCount > 0) document.getElementById('pageInfo').textContent = pagesCount + ' صفحه';
 
-  // 3. Load the images
   const container = document.getElementById('image-container');
 
   if (folder && pagesCount > 0) {
-    // Make sure folder path ends with a slash
     const safeFolder = folder.endsWith('/') ? folder : folder + '/';
 
     for (let i = 1; i <= pagesCount; i++) {
       const img = document.createElement('img');
-      img.setAttribute('loading', 'lazy'); // Crucial for Android memory management!
+      img.setAttribute('loading', 'lazy'); 
       img.className = 'lesson-image';
       img.src = safeFolder + i + '.jpg';
       img.alt = 'صفحه ' + i;
