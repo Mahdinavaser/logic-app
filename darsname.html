@@ -41,7 +41,7 @@
   .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
   .container {
     padding: 20px 16px;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   .info-box {
@@ -144,7 +144,6 @@
     text-decoration: none;
     color: inherit;
     display: block;
-    margin-bottom: 8px;
   }
   .chapter-card {
     background: white;
@@ -194,6 +193,19 @@
     font-weight: 600;
   }
   .spacer { height: 30px; }
+
+  /* Responsive Grid */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  @media (min-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -230,115 +242,117 @@
 
   <div class="section-title2">فهرست فصل‌های کتاب (برای مطالعه کلیک کنید)</div>
 
-  <a href="image-viewer.html?folder=files/darsname/ch1&pages=54&title=فصل ۱: منطق، ترازوی اندیشه&back=darsname.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۱</div>
-      <div class="chapter-info">
-        <div class="chapter-title">منطق، ترازوی اندیشه</div>
-        <div class="chapter-sub">تعریف و اهمیت منطق</div>
+  <div class="grid-container">
+    <a href="image-viewer.html?folder=files/darsname/ch1&pages=54&title=فصل ۱: منطق، ترازوی اندیشه&back=darsname.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۱</div>
+        <div class="chapter-info">
+          <div class="chapter-title">منطق، ترازوی اندیشه</div>
+          <div class="chapter-sub">تعریف و اهمیت منطق</div>
+        </div>
+        <div class="chapter-tag">فصل ۱</div>
       </div>
-      <div class="chapter-tag">فصل ۱</div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/darsname/ch2&pages=68&title=فصل ۲: لفظ و معنا&back=darsname.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۲</div>
-      <div class="chapter-info">
-        <div class="chapter-title">لفظ و معنا</div>
-        <div class="chapter-sub">رابطه الفاظ و مفاهیم</div>
+    <a href="image-viewer.html?folder=files/darsname/ch2&pages=68&title=فصل ۲: لفظ و معنا&back=darsname.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۲</div>
+        <div class="chapter-info">
+          <div class="chapter-title">لفظ و معنا</div>
+          <div class="chapter-sub">رابطه الفاظ و مفاهیم</div>
+        </div>
+        <div class="chapter-tag">فصل ۲</div>
       </div>
-      <div class="chapter-tag">فصل ۲</div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/darsname/ch3&pages=70&title=فصل ۳: مفهوم و مصداق&back=darsname.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۳</div>
-      <div class="chapter-info">
-        <div class="chapter-title">مفهوم و مصداق</div>
-        <div class="chapter-sub">انواع مفاهیم و مصادیق</div>
+    <a href="image-viewer.html?folder=files/darsname/ch3&pages=70&title=فصل ۳: مفهوم و مصداق&back=darsname.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۳</div>
+        <div class="chapter-info">
+          <div class="chapter-title">مفهوم و مصداق</div>
+          <div class="chapter-sub">انواع مفاهیم و مصادیق</div>
+        </div>
+        <div class="chapter-tag">فصل ۳</div>
       </div>
-      <div class="chapter-tag">فصل ۳</div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/darsname/ch4&pages=58&title=فصل ۴: اقسام و شرایط تعریف&back=darsname.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۴</div>
-      <div class="chapter-info">
-        <div class="chapter-title">اقسام و شرایط تعریف</div>
-        <div class="chapter-sub">روش‌های تعریف مفاهیم</div>
+    <a href="image-viewer.html?folder=files/darsname/ch4&pages=58&title=فصل ۴: اقسام و شرایط تعریف&back=darsname.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۴</div>
+        <div class="chapter-info">
+          <div class="chapter-title">اقسام و شرایط تعریف</div>
+          <div class="chapter-sub">روش‌های تعریف مفاهیم</div>
+        </div>
+        <div class="chapter-tag">فصل ۴</div>
       </div>
-      <div class="chapter-tag">فصل ۴</div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/darsname/ch5&pages=74&title=فصل ۵: اقسام استدلال استقرائی&back=darsname.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۵</div>
-      <div class="chapter-info">
-        <div class="chapter-title">اقسام استدلال استقرائی</div>
-        <div class="chapter-sub">انواع استدلال از جزء به کل</div>
+    <a href="image-viewer.html?folder=files/darsname/ch5&pages=74&title=فصل ۵: اقسام استدلال استقرائی&back=darsname.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۵</div>
+        <div class="chapter-info">
+          <div class="chapter-title">اقسام استدلال استقرائی</div>
+          <div class="chapter-sub">انواع استدلال از جزء به کل</div>
+        </div>
+        <div class="chapter-tag">فصل ۵</div>
       </div>
-      <div class="chapter-tag">فصل ۵</div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/darsname/ch6&pages=63&title=فصل ۶: قضیه حملی&back=darsname.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۶</div>
-      <div class="chapter-info">
-        <div class="chapter-title">قضیه حملی</div>
-        <div class="chapter-sub">ساختار و انواع قضایا</div>
+    <a href="image-viewer.html?folder=files/darsname/ch6&pages=63&title=فصل ۶: قضیه حملی&back=darsname.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۶</div>
+        <div class="chapter-info">
+          <div class="chapter-title">قضیه حملی</div>
+          <div class="chapter-sub">ساختار و انواع قضایا</div>
+        </div>
+        <div class="chapter-tag">فصل ۶</div>
       </div>
-      <div class="chapter-tag">فصل ۶</div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/darsname/ch7&pages=89&title=فصل ۷: احکام قضایای حملی&back=darsname.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۷</div>
-      <div class="chapter-info">
-        <div class="chapter-title">احکام قضایای حملی</div>
-        <div class="chapter-sub">تناقض، تضاد و عکس قضایا</div>
+    <a href="image-viewer.html?folder=files/darsname/ch7&pages=89&title=فصل ۷: احکام قضایای حملی&back=darsname.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۷</div>
+        <div class="chapter-info">
+          <div class="chapter-title">احکام قضایای حملی</div>
+          <div class="chapter-sub">تناقض، تضاد و عکس قضایا</div>
+        </div>
+        <div class="chapter-tag">فصل ۷</div>
       </div>
-      <div class="chapter-tag">فصل ۷</div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/darsname/ch8&pages=86&title=فصل ۸: قیاس اقترانی&back=darsname.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۸</div>
-      <div class="chapter-info">
-        <div class="chapter-title">قیاس اقترانی</div>
-        <div class="chapter-sub">ساختار و اشکال قیاس</div>
+    <a href="image-viewer.html?folder=files/darsname/ch8&pages=86&title=فصل ۸: قیاس اقترانی&back=darsname.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۸</div>
+        <div class="chapter-info">
+          <div class="chapter-title">قیاس اقترانی</div>
+          <div class="chapter-sub">ساختار و اشکال قیاس</div>
+        </div>
+        <div class="chapter-tag">فصل ۸</div>
       </div>
-      <div class="chapter-tag">فصل ۸</div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/darsname/ch9&pages=87&title=فصل ۹: قضیه شرطی و قیاس استثنایی&back=darsname.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۹</div>
-      <div class="chapter-info">
-        <div class="chapter-title">قضیه شرطی و قیاس استثنایی</div>
-        <div class="chapter-sub">قضایای شرطی و استثنایی</div>
+    <a href="image-viewer.html?folder=files/darsname/ch9&pages=87&title=فصل ۹: قضیه شرطی و قیاس استثنایی&back=darsname.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۹</div>
+        <div class="chapter-info">
+          <div class="chapter-title">قضیه شرطی و قیاس استثنایی</div>
+          <div class="chapter-sub">قضایای شرطی و استثنایی</div>
+        </div>
+        <div class="chapter-tag">فصل ۹</div>
       </div>
-      <div class="chapter-tag">فصل ۹</div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/darsname/ch10&pages=64&title=فصل ۱۰: سنجشگری در تفکر&back=darsname.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۱۰</div>
-      <div class="chapter-info">
-        <div class="chapter-title">سنجشگری در تفکر</div>
-        <div class="chapter-sub">تفکر انتقادی و مغالطات</div>
+    <a href="image-viewer.html?folder=files/darsname/ch10&pages=64&title=فصل ۱۰: سنجشگری در تفکر&back=darsname.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۱۰</div>
+        <div class="chapter-info">
+          <div class="chapter-title">سنجشگری در تفکر</div>
+          <div class="chapter-sub">تفکر انتقادی و مغالطات</div>
+        </div>
+        <div class="chapter-tag">فصل ۱۰</div>
       </div>
-      <div class="chapter-tag">فصل ۱۰</div>
-    </div>
-  </a>
+    </a>
+  </div>
 
   <div class="spacer"></div>
 </div>
