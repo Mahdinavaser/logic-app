@@ -41,7 +41,7 @@
   .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
   .container {
     padding: 20px 16px;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   .info-box {
@@ -139,7 +139,6 @@
     text-decoration: none;
     color: inherit;
     display: block;
-    margin-bottom: 8px;
   }
   .chapter-card {
     background: white;
@@ -188,6 +187,20 @@
   .chapter-sub { font-size: 11px; color: #999; }
   .spacer { height: 40px; }
   .divider { height: 2px; background: #e0e5ec; margin: 30px 0; border-radius: 2px; }
+
+  /* Responsive Grid */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (min-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -228,85 +241,87 @@
   </div>
 
   <!-- لینک‌های مطالعه آنلاین کتاب اصلی -->
-  <a href="image-viewer.html?folder=files/book/main/intro&pages=10&title=معرفی کتاب&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">م</div>
-      <div class="chapter-info">
-        <div class="chapter-title">معرفی کتاب</div>
-        <div class="chapter-sub">مقدمه و پیش‌گفتار (۱۰ صفحه)</div>
+  <div class="grid-container">
+    <a href="image-viewer.html?folder=files/book/main/intro&pages=10&title=معرفی کتاب&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">م</div>
+        <div class="chapter-info">
+          <div class="chapter-title">معرفی کتاب</div>
+          <div class="chapter-sub">مقدمه و پیش‌گفتار (۱۰ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/main/sec1&pages=10&title=بخش ۱&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۱</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش اول</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۰ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/main/sec1&pages=10&title=بخش ۱&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۱</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش اول</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۰ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/main/sec2&pages=16&title=بخش ۲&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۲</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش دوم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۶ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/main/sec2&pages=16&title=بخش ۲&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۲</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش دوم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۶ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/main/sec3&pages=12&title=بخش ۳&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۳</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش سوم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۲ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/main/sec3&pages=12&title=بخش ۳&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۳</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش سوم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۲ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/main/sec4&pages=14&title=بخش ۴&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۴</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش چهارم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۴ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/main/sec4&pages=14&title=بخش ۴&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۴</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش چهارم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۴ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/main/sec5&pages=30&title=بخش ۵&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۵</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش پنجم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۳۰ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/main/sec5&pages=30&title=بخش ۵&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۵</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش پنجم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۳۰ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/main/sec6&pages=14&title=بخش ۶&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۶</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش ششم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۴ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/main/sec6&pages=14&title=بخش ۶&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۶</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش ششم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۴ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/main/sec7&pages=30&title=بخش ۷&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۷</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش هفتم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۳۰ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/main/sec7&pages=30&title=بخش ۷&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۷</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش هفتم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۳۰ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
 
   <div class="divider"></div>
 
@@ -333,105 +348,107 @@
   </div>
 
   <!-- لینک‌های مطالعه آنلاین کتاب کمک درسی -->
-  <a href="image-viewer.html?folder=files/book/help/ch1&pages=10&title=فصل ۱ (کمک آموزشی)&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num help-num">۱</div>
-      <div class="chapter-info">
-        <div class="chapter-title">فصل اول</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۰ صفحه)</div>
+  <div class="grid-container">
+    <a href="image-viewer.html?folder=files/book/help/ch1&pages=10&title=فصل ۱ (کمک آموزشی)&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num help-num">۱</div>
+        <div class="chapter-info">
+          <div class="chapter-title">فصل اول</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۰ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/help/ch2&pages=8&title=فصل ۲ (کمک آموزشی)&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num help-num">۲</div>
-      <div class="chapter-info">
-        <div class="chapter-title">فصل دوم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۸ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/help/ch2&pages=8&title=فصل ۲ (کمک آموزشی)&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num help-num">۲</div>
+        <div class="chapter-info">
+          <div class="chapter-title">فصل دوم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۸ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/help/ch3&pages=8&title=فصل ۳ (کمک آموزشی)&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num help-num">۳</div>
-      <div class="chapter-info">
-        <div class="chapter-title">فصل سوم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۸ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/help/ch3&pages=8&title=فصل ۳ (کمک آموزشی)&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num help-num">۳</div>
+        <div class="chapter-info">
+          <div class="chapter-title">فصل سوم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۸ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/help/ch4&pages=11&title=فصل ۴ (کمک آموزشی)&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num help-num">۴</div>
-      <div class="chapter-info">
-        <div class="chapter-title">فصل چهارم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۱ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/help/ch4&pages=11&title=فصل ۴ (کمک آموزشی)&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num help-num">۴</div>
+        <div class="chapter-info">
+          <div class="chapter-title">فصل چهارم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۱ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/help/ch5&pages=14&title=فصل ۵ (کمک آموزشی)&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num help-num">۵</div>
-      <div class="chapter-info">
-        <div class="chapter-title">فصل پنجم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۴ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/help/ch5&pages=14&title=فصل ۵ (کمک آموزشی)&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num help-num">۵</div>
+        <div class="chapter-info">
+          <div class="chapter-title">فصل پنجم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۴ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/help/ch6&pages=8&title=فصل ۶ (کمک آموزشی)&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num help-num">۶</div>
-      <div class="chapter-info">
-        <div class="chapter-title">فصل ششم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۸ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/help/ch6&pages=8&title=فصل ۶ (کمک آموزشی)&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num help-num">۶</div>
+        <div class="chapter-info">
+          <div class="chapter-title">فصل ششم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۸ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/help/ch7&pages=11&title=فصل ۷ (کمک آموزشی)&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num help-num">۷</div>
-      <div class="chapter-info">
-        <div class="chapter-title">فصل هفتم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۱ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/help/ch7&pages=11&title=فصل ۷ (کمک آموزشی)&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num help-num">۷</div>
+        <div class="chapter-info">
+          <div class="chapter-title">فصل هفتم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۱ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/help/ch8&pages=11&title=فصل ۸ (کمک آموزشی)&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num help-num">۸</div>
-      <div class="chapter-info">
-        <div class="chapter-title">فصل هشتم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۱ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/help/ch8&pages=11&title=فصل ۸ (کمک آموزشی)&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num help-num">۸</div>
+        <div class="chapter-info">
+          <div class="chapter-title">فصل هشتم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۱ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/help/ch9&pages=13&title=فصل ۹ (کمک آموزشی)&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num help-num">۹</div>
-      <div class="chapter-info">
-        <div class="chapter-title">فصل نهم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۳ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/help/ch9&pages=13&title=فصل ۹ (کمک آموزشی)&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num help-num">۹</div>
+        <div class="chapter-info">
+          <div class="chapter-title">فصل نهم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۳ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/book/help/ch10&pages=16&title=فصل ۱۰ (کمک آموزشی)&back=book.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num help-num">۱۰</div>
-      <div class="chapter-info">
-        <div class="chapter-title">فصل دهم</div>
-        <div class="chapter-sub">مطالعه آنلاین (۱۶ صفحه)</div>
+    <a href="image-viewer.html?folder=files/book/help/ch10&pages=16&title=فصل ۱۰ (کمک آموزشی)&back=book.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num help-num">۱۰</div>
+        <div class="chapter-info">
+          <div class="chapter-title">فصل دهم</div>
+          <div class="chapter-sub">مطالعه آنلاین (۱۶ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
 
   <div class="spacer"></div>
 </div>
