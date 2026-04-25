@@ -1,4 +1,4 @@
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -33,7 +33,7 @@
   }
   .container {
     padding: 20px 16px;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   .section-title {
@@ -47,7 +47,6 @@
     background: white;
     border-radius: 16px;
     padding: 16px 18px;
-    margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 14px;
@@ -96,6 +95,20 @@
     font-size: 20px;
   }
   .spacer { height: 30px; }
+
+  /* Responsive Grid */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  @media (min-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -110,80 +123,83 @@
 <div class="container">
   <div class="section-title">محتوای اصلی</div>
 
-  <a class="lesson-card" href="darsname.html">
-    <div class="lesson-icon c1">📖</div>
-    <div class="lesson-info">
-      <div class="lesson-title">درسنامه</div>
-      <div class="lesson-desc">متن کامل دروس و توضیحات</div>
-    </div>
-    <div class="lesson-arrow">‹</div>
-  </a>
+  <div class="grid-container">
+    <a class="lesson-card" href="darsname.html">
+      <div class="lesson-icon c1">📖</div>
+      <div class="lesson-info">
+        <div class="lesson-title">درسنامه</div>
+        <div class="lesson-desc">متن کامل دروس و توضیحات</div>
+      </div>
+      <div class="lesson-arrow">‹</div>
+    </a>
 
-  <!-- تغییر مهم در اینجا انجام شد: لینک از ketab.html به book.html تغییر کرد -->
-  <a class="lesson-card" href="book.html">
-    <div class="lesson-icon c2">📚</div>
-    <div class="lesson-info">
-      <div class="lesson-title">کتاب درسی</div>
-      <div class="lesson-desc">کتاب رسمی و کتاب کار منطق</div>
-    </div>
-    <div class="lesson-arrow">‹</div>
-  </a>
+    <a class="lesson-card" href="book.html">
+      <div class="lesson-icon c2">📚</div>
+      <div class="lesson-info">
+        <div class="lesson-title">کتاب درسی</div>
+        <div class="lesson-desc">کتاب رسمی و کتاب کار منطق</div>
+      </div>
+      <div class="lesson-arrow">‹</div>
+    </a>
 
-  <a class="lesson-card" href="powerpoint.html">
-    <div class="lesson-icon c3">📊</div>
-    <div class="lesson-info">
-      <div class="lesson-title">پاورپوینت تمام دروس</div>
-      <div class="lesson-desc">اسلایدهای آموزشی همه فصل‌ها</div>
-    </div>
-    <div class="lesson-arrow">‹</div>
-  </a>
+    <a class="lesson-card" href="powerpoint.html">
+      <div class="lesson-icon c3">📊</div>
+      <div class="lesson-info">
+        <div class="lesson-title">پاورپوینت تمام دروس</div>
+        <div class="lesson-desc">اسلایدهای آموزشی همه فصل‌ها</div>
+      </div>
+      <div class="lesson-arrow">‹</div>
+    </a>
 
-  <a class="lesson-card" href="jadval.html">
-    <div class="lesson-icon c4">🎯</div>
-    <div class="lesson-info">
-      <div class="lesson-title">جدول هدف و محتوا</div>
-      <div class="lesson-desc">اهداف و سرفصل‌های دوره</div>
-    </div>
-    <div class="lesson-arrow">‹</div>
-  </a>
+    <a class="lesson-card" href="jadval.html">
+      <div class="lesson-icon c4">🎯</div>
+      <div class="lesson-info">
+        <div class="lesson-title">جدول هدف و محتوا</div>
+        <div class="lesson-desc">اهداف و سرفصل‌های دوره</div>
+      </div>
+      <div class="lesson-arrow">‹</div>
+    </a>
+  </div>
 
   <div class="section-title">مطالب تکمیلی</div>
 
-  <a class="lesson-card" href="chalesh.html">
-    <div class="lesson-icon c5">🧩</div>
-    <div class="lesson-info">
-      <div class="lesson-title">مباحث چالشی منطق</div>
-      <div class="lesson-desc">سوالات و مباحث پیشرفته</div>
-    </div>
-    <div class="lesson-arrow">‹</div>
-  </a>
+  <div class="grid-container">
+    <a class="lesson-card" href="chalesh.html">
+      <div class="lesson-icon c5">🧩</div>
+      <div class="lesson-info">
+        <div class="lesson-title">مباحث چالشی منطق</div>
+        <div class="lesson-desc">سوالات و مباحث پیشرفته</div>
+      </div>
+      <div class="lesson-arrow">‹</div>
+    </a>
 
-  <a class="lesson-card" href="tolid.html">
-    <div class="lesson-icon c6">🎬</div>
-    <div class="lesson-info">
-      <div class="lesson-title">تولید محتوا</div>
-      <div class="lesson-desc">ویدیو و محتوای آموزشی تکمیلی</div>
-    </div>
-    <div class="lesson-arrow">‹</div>
-  </a>
+    <a class="lesson-card" href="tolid.html">
+      <div class="lesson-icon c6">🎬</div>
+      <div class="lesson-info">
+        <div class="lesson-title">تولید محتوا</div>
+        <div class="lesson-desc">ویدیو و محتوای آموزشی تکمیلی</div>
+      </div>
+      <div class="lesson-arrow">‹</div>
+    </a>
 
-  <a class="lesson-card" href="soal.html">
-    <div class="lesson-icon c7">📝</div>
-    <div class="lesson-info">
-      <div class="lesson-title">نمونه سوال امتحان</div>
-      <div class="lesson-desc">آزمون‌های تمرینی و نمونه سوالات</div>
-    </div>
-    <div class="lesson-arrow">‹</div>
-  </a>
+    <a class="lesson-card" href="soal.html">
+      <div class="lesson-icon c7">📝</div>
+      <div class="lesson-info">
+        <div class="lesson-title">نمونه سوال امتحان</div>
+        <div class="lesson-desc">آزمون‌های تمرینی و نمونه سوالات</div>
+      </div>
+      <div class="lesson-arrow">‹</div>
+    </a>
 
-  <a class="lesson-card" href="about.html">
-    <div class="lesson-icon c8">ℹ️</div>
-    <div class="lesson-info">
-      <div class="lesson-title">درباره ما</div>
-      <div class="lesson-desc">معرفی برنامه و سازنده</div>
-    </div>
-    <div class="lesson-arrow">‹</div>
-  </a>
+    <a class="lesson-card" href="about.html">
+      <div class="lesson-icon c8">ℹ️</div>
+      <div class="lesson-info">
+        <div class="lesson-title">درباره ما</div>
+        <div class="lesson-desc">معرفی برنامه و سازنده</div>
+      </div>
+      <div class="lesson-arrow">‹</div>
+    </a>
+  </div>
 
   <div class="spacer"></div>
 </div>
