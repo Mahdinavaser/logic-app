@@ -46,7 +46,7 @@
 
   .container {
     padding: 20px 16px;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
   }
 
@@ -141,13 +141,20 @@
   }
 
   .stats-row {
-    display: flex;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
     margin-bottom: 16px;
   }
 
+  @media (min-width: 600px) {
+    .stats-row {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+  }
+
   .stat-box {
-    flex: 1;
     background: white;
     border-radius: 14px;
     padding: 16px 10px;
@@ -199,6 +206,19 @@
   .info-value { font-weight: 600; color: #1a1a2e; font-size: 13px; }
 
   .spacer { height: 30px; }
+
+  /* Responsive Grid */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  @media (min-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -259,7 +279,7 @@
     </div>
     <div class="info-row">
       <span class="info-label">🎓 پایه تحصیلی</span>
-      <span class="info-value">دهم </span>
+      <span class="info-value">دهم</span>
     </div>
     <div class="info-row">
       <span class="info-label">📖 تعداد فصل</span>
