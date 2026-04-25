@@ -41,7 +41,7 @@
   .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
   .container {
     padding: 20px 16px;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   .info-box {
@@ -66,7 +66,7 @@
     background: white;
     border-radius: 16px;
     padding: 16px 18px;
-    margin-bottom: 10px;
+    /* margin-bottom removed - grid gap handles spacing */
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   }
   .file-top {
@@ -186,6 +186,20 @@
     white-space: nowrap;
   }
   .spacer { height: 30px; }
+
+  /* Responsive grid for tablet */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (min-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -206,98 +220,100 @@
   <!-- بخش اول: نمونه سوالات A تا G -->
   <div class="section-title">📄 نمونه سوالات (A تا G)</div>
 
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon green-icon">📝</div>
-      <div class="file-info">
-        <div class="file-name">نمونه سوال A</div>
-        <div class="file-meta">تصاویر · منطق پایه دهم</div>
+  <div class="grid-container">
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon green-icon">📝</div>
+        <div class="file-info">
+          <div class="file-name">نمونه سوال A</div>
+          <div class="file-meta">تصاویر · منطق پایه دهم</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-a&pages=4&title=نمونه سوال A&back=soal.html">👁️ مشاهده (۴ صفحه)</a>
       </div>
     </div>
-    <div class="action-row">
-      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-a&pages=4&title=نمونه سوال A&back=soal.html">👁️ مشاهده (۴ صفحه)</a>
-    </div>
-  </div>
 
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon green-icon">📝</div>
-      <div class="file-info">
-        <div class="file-name">نمونه سوال B</div>
-        <div class="file-meta">تصاویر · منطق پایه دهم</div>
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon green-icon">📝</div>
+        <div class="file-info">
+          <div class="file-name">نمونه سوال B</div>
+          <div class="file-meta">تصاویر · منطق پایه دهم</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-b&pages=4&title=نمونه سوال B&back=soal.html">👁️ مشاهده (۴ صفحه)</a>
       </div>
     </div>
-    <div class="action-row">
-      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-b&pages=4&title=نمونه سوال B&back=soal.html">👁️ مشاهده (۴ صفحه)</a>
-    </div>
-  </div>
 
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon green-icon">📝</div>
-      <div class="file-info">
-        <div class="file-name">نمونه سوال C</div>
-        <div class="file-meta">تصاویر · منطق پایه دهم</div>
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon green-icon">📝</div>
+        <div class="file-info">
+          <div class="file-name">نمونه سوال C</div>
+          <div class="file-meta">تصاویر · منطق پایه دهم</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-c&pages=5&title=نمونه سوال C&back=soal.html">👁️ مشاهده (۵ صفحه)</a>
       </div>
     </div>
-    <div class="action-row">
-      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-c&pages=5&title=نمونه سوال C&back=soal.html">👁️ مشاهده (۵ صفحه)</a>
-    </div>
-  </div>
 
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon green-icon">📝</div>
-      <div class="file-info">
-        <div class="file-name">نمونه سوال D</div>
-        <div class="file-meta">تصاویر · منطق پایه دهم</div>
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon green-icon">📝</div>
+        <div class="file-info">
+          <div class="file-name">نمونه سوال D</div>
+          <div class="file-meta">تصاویر · منطق پایه دهم</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-d&pages=5&title=نمونه سوال D&back=soal.html">👁️ مشاهده (۵ صفحه)</a>
       </div>
     </div>
-    <div class="action-row">
-      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-d&pages=5&title=نمونه سوال D&back=soal.html">👁️ مشاهده (۵ صفحه)</a>
-    </div>
-  </div>
 
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon green-icon">📝</div>
-      <div class="file-info">
-        <div class="file-name">نمونه سوال E</div>
-        <div class="file-meta">تصاویر · منطق پایه دهم</div>
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon green-icon">📝</div>
+        <div class="file-info">
+          <div class="file-name">نمونه سوال E</div>
+          <div class="file-meta">تصاویر · منطق پایه دهم</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-e&pages=4&title=نمونه سوال E&back=soal.html">👁️ مشاهده (۴ صفحه)</a>
       </div>
     </div>
-    <div class="action-row">
-      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-e&pages=4&title=نمونه سوال E&back=soal.html">👁️ مشاهده (۴ صفحه)</a>
-    </div>
-  </div>
 
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon green-icon">📝</div>
-      <div class="file-info">
-        <div class="file-name">نمونه سوال F</div>
-        <div class="file-meta">تصاویر · منطق پایه دهم</div>
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon green-icon">📝</div>
+        <div class="file-info">
+          <div class="file-name">نمونه سوال F</div>
+          <div class="file-meta">تصاویر · منطق پایه دهم</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-f&pages=3&title=نمونه سوال F&back=soal.html">👁️ مشاهده (۳ صفحه)</a>
       </div>
     </div>
-    <div class="action-row">
-      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-f&pages=3&title=نمونه سوال F&back=soal.html">👁️ مشاهده (۳ صفحه)</a>
-    </div>
-  </div>
 
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon green-icon">📝</div>
-      <div class="file-info">
-        <div class="file-name">نمونه سوال G</div>
-        <div class="file-meta">تصاویر · منطق پایه دهم</div>
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon green-icon">📝</div>
+        <div class="file-info">
+          <div class="file-name">نمونه سوال G</div>
+          <div class="file-meta">تصاویر · منطق پایه دهم</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-g&pages=3&title=نمونه سوال G&back=soal.html">👁️ مشاهده (۳ صفحه)</a>
       </div>
     </div>
-    <div class="action-row">
-      <a class="action-btn btn-green" href="image-viewer.html?folder=files/soal/soal-g&pages=3&title=نمونه سوال G&back=soal.html">👁️ مشاهده (۳ صفحه)</a>
-    </div>
-  </div>
+  </div><!-- end grid-container -->
 
-  <!-- بخش دوم: امتحان نوبت دوم ۱۴۰۴ -->
+  <!-- بخش دوم: امتحان نوبت دوم ۱۴۰۴ (full-width group card) -->
   <div class="section-title">📋 امتحان نوبت دوم ۱۴۰۴</div>
   <div class="group-card">
     <div class="group-header">
@@ -337,13 +353,13 @@
         <div class="sub-meta">تصاویر · پاسخ تشریحی</div>
       </div>
       <div class="sub-actions">
-        <!-- THE FIX IS RIGHT HERE: -->
+        <!-- FIXED: pasokh-n2 folder -->
         <a class="sub-btn btn-red" href="image-viewer.html?folder=files/soal/pasokh-n2&pages=3&title=پاسخنامه نوبت دوم&back=soal.html">👁️ مشاهده</a>
       </div>
     </div>
   </div>
 
-  <!-- بخش سوم: آزمون صبح و عصر -->
+  <!-- بخش سوم: آزمون صبح و عصر (full-width group card) -->
   <div class="section-title">🌅 آزمون‌های صبح و عصر</div>
   <div class="group-card">
     <div class="group-header">
