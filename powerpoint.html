@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -41,7 +41,7 @@
   .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
   .container {
     padding: 20px 16px;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   .info-box {
@@ -137,7 +137,7 @@
     text-decoration: none;
     color: inherit;
     display: block;
-    margin-bottom: 8px;
+    /* margin-bottom handled by grid gap */
   }
   .chapter-card {
     background: white;
@@ -178,6 +178,20 @@
   }
   .chapter-sub { font-size: 11px; color: #999; }
   .spacer { height: 30px; }
+
+  /* Responsive grid for tablet */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (min-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -214,95 +228,97 @@
 
   <div class="section-title">فهرست اسلایدها (برای مطالعه کلیک کنید)</div>
 
-  <a href="image-viewer.html?folder=files/ppt/sec1&pages=30&title=بخش ۱&back=powerpoint.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۱</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش اول</div>
-        <div class="chapter-sub">مشاهده اسلایدها (۳۰ صفحه)</div>
+  <div class="grid-container">
+    <a href="image-viewer.html?folder=files/ppt/sec1&pages=30&title=بخش ۱&back=powerpoint.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۱</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش اول</div>
+          <div class="chapter-sub">مشاهده اسلایدها (۳۰ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/ppt/sec2&pages=23&title=بخش ۲&back=powerpoint.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۲</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش دوم</div>
-        <div class="chapter-sub">مشاهده اسلایدها (۲۳ صفحه)</div>
+    <a href="image-viewer.html?folder=files/ppt/sec2&pages=23&title=بخش ۲&back=powerpoint.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۲</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش دوم</div>
+          <div class="chapter-sub">مشاهده اسلایدها (۲۳ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/ppt/sec3&pages=14&title=بخش ۳&back=powerpoint.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۳</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش سوم</div>
-        <div class="chapter-sub">مشاهده اسلایدها (۱۴ صفحه)</div>
+    <a href="image-viewer.html?folder=files/ppt/sec3&pages=14&title=بخش ۳&back=powerpoint.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۳</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش سوم</div>
+          <div class="chapter-sub">مشاهده اسلایدها (۱۴ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/ppt/sec4&pages=12&title=بخش ۴&back=powerpoint.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۴</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش چهارم</div>
-        <div class="chapter-sub">مشاهده اسلایدها (۱۲ صفحه)</div>
+    <a href="image-viewer.html?folder=files/ppt/sec4&pages=12&title=بخش ۴&back=powerpoint.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۴</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش چهارم</div>
+          <div class="chapter-sub">مشاهده اسلایدها (۱۲ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/ppt/sec5&pages=19&title=بخش ۵&back=powerpoint.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۵</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش پنجم</div>
-        <div class="chapter-sub">مشاهده اسلایدها (۱۹ صفحه)</div>
+    <a href="image-viewer.html?folder=files/ppt/sec5&pages=19&title=بخش ۵&back=powerpoint.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۵</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش پنجم</div>
+          <div class="chapter-sub">مشاهده اسلایدها (۱۹ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/ppt/sec6&pages=21&title=بخش ۶&back=powerpoint.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۶</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش ششم</div>
-        <div class="chapter-sub">مشاهده اسلایدها (۲۱ صفحه)</div>
+    <a href="image-viewer.html?folder=files/ppt/sec6&pages=21&title=بخش ۶&back=powerpoint.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۶</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش ششم</div>
+          <div class="chapter-sub">مشاهده اسلایدها (۲۱ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/ppt/sec7&pages=16&title=بخش ۷&back=powerpoint.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۷</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش هفتم</div>
-        <div class="chapter-sub">مشاهده اسلایدها (۱۶ صفحه)</div>
+    <a href="image-viewer.html?folder=files/ppt/sec7&pages=16&title=بخش ۷&back=powerpoint.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۷</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش هفتم</div>
+          <div class="chapter-sub">مشاهده اسلایدها (۱۶ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/ppt/sec8&pages=18&title=بخش ۸&back=powerpoint.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۸</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش هشتم</div>
-        <div class="chapter-sub">مشاهده اسلایدها (۱۸ صفحه)</div>
+    <a href="image-viewer.html?folder=files/ppt/sec8&pages=18&title=بخش ۸&back=powerpoint.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۸</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش هشتم</div>
+          <div class="chapter-sub">مشاهده اسلایدها (۱۸ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="image-viewer.html?folder=files/ppt/sec9&pages=18&title=بخش ۹&back=powerpoint.html" class="chapter-link">
-    <div class="chapter-card">
-      <div class="chapter-num">۹</div>
-      <div class="chapter-info">
-        <div class="chapter-title">بخش نهم</div>
-        <div class="chapter-sub">مشاهده اسلایدها (۱۸ صفحه)</div>
+    <a href="image-viewer.html?folder=files/ppt/sec9&pages=18&title=بخش ۹&back=powerpoint.html" class="chapter-link">
+      <div class="chapter-card">
+        <div class="chapter-num">۹</div>
+        <div class="chapter-info">
+          <div class="chapter-title">بخش نهم</div>
+          <div class="chapter-sub">مشاهده اسلایدها (۱۸ صفحه)</div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
 
   <div class="spacer"></div>
 </div>
