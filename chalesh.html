@@ -41,7 +41,7 @@
   .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
   .container {
     padding: 20px 16px;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   .info-box {
@@ -145,7 +145,6 @@
     background: white;
     border-radius: 16px;
     padding: 18px;
-    margin-bottom: 12px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     border-right: 4px solid #c0392b;
   }
@@ -167,6 +166,20 @@
     line-height: 1.8;
   }
   .spacer { height: 30px; }
+
+  /* Responsive Grid */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (min-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -206,43 +219,45 @@
 
   <div class="section-title2">🔥 نمونه مباحث چالشی</div>
 
-  <div class="challenge-card">
-    <div class="challenge-header">
-      <span class="challenge-icon">🔴</span>
-      <span class="challenge-title">مغالطات رایج در استدلال</span>
+  <div class="grid-container">
+    <div class="challenge-card">
+      <div class="challenge-header">
+        <span class="challenge-icon">🔴</span>
+        <span class="challenge-title">مغالطات رایج در استدلال</span>
+      </div>
+      <div class="challenge-text">
+        چگونه یک استدلال ظاهراً درست می‌تواند از نظر منطقی نادرست باشد؟ بررسی انواع مغالطات و روش شناسایی آن‌ها.
+      </div>
     </div>
-    <div class="challenge-text">
-      چگونه یک استدلال ظاهراً درست می‌تواند از نظر منطقی نادرست باشد؟ بررسی انواع مغالطات و روش شناسایی آن‌ها.
-    </div>
-  </div>
 
-  <div class="challenge-card">
-    <div class="challenge-header">
-      <span class="challenge-icon">🔴</span>
-      <span class="challenge-title">تناقض و تضاد در قضایا</span>
+    <div class="challenge-card">
+      <div class="challenge-header">
+        <span class="challenge-icon">🔴</span>
+        <span class="challenge-title">تناقض و تضاد در قضایا</span>
+      </div>
+      <div class="challenge-text">
+        تفاوت دقیق بین تناقض، تضاد و تداخل قضایا و کاربرد آن‌ها در اثبات و رد استدلال‌های منطقی.
+      </div>
     </div>
-    <div class="challenge-text">
-      تفاوت دقیق بین تناقض، تضاد و تداخل قضایا و کاربرد آن‌ها در اثبات و رد استدلال‌های منطقی.
-    </div>
-  </div>
 
-  <div class="challenge-card">
-    <div class="challenge-header">
-      <span class="challenge-icon">🔴</span>
-      <span class="challenge-title">قیاس‌های پیچیده</span>
+    <div class="challenge-card">
+      <div class="challenge-header">
+        <span class="challenge-icon">🔴</span>
+        <span class="challenge-title">قیاس‌های پیچیده</span>
+      </div>
+      <div class="challenge-text">
+        تحلیل قیاس‌های چندمرحله‌ای و بررسی اعتبار اشکال مختلف قیاس اقترانی در مسائل واقعی.
+      </div>
     </div>
-    <div class="challenge-text">
-      تحلیل قیاس‌های چندمرحله‌ای و بررسی اعتبار اشکال مختلف قیاس اقترانی در مسائل واقعی.
-    </div>
-  </div>
 
-  <div class="challenge-card">
-    <div class="challenge-header">
-      <span class="challenge-icon">🔴</span>
-      <span class="challenge-title">سنجشگری در تفکر روزمره</span>
-    </div>
-    <div class="challenge-text">
-      چگونه منطق را در زندگی واقعی به کار ببریم؟ تحلیل اخبار، مناظره‌ها و استدلال‌های روزمره.
+    <div class="challenge-card">
+      <div class="challenge-header">
+        <span class="challenge-icon">🔴</span>
+        <span class="challenge-title">سنجشگری در تفکر روزمره</span>
+      </div>
+      <div class="challenge-text">
+        چگونه منطق را در زندگی واقعی به کار ببریم؟ تحلیل اخبار، مناظره‌ها و استدلال‌های روزمره.
+      </div>
     </div>
   </div>
 
