@@ -41,7 +41,7 @@
   .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
   .container {
     padding: 20px 16px;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   .info-box {
@@ -119,6 +119,24 @@
     color: white;
   }
   .spacer { height: 30px; }
+
+  /* Responsive grid for tablet */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (min-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
+  /* Remove extra margin from cards inside grid */
+  .grid-container .file-card {
+    margin-bottom: 0;
+  }
 </style>
 </head>
 <body>
@@ -137,87 +155,89 @@
   </div>
 
   <div class="section-title">📊 چارت‌ها و جداول</div>
-
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon">📊</div>
-      <div class="file-info">
-        <div class="file-name">جدول درس ۱</div>
-        <div class="file-meta">تصویر · خلاصه‌سازی مفهومی</div>
+  <div class="grid-container">
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon">📊</div>
+        <div class="file-info">
+          <div class="file-name">جدول درس ۱</div>
+          <div class="file-meta">تصویر · خلاصه‌سازی مفهومی</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch1&pages=1&title=جدول درس ۱&back=tolid.html">👁️ مشاهده جدول</a>
       </div>
     </div>
-    <div class="action-row">
-      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch1&pages=1&title=جدول درس ۱&back=tolid.html">👁️ مشاهده جدول</a>
-    </div>
-  </div>
 
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon">🔗</div>
-      <div class="file-info">
-        <div class="file-name">ترکیب درس ۳ و ۶</div>
-        <div class="file-meta">تصویر · نمودار ارتباطی</div>
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon">🔗</div>
+        <div class="file-info">
+          <div class="file-name">ترکیب درس ۳ و ۶</div>
+          <div class="file-meta">تصویر · نمودار ارتباطی</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch3-6&pages=1&title=ترکیب درس ۳ و ۶&back=tolid.html">👁️ مشاهده تصویر</a>
       </div>
     </div>
-    <div class="action-row">
-      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch3-6&pages=1&title=ترکیب درس ۳ و ۶&back=tolid.html">👁️ مشاهده تصویر</a>
-    </div>
-  </div>
 
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon">📉</div>
-      <div class="file-info">
-        <div class="file-name">چارت درس ۶</div>
-        <div class="file-meta">تصویر · دسته‌بندی قضایا</div>
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon">📉</div>
+        <div class="file-info">
+          <div class="file-name">چارت درس ۶</div>
+          <div class="file-meta">تصویر · دسته‌بندی قضایا</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch6&pages=1&title=چارت درس ۶&back=tolid.html">👁️ مشاهده چارت</a>
       </div>
     </div>
-    <div class="action-row">
-      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch6&pages=1&title=چارت درس ۶&back=tolid.html">👁️ مشاهده چارت</a>
-    </div>
-  </div>
+  </div><!-- grid-container -->
 
   <div class="section-title">📑 ارائه‌ها و اسلایدها</div>
-
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon">📽️</div>
-      <div class="file-info">
-        <div class="file-name">پاورپوینت درس ۶</div>
-        <div class="file-meta">تصاویر · قضیه حملی (۱۳ صفحه)</div>
+  <div class="grid-container">
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon">📽️</div>
+        <div class="file-info">
+          <div class="file-name">پاورپوینت درس ۶</div>
+          <div class="file-meta">تصاویر · قضیه حملی (۱۳ صفحه)</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch6ppt&pages=14&title=پاورپوینت درس ۶&back=tolid.html">👁️ مشاهده اسلایدها</a>
       </div>
     </div>
-    <div class="action-row">
-      <!-- You didn't specify the page count for ch6ppt, so I put 14 based on our previous logic. Change "pages=14" if it has a different number of images! -->
-      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/ch6ppt&pages=14&title=پاورپوینت درس ۶&back=tolid.html">👁️ مشاهده اسلایدها</a>
-    </div>
-  </div>
 
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon">📽️</div>
-      <div class="file-info">
-        <div class="file-name">پاورپوینت درس ۸</div>
-        <div class="file-meta">تصاویر · اسلایدهای آموزشی (۱۸ صفحه)</div>
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon">📽️</div>
+        <div class="file-info">
+          <div class="file-name">پاورپوینت درس ۸</div>
+          <div class="file-meta">تصاویر · اسلایدهای آموزشی (۱۸ صفحه)</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/pptch8&pages=18&title=پاورپوینت درس ۸&back=tolid.html">👁️ مشاهده اسلایدها</a>
       </div>
     </div>
-    <div class="action-row">
-      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/pptch8&pages=18&title=پاورپوینت درس ۸&back=tolid.html">👁️ مشاهده اسلایدها</a>
-    </div>
-  </div>
+  </div><!-- grid-container -->
 
   <div class="section-title">🎨 محتوای گرافیکی</div>
-
-  <div class="file-card">
-    <div class="file-top">
-      <div class="file-icon">🎨</div>
-      <div class="file-info">
-        <div class="file-name">تصاویر تولید محتوا</div>
-        <div class="file-meta">تصاویر · گرافیک آموزشی (۴ صفحه)</div>
+  <div class="grid-container">
+    <div class="file-card">
+      <div class="file-top">
+        <div class="file-icon">🎨</div>
+        <div class="file-info">
+          <div class="file-name">تصاویر تولید محتوا</div>
+          <div class="file-meta">تصاویر · گرافیک آموزشی (۴ صفحه)</div>
+        </div>
       </div>
-    </div>
-    <div class="action-row">
-      <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/tm&pages=4&title=تصاویر تولید محتوا&back=tolid.html">👁️ مشاهده تصاویر</a>
+      <div class="action-row">
+        <a class="action-btn btn-cyan" href="image-viewer.html?folder=files/mohtava/tm&pages=4&title=تصاویر تولید محتوا&back=tolid.html">👁️ مشاهده تصاویر</a>
+      </div>
     </div>
   </div>
 
