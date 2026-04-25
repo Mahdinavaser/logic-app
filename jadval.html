@@ -41,7 +41,7 @@
   .header-text p { font-size: 12px; opacity: 0.75; margin-top: 3px; }
   .container {
     padding: 20px 16px;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   .info-box {
@@ -193,6 +193,20 @@
   }
   .goal-text { color: #444; }
   .spacer { height: 30px; }
+
+  /* Responsive grid for tablet */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (min-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -231,104 +245,108 @@
 
   <div class="section-title2">اهداف فصل‌های درسی</div>
 
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <div class="chapter-num">۱</div>
-      <div class="chapter-name">منطق، ترازوی اندیشه</div>
-    </div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با تعریف و اهمیت منطق</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">درک نقش منطق در تنظیم تفکر صحیح</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با تاریخچه علم منطق</div></div>
-  </div>
+  <div class="grid-container">
 
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <div class="chapter-num">۲</div>
-      <div class="chapter-name">لفظ و معنا</div>
+    <div class="chapter-block">
+      <div class="chapter-header">
+        <div class="chapter-num">۱</div>
+        <div class="chapter-name">منطق، ترازوی اندیشه</div>
+      </div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با تعریف و اهمیت منطق</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">درک نقش منطق در تنظیم تفکر صحیح</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با تاریخچه علم منطق</div></div>
     </div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت رابطه لفظ و معنا</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین دلالت مطابقی، تضمنی و التزامی</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی انواع الفاظ از نظر منطقی</div></div>
-  </div>
 
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <div class="chapter-num">۳</div>
-      <div class="chapter-name">مفهوم و مصداق</div>
+    <div class="chapter-block">
+      <div class="chapter-header">
+        <div class="chapter-num">۲</div>
+        <div class="chapter-name">لفظ و معنا</div>
+      </div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت رابطه لفظ و معنا</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین دلالت مطابقی، تضمنی و التزامی</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی انواع الفاظ از نظر منطقی</div></div>
     </div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین مفهوم و مصداق</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع مفاهیم کلی و جزئی</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی نسب اربعه بین مفاهیم</div></div>
-  </div>
 
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <div class="chapter-num">۴</div>
-      <div class="chapter-name">اقسام و شرایط تعریف</div>
+    <div class="chapter-block">
+      <div class="chapter-header">
+        <div class="chapter-num">۳</div>
+        <div class="chapter-name">مفهوم و مصداق</div>
+      </div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین مفهوم و مصداق</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع مفاهیم کلی و جزئی</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی نسب اربعه بین مفاهیم</div></div>
     </div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع تعریف (حد و رسم)</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با شرایط تعریف صحیح</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تشخیص تعریف‌های نادرست</div></div>
-  </div>
 
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <div class="chapter-num">۵</div>
-      <div class="chapter-name">اقسام استدلال استقرائی</div>
+    <div class="chapter-block">
+      <div class="chapter-header">
+        <div class="chapter-num">۴</div>
+        <div class="chapter-name">اقسام و شرایط تعریف</div>
+      </div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع تعریف (حد و رسم)</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با شرایط تعریف صحیح</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تشخیص تعریف‌های نادرست</div></div>
     </div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت استدلال استقرائی و انواع آن</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین استقراء تام و ناقص</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">کاربرد استدلال استقرائی در علوم</div></div>
-  </div>
 
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <div class="chapter-num">۶</div>
-      <div class="chapter-name">قضیه تحمیلی</div>
+    <div class="chapter-block">
+      <div class="chapter-header">
+        <div class="chapter-num">۵</div>
+        <div class="chapter-name">اقسام استدلال استقرائی</div>
+      </div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت استدلال استقرائی و انواع آن</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین استقراء تام و ناقص</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">کاربرد استدلال استقرائی در علوم</div></div>
     </div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت ساختار قضیه و اجزای آن</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین قضایای موجبه و سالبه</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی کمیت و کیفیت قضایا</div></div>
-  </div>
 
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <div class="chapter-num">۷</div>
-      <div class="chapter-name">احکام قضایای حملی</div>
+    <div class="chapter-block">
+      <div class="chapter-header">
+        <div class="chapter-num">۶</div>
+        <div class="chapter-name">قضیه تحمیلی</div>
+      </div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت ساختار قضیه و اجزای آن</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین قضایای موجبه و سالبه</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی کمیت و کیفیت قضایا</div></div>
     </div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت رابطه تناقض و تضاد</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">یادگیری قواعد عکس قضایا</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">کاربرد احکام در استدلال‌های منطقی</div></div>
-  </div>
 
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <div class="chapter-num">۸</div>
-      <div class="chapter-name">قیاس اقترانی</div>
+    <div class="chapter-block">
+      <div class="chapter-header">
+        <div class="chapter-num">۷</div>
+        <div class="chapter-name">احکام قضایای حملی</div>
+      </div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت رابطه تناقض و تضاد</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">یادگیری قواعد عکس قضایا</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">کاربرد احکام در استدلال‌های منطقی</div></div>
     </div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت ساختار قیاس اقترانی</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی اشکال چهارگانه قیاس</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تشخیص قیاس‌های معتبر و نامعتبر</div></div>
-  </div>
 
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <div class="chapter-num">۹</div>
-      <div class="chapter-name">قضیه شرطی و قیاس استثنایی</div>
+    <div class="chapter-block">
+      <div class="chapter-header">
+        <div class="chapter-num">۸</div>
+        <div class="chapter-name">قیاس اقترانی</div>
+      </div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت ساختار قیاس اقترانی</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">بررسی اشکال چهارگانه قیاس</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تشخیص قیاس‌های معتبر و نامعتبر</div></div>
     </div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع قضایای شرطی</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">یادگیری ساختار قیاس استثنایی</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین وضع و رفع در قیاس</div></div>
-  </div>
 
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <div class="chapter-num">۱۰</div>
-      <div class="chapter-name">سنجشگری در تفکر</div>
+    <div class="chapter-block">
+      <div class="chapter-header">
+        <div class="chapter-num">۹</div>
+        <div class="chapter-name">قضیه شرطی و قیاس استثنایی</div>
+      </div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع قضایای شرطی</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">یادگیری ساختار قیاس استثنایی</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تمایز بین وضع و رفع در قیاس</div></div>
     </div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با تفکر انتقادی و اهمیت آن</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع مغالطات رایج</div></div>
-    <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تقویت مهارت تحلیل و ارزیابی استدلال</div></div>
+
+    <div class="chapter-block">
+      <div class="chapter-header">
+        <div class="chapter-num">۱۰</div>
+        <div class="chapter-name">سنجشگری در تفکر</div>
+      </div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">آشنایی با تفکر انتقادی و اهمیت آن</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">شناخت انواع مغالطات رایج</div></div>
+      <div class="goal-row"><div class="goal-dot"></div><div class="goal-text">تقویت مهارت تحلیل و ارزیابی استدلال</div></div>
+    </div>
+
   </div>
 
   <div class="spacer"></div>
