@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>منطیکا - اتاق گفتگو</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+        :root {
+            --primary-color: #4f46e5; 
+            --bg-color: #f3f4f6;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --white: #ffffff;
+            --teacher-bg: #ecfdf5;
+            --teacher-border: #10b981;
+            --danger: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            -webkit-tap-highlight-color: transparent; 
+        }
+
+        body {
+            background-color: var(--bg-color);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Test Panel (Just for you to test offline) --- */
+        .test-panel {
+            background: #333;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            font-size: 0.8rem;
+            z-index: 100;
+        }
+        .test-panel button {
+            background: #555; border: none; color: white; padding: 3px 8px; border-radius: 4px; margin: 0 5px;
+        }
+        .test-panel button.active { background: var(--primary-color); }
+
+        /* --- Header --- */
+        .chat-header {
+            background-color: var(--white);
+            padding: 12px 20px;
+            padding-top: max(12px, env(safe-area-inset-top)); 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 10;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Teacher Only Button */
+        .teacher-only { display: none; }
+        body.is-teacher .teacher-only { display: inline-block; }
+
+        .mute-btn {
+            background: #fef2f2;
+            color: var(--danger);
+            border: 1px solid var(--danger);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        /* --- Chat Area --- */
+        .chat-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .msg-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .msg-row.sent { flex-direction: row-reverse; }
+
+        .msg-wrapper {
+            display: flex;
+            flex-direction: column;
+            max-width: 85%;
+        }
+
+        .sender-name {
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            margin-right: 4px;
+            color: var(--text-muted);
+        }
+
+        .msg-bubble {
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .received .msg-bubble {
+            background-color: var(--white);
+            color: var(--text-main);
+            border-top-right-radius: 4px; 
+        }
+
+        .sent .msg-bubble {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-top-left-radius: 4px; 
+        }
+
+        .sent .sender-name { display: none; }
+
+        .teacher .sender-name { color: #047857; }
+        .teacher .msg-bubble {
+            background-color: var(--teacher-bg);
+            border: 1px solid var(--teacher-border);
+        }
+
+        /* Delete Button */
+        .delete-btn {
+            background: none;
+            border: none;
+            color: var(--danger);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* --- Input Area --- */
+        .input-area {
+            background-color: var(--white);
+            padding: 12px 16px;
+            padding-bottom: max(12px, env(safe-area-inset-bottom)); 
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.03);
+        }
+
+        .chat-input {
+            flex: 1;
+            background-color: var(--bg-color);
+            border: none;
+            padding: 14px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .send-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .send-btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+        /* Muted State for Students */
+        .chat-muted-msg {
+            display: none;
+            flex: 1;
+            text-align: center;
+            color: var(--danger);
+            font-weight: bold;
+            padding: 14px;
+        }
+        body.is-student.chat-is-muted .chat-input,
+        body.is-student.chat-is-muted .send-btn { display: none; }
+        body.is-student.chat-is-muted .chat-muted-msg { display: block; }
+
+    </style>
+</head>
+<body class="is-student">
+
+    <!-- Development Test Panel -->
+    <div class="test-panel">
+        تست نقش: 
+        <button id="btn-student" class="active" onclick="switchRole('student')">دانش‌آموز</button>
+        <button id="btn-teacher" onclick="switchRole('teacher')">استاد</button>
+    </div>
+
+    <header class="chat-header">
+        <div class="brand-name">منطیکا</div>
+        <div class="header-actions">
+            <!-- This button only shows when in Teacher mode -->
+            <button class="mute-btn teacher-only" onclick="toggleMute()">🔕 بستن چت</button>
+            <span style="font-size: 0.8rem; font-weight: bold;">کلاس Node.js</span>
+        </div>
+    </header>
+
+    <main class="chat-area" id="chat-box">
+        <!-- Message 1 -->
+        <div class="msg-row received" id="msg-1">
+            <div class="msg-wrapper teacher">
+                <div class="sender-name">استاد (مدیر)</div>
+                <div class="msg-bubble">سلام بچه‌ها! به کلاس امروز خوش آمدید.</div>
+            </div>
+            <button class="delete-btn teacher-only" onclick="deleteMsg('msg-1')">❌</button>
+        </div>
+
+        <!-- Message 2 -->
+        <div class="msg-row received" id="msg-2">
+            <div class="msg-wrapper">
+                <div class="sender-name">آرش</div>
+                <div class="msg-bubble">سلام استاد، سیستم من آماده است.</div>
+            </div>
+            <button class="delete-btn teacher-only" onclick="deleteMsg('msg-2')">❌</button>
+        </div>
+    </main>
+
+    <footer class="input-area">
+        <div class="chat-muted-msg">استاد ارسال پیام را موقتاً بسته است 🔒</div>
+        <input type="text" class="chat-input" placeholder="پیام خود را بنویسید...">
+        <button class="send-btn">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+        </button>
+    </footer>
+
+    <!-- JavaScript to handle the logic -->
+    <script>
+        let isMuted = false;
+
+        // Switch between Student and Teacher modes
+        function switchRole(role) {
+            document.body.className = role === 'teacher' ? 'is-teacher' : 'is-student';
+            
+            // Re-apply mute state class if needed
+            if (isMuted) document.body.classList.add('chat-is-muted');
+            
+            // Update test buttons
+            document.getElementById('btn-student').className = role === 'student' ? 'active' : '';
+            document.getElementById('btn-teacher').className = role === 'teacher' ? 'active' : '';
+        }
+
+        // Teacher ability: Mute the chat
+        function toggleMute() {
+            isMuted = !isMuted;
+            const muteBtn = document.querySelector('.mute-btn');
+            if (isMuted) {
+                document.body.classList.add('chat-is-muted');
+                muteBtn.innerHTML = '🔔 باز کردن چت';
+                muteBtn.style.background = '#dcfce7';
+                muteBtn.style.borderColor = '#16a34a';
+                muteBtn.style.color = '#16a34a';
+            } else {
+                document.body.classList.remove('chat-is-muted');
+                muteBtn.innerHTML = '🔕 بستن چت';
+                muteBtn.style.background = '#fef2f2';
+                muteBtn.style.borderColor = '#ef4444';
+                muteBtn.style.color = '#ef4444';
+            }
+        }
+
+        // Teacher ability: Delete a message
+        function deleteMsg(msgId) {
+            const msgElement = document.getElementById(msgId);
+            if (msgElement) {
+                msgElement.style.display = 'none'; // Hides it visually
+            }
+        }
+    </script>
+
+</body>
+</html>
