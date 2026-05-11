@@ -62,6 +62,16 @@
     border-color: #0f3460;
     box-shadow: 0 4px 15px rgba(15,52,96,0.15);
   }
+  
+  /* افکت ویژه برای متمایز کردن چت روم */
+  .chat-card {
+    border: 1px solid #e0e7ff;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.1);
+  }
+  .chat-card:active {
+    border-color: #4f46e5;
+  }
+
   .lesson-icon {
     width: 46px;
     height: 46px;
@@ -80,6 +90,8 @@
   .c6 { background: #e8fdfd; }
   .c7 { background: #fdfde8; }
   .c8 { background: #f0f0f0; }
+  .c9 { background: #e0e7ff; } /* رنگ مخصوص اتاق گفتگو */
+
   .lesson-info { flex: 1; }
   .lesson-title {
     font-size: 15px;
@@ -95,7 +107,7 @@
     font-size: 20px;
   }
   .spacer { height: 30px; }
-
+  
   /* Responsive Grid */
   .grid-container {
     display: grid;
@@ -107,6 +119,10 @@
     .grid-container {
       grid-template-columns: 1fr 1fr;
       gap: 14px;
+    }
+    /* برای اینکه دکمه چت در تبلت تمام عرض را بگیرد */
+    .full-width {
+      grid-column: 1 / -1;
     }
   }
 </style>
@@ -121,8 +137,8 @@
 </div>
 
 <div class="container">
+  
   <div class="section-title">محتوای اصلی</div>
-
   <div class="grid-container">
     <a class="lesson-card" href="darsname.html">
       <div class="lesson-icon c1">📖</div>
@@ -132,7 +148,6 @@
       </div>
       <div class="lesson-arrow">‹</div>
     </a>
-
     <a class="lesson-card" href="book.html">
       <div class="lesson-icon c2">📚</div>
       <div class="lesson-info">
@@ -141,7 +156,6 @@
       </div>
       <div class="lesson-arrow">‹</div>
     </a>
-
     <a class="lesson-card" href="powerpoint.html">
       <div class="lesson-icon c3">📊</div>
       <div class="lesson-info">
@@ -150,7 +164,6 @@
       </div>
       <div class="lesson-arrow">‹</div>
     </a>
-
     <a class="lesson-card" href="jadval.html">
       <div class="lesson-icon c4">🎯</div>
       <div class="lesson-info">
@@ -161,8 +174,20 @@
     </a>
   </div>
 
-  <div class="section-title">مطالب تکمیلی</div>
+  <!-- بخش جدید اضافه شده برای اتاق گفتگو -->
+  <div class="section-title">فضای تعاملی</div>
+  <div class="grid-container">
+    <a class="lesson-card chat-card full-width" href="chat.html">
+      <div class="lesson-icon c9">💬</div>
+      <div class="lesson-info">
+        <div class="lesson-title">اتاق گفتگوی منطیکا</div>
+        <div class="lesson-desc">ارتباط زنده، پرسش و پاسخ و رفع اشکال</div>
+      </div>
+      <div class="lesson-arrow">‹</div>
+    </a>
+  </div>
 
+  <div class="section-title">مطالب تکمیلی</div>
   <div class="grid-container">
     <a class="lesson-card" href="chalesh.html">
       <div class="lesson-icon c5">🧩</div>
@@ -172,7 +197,6 @@
       </div>
       <div class="lesson-arrow">‹</div>
     </a>
-
     <a class="lesson-card" href="tolid.html">
       <div class="lesson-icon c6">🎬</div>
       <div class="lesson-info">
@@ -181,7 +205,6 @@
       </div>
       <div class="lesson-arrow">‹</div>
     </a>
-
     <a class="lesson-card" href="soal.html">
       <div class="lesson-icon c7">📝</div>
       <div class="lesson-info">
@@ -190,7 +213,6 @@
       </div>
       <div class="lesson-arrow">‹</div>
     </a>
-
     <a class="lesson-card" href="about.html">
       <div class="lesson-icon c8">ℹ️</div>
       <div class="lesson-info">
