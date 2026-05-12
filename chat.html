@@ -82,7 +82,6 @@
         .sender-name { font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; margin-right: 4px; color: var(--text-muted); }
         .msg-bubble { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; line-height: 1.6; box-shadow: 0 1px 2px rgba(0,0,0,0.05); position: relative; }
         
-        /* Received vs Sent styles */
         .received .msg-bubble { background-color: var(--white); color: var(--text-main); border-bottom-right-radius: 4px; }
         .sent .msg-bubble { background-color: var(--primary-color); color: var(--white); border-bottom-left-radius: 4px; }
         .sent .sender-name { display: none; }
@@ -107,7 +106,6 @@
         #connection-status { position: absolute; top: 0; left: 0; width: 100%; background: #f59e0b; color: white; text-align: center; font-size: 0.8rem; padding: 4px; z-index: 50; display: none; }
     </style>
 
-    <!-- اضافه کردن کتابخانه Socket.io از اینترنت -->
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 </head>
 <body>
@@ -195,8 +193,8 @@
         // 1. SERVER CONNECTION (Socket.io)
         // ==========================================
         
-        // توجه: این آدرس فعلاً تستی است. بعداً لینک لیارا را اینجا می‌گذاریم.
-        const SERVER_URL = 'https://mantika-server.liara.run'; 
+        // اینجا دقیقاً لینک لیارای تو قرار گرفت 🔥
+        const SERVER_URL = 'https://mantika-chat-server.liara.run'; 
         
         let socket = null;
         let myName = '';
@@ -206,32 +204,28 @@
             const statusDiv = document.getElementById('connection-status');
             statusDiv.style.display = 'block';
 
-            // Connect to server
             socket = io(SERVER_URL);
 
             socket.on('connect', () => {
-                statusDiv.style.display = 'none'; // مخفی کردن پیام بعد از اتصال
+                statusDiv.style.display = 'none'; 
             });
 
             socket.on('connect_error', () => {
-                statusDiv.innerText = 'سرور در حال حاضر آفلاین است (منتظر راه‌اندازی در Liara)';
+                statusDiv.innerText = 'سرور در حال حاضر آفلاین است (منتظر اتصال به لیارا)';
                 statusDiv.style.background = '#ef4444';
             });
 
-            // وقتی سرور پیام جدیدی پخش می‌کند
             socket.on('receive_message', (msgData) => {
                 renderMessage(msgData);
                 scrollToBottom();
             });
 
-            // بارگذاری کل تاریخچه چت هنگام ورود
             socket.on('load_history', (historyArray) => {
-                document.getElementById('chat-box').innerHTML = ''; // پاک کردن صفحه
+                document.getElementById('chat-box').innerHTML = ''; 
                 historyArray.forEach(msg => renderMessage(msg));
                 scrollToBottom();
             });
 
-            // رویدادهای حذف و سنجاق از طرف سرور
             socket.on('messages_deleted', (msgIdsArray) => {
                 msgIdsArray.forEach(id => {
                     const el = document.getElementById(id);
@@ -301,10 +295,7 @@
         function applyRole() {
             document.body.className = myRole === 'teacher' ? 'logged-in is-teacher' : 'logged-in is-student';
             if (isMuted) document.body.classList.add('chat-is-muted');
-            
-            // به محض اینکه کاربر وارد شد، به سرور متصل می‌شویم
             if(!socket) connectToServer();
-            
             setupLongPressLogic();
         }
 
@@ -312,7 +303,7 @@
             localStorage.removeItem("mantika_role");
             localStorage.removeItem("mantika_name");
             document.body.className = '';
-            if(socket) socket.disconnect(); // قطع ارتباط با سرور
+            if(socket) socket.disconnect(); 
             socket = null;
             hideLogins();
         }
@@ -331,20 +322,18 @@
             if(!text) return;
 
             const msgData = {
-                id: 'msg-' + Date.now(), // آیدی یکتا برای هر پیام
+                id: 'msg-' + Date.now(), 
                 text: text,
                 senderName: myName,
                 role: myRole,
-                socketId: socket.id // آیدی منحصر به فرد گوشی شما
+                socketId: socket.id 
             };
 
-            // ارسال پیام واقعی به سرور Liara
             socket.emit('send_message', msgData);
             input.value = '';
         }
 
         function renderMessage(msgData) {
-            // آیا این پیام را خودم فرستادم یا شخص دیگری؟
             const isMe = socket && (msgData.socketId === socket.id);
             const rowClass = isMe ? 'sent' : 'received';
             const roleClass = (msgData.role === 'teacher') ? 'teacher' : '';
@@ -358,7 +347,7 @@
             </div>`;
             
             document.getElementById('chat-box').insertAdjacentHTML('beforeend', newMsgHtml);
-            setupLongPressLogic(); // Attach events to new message
+            setupLongPressLogic(); 
         }
 
         document.getElementById('msg-input').addEventListener('keypress', function (e) {
@@ -371,7 +360,7 @@
         }
 
         // ==========================================
-        // 4. TEACHER ACTIONS (Emit to Server)
+        // 4. TEACHER ACTIONS
         // ==========================================
         let isMuted = false;
         function toggleMute() {
@@ -384,13 +373,12 @@
                 document.body.classList.remove('chat-is-muted');
                 muteBtn.innerHTML = '🔕 بستن چت'; muteBtn.style.background = '#fef2f2'; muteBtn.style.color = '#ef4444';
             }
-            // (بعدا میتوان این Mute را هم با Socket به همه شاگردها اعلام کرد)
         }
 
         function emitDeleteMessages() {
             if (!socket) return;
             const idsToDelete = Array.from(selectedMessages);
-            socket.emit('delete_messages', idsToDelete); // ارسال دستور پاک کردن به سرور
+            socket.emit('delete_messages', idsToDelete); 
             cancelSelection();
         }
 
@@ -399,13 +387,13 @@
             const msgId = Array.from(selectedMessages)[0];
             const msgBubble = document.querySelector(`#${msgId} .msg-bubble`);
             if(msgBubble) {
-                socket.emit('pin_message', msgBubble.innerText); // ارسال به سرور
+                socket.emit('pin_message', msgBubble.innerText); 
             }
             cancelSelection();
         }
 
         function emitUnpinMessage() {
-            if (socket) socket.emit('unpin_message'); // ارسال به سرور
+            if (socket) socket.emit('unpin_message'); 
         }
 
         // ==========================================
