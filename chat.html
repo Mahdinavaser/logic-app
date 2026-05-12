@@ -21,188 +21,98 @@
             --pin-text: #856404;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Vazirmatn', Tahoma, sans-serif;
-            -webkit-tap-highlight-color: transparent; 
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', Tahoma, sans-serif; -webkit-tap-highlight-color: transparent; }
 
         body {
             background-color: var(--bg-color);
-            position: fixed;
-            top: 0; bottom: 0; left: 0; right: 0;
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
+            position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+            overflow: hidden; display: flex; flex-direction: column;
         }
 
         /* --- Screens --- */
         #auth-screen, #chat-screen {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            display: flex;
-            flex-direction: column;
-            background: var(--bg-color);
-            z-index: 10;
-            transition: opacity 0.3s ease;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; background: var(--bg-color);
+            z-index: 10; transition: opacity 0.3s ease;
         }
         #chat-screen { z-index: 5; opacity: 0; pointer-events: none; }
-        
         body.logged-in #auth-screen { opacity: 0; pointer-events: none; }
         body.logged-in #chat-screen { opacity: 1; pointer-events: auto; z-index: 20; }
 
-        /* --- Auth Overlay Styles --- */
-        .auth-container {
-            flex: 1; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; padding: 20px;
-        }
-        .auth-card {
-            background: var(--white); padding: 30px; border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 350px;
-            text-align: center;
-        }
+        /* --- Auth Styles --- */
+        .auth-container { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
+        .auth-card { background: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 350px; text-align: center; }
         .auth-logo { font-size: 2.2rem; color: var(--primary-color); font-weight: 900; margin-bottom: 20px; }
-        .auth-btn {
-            width: 100%; padding: 14px; margin-bottom: 15px; border: none;
-            border-radius: 12px; font-size: 1rem; font-weight: bold; cursor: pointer;
-            transition: transform 0.1s;
-        }
+        .auth-btn { width: 100%; padding: 14px; margin-bottom: 15px; border: none; border-radius: 12px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: transform 0.1s; }
         .auth-btn:active { transform: scale(0.97); }
         .btn-student { background: #f3f4f6; color: var(--text-main); border: 2px solid #e5e7eb; }
         .btn-teacher { background: var(--primary-color); color: white; }
-        
         .login-form { display: none; flex-direction: column; gap: 12px; margin-top: 15px; }
-        .login-input {
-            padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem;
-            outline: none; font-family: Tahoma;
-        }
+        .login-input { padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; outline: none; font-family: Tahoma; }
         .login-input:focus { border-color: var(--primary-color); }
         .back-link { color: var(--text-muted); font-size: 0.9rem; margin-top: 10px; cursor: pointer; display: none; }
-        
-        /* خطا برای رمز اشتباه */
-        #login-error {
-            color: var(--danger); font-size: 0.85rem; font-weight: bold;
-            display: none; margin: 5px 0; line-height: 1.4;
-        }
+        #login-error { color: var(--danger); font-size: 0.85rem; font-weight: bold; display: none; margin: 5px 0; line-height: 1.4; }
 
         /* --- Header --- */
-        .chat-header {
-            background-color: var(--white);
-            padding: 12px 20px;
-            padding-top: max(12px, env(safe-area-inset-top)); 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 30;
-            transition: background 0.2s, color 0.2s;
-        }
-        
+        .chat-header { background-color: var(--white); padding: 12px 20px; padding-top: max(12px, env(safe-area-inset-top)); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 30; transition: background 0.2s, color 0.2s; }
         .chat-header.selection-mode { background-color: var(--primary-color); color: white; }
-        .chat-header.selection-mode .brand-name, 
-        .chat-header.selection-mode .header-actions span { color: white !important; }
-
+        .chat-header.selection-mode .brand-name, .chat-header.selection-mode .header-actions span { color: white !important; }
         .brand-name { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); }
         .header-actions { display: flex; align-items: center; gap: 10px; }
         
         .teacher-only { display: none; }
         body.is-teacher .teacher-only { display: inline-block; }
 
-        .mute-btn {
-            background: #fef2f2; color: var(--danger); border: 1px solid var(--danger);
-            padding: 4px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer;
-        }
-        
+        .mute-btn { background: #fef2f2; color: var(--danger); border: 1px solid var(--danger); padding: 4px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; }
         .action-btn { background: transparent; color: white; border: none; font-size: 1.4rem; cursor: pointer; padding: 0 5px; }
+        .logout-btn { font-size: 0.8rem; color: var(--text-muted); cursor: pointer; border: 1px solid #ccc; padding: 2px 8px; border-radius: 10px; background: white; }
 
-        .logout-btn {
-            font-size: 0.8rem; color: var(--text-muted); cursor: pointer; border: 1px solid #ccc;
-            padding: 2px 8px; border-radius: 10px; background: white;
-        }
-
-        /* --- Pinned Message Bar --- */
-        .pinned-bar {
-            background-color: var(--pin-bg);
-            color: var(--pin-text);
-            padding: 10px 20px;
-            font-size: 0.85rem;
-            border-bottom: 1px solid #ffeeba;
-            display: none; 
-            align-items: center;
-            gap: 10px;
-            z-index: 20;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-        }
+        /* --- Pinned Bar --- */
+        .pinned-bar { background-color: var(--pin-bg); color: var(--pin-text); padding: 10px 20px; font-size: 0.85rem; border-bottom: 1px solid #ffeeba; display: none; align-items: center; gap: 10px; z-index: 20; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
         .pinned-text-content { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .unpin-btn { background: transparent; border: none; color: var(--pin-text); font-weight: bold; cursor: pointer; }
 
         /* --- Chat Area --- */
-        .chat-area {
-            flex: 1; overflow-y: auto; padding: 20px;
-            display: flex; flex-direction: column; gap: 16px;
-            scroll-behavior: smooth;
-        }
-
-        .msg-wrapper {
-            display: flex; flex-direction: column; max-width: 85%;
-            transition: background 0.2s; position: relative;
-            user-select: none; border-radius: 18px;
-        }
+        .chat-area { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; scroll-behavior: smooth; }
+        .msg-wrapper { display: flex; flex-direction: column; max-width: 85%; transition: background 0.2s; position: relative; user-select: none; border-radius: 18px; }
         .msg-row { display: flex; align-items: flex-end; width: 100%; }
         .msg-row.sent { justify-content: flex-end; }
         .msg-row.received { justify-content: flex-start; }
 
         .sender-name { font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; margin-right: 4px; color: var(--text-muted); }
-        .msg-bubble {
-            padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; line-height: 1.6;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05); position: relative;
-        }
-
+        .msg-bubble { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; line-height: 1.6; box-shadow: 0 1px 2px rgba(0,0,0,0.05); position: relative; }
+        
+        /* Received vs Sent styles */
         .received .msg-bubble { background-color: var(--white); color: var(--text-main); border-bottom-right-radius: 4px; }
         .sent .msg-bubble { background-color: var(--primary-color); color: var(--white); border-bottom-left-radius: 4px; }
         .sent .sender-name { display: none; }
-
+        
         .teacher .sender-name { color: #047857; }
         .teacher .msg-bubble { background-color: var(--teacher-bg); border: 1px solid var(--teacher-border); }
 
-        .msg-wrapper.selected {
-            background-color: rgba(79, 70, 229, 0.15); padding: 5px; border-radius: 22px; margin: -5px;
-        }
-        .msg-wrapper.selected::after {
-            content: '✓'; position: absolute; bottom: 0; right: -10px;
-            background: var(--primary-color); color: white;
-            border-radius: 50%; width: 20px; height: 20px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12px; font-weight: bold; border: 2px solid white;
-        }
+        .msg-wrapper.selected { background-color: rgba(79, 70, 229, 0.15); padding: 5px; border-radius: 22px; margin: -5px; }
+        .msg-wrapper.selected::after { content: '✓'; position: absolute; bottom: 0; right: -10px; background: var(--primary-color); color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; border: 2px solid white; }
 
         /* --- Input Area --- */
-        .input-area {
-            background-color: var(--white); padding: 12px 16px;
-            padding-bottom: max(16px, env(safe-area-inset-bottom)); 
-            display: flex; gap: 12px; align-items: center;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.03); z-index: 10;
-        }
-        .chat-input {
-            flex: 1; background-color: var(--bg-color); border: none;
-            padding: 14px 20px; border-radius: 30px; font-size: 0.95rem; outline: none;
-        }
-        .send-btn {
-            background-color: var(--primary-color); color: var(--white); border: none;
-            width: 48px; height: 48px; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; flex-shrink: 0; cursor: pointer;
-        }
+        .input-area { background-color: var(--white); padding: 12px 16px; padding-bottom: max(16px, env(safe-area-inset-bottom)); display: flex; gap: 12px; align-items: center; box-shadow: 0 -2px 10px rgba(0,0,0,0.03); z-index: 10; }
+        .chat-input { flex: 1; background-color: var(--bg-color); border: none; padding: 14px 20px; border-radius: 30px; font-size: 0.95rem; outline: none; }
+        .send-btn { background-color: var(--primary-color); color: var(--white); border: none; width: 48px; height: 48px; border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; cursor: pointer; }
         .send-btn svg { width: 20px; height: 20px; fill: currentColor; transform: translateX(-2px); }
 
         .chat-muted-msg { display: none; flex: 1; text-align: center; color: var(--danger); font-weight: bold; padding: 14px; }
-        body.is-student.chat-is-muted .chat-input,
-        body.is-student.chat-is-muted .send-btn { display: none; }
+        body.is-student.chat-is-muted .chat-input, body.is-student.chat-is-muted .send-btn { display: none; }
         body.is-student.chat-is-muted .chat-muted-msg { display: block; }
+
+        /* Server connection status */
+        #connection-status { position: absolute; top: 0; left: 0; width: 100%; background: #f59e0b; color: white; text-align: center; font-size: 0.8rem; padding: 4px; z-index: 50; display: none; }
     </style>
+
+    <!-- اضافه کردن کتابخانه Socket.io از اینترنت -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 </head>
 <body>
+
+    <div id="connection-status">در حال اتصال به سرور چت...</div>
 
     <!-- SCREEN 1: Role Selection & Login -->
     <div id="auth-screen">
@@ -212,22 +122,26 @@
                 
                 <div id="role-selection">
                     <p style="margin-bottom: 20px; color: var(--text-muted);">لطفاً نقش خود را مشخص کنید:</p>
-                    <button class="auth-btn btn-student" onclick="login('student')">👨‍🎓 ورود به عنوان دانش‌آموز</button>
-                    <button class="auth-btn btn-teacher" onclick="showTeacherLogin()">👨‍🏫 ورود به عنوان استاد</button>
+                    <button class="auth-btn btn-student" onclick="showStudentLogin()">👨‍🎓 ورود دانش‌آموز</button>
+                    <button class="auth-btn btn-teacher" onclick="showTeacherLogin()">👨‍🏫 ورود استاد</button>
                 </div>
 
+                <!-- ورود دانش آموز -->
+                <div id="student-login" class="login-form">
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">نام خود را وارد کنید تا در چت نمایش داده شود:</p>
+                    <input type="text" id="student-name" class="login-input" placeholder="مثال: علی رضایی">
+                    <button class="auth-btn btn-student" onclick="loginStudent()">ورود به کلاس</button>
+                    <span class="back-link" style="display: block;" onclick="hideLogins()">بازگشت</span>
+                </div>
+
+                <!-- ورود استاد -->
                 <div id="teacher-login" class="login-form">
                     <p style="color: var(--text-muted); font-size: 0.9rem;">نام کاربری و رمز عبور را وارد کنید</p>
-                    
-                    <!-- فیلدها بدون راهنما (Hint) -->
                     <input type="text" id="username" class="login-input" placeholder="نام کاربری" dir="ltr">
                     <input type="password" id="password" class="login-input" placeholder="رمز عبور" dir="ltr">
-                    
-                    <!-- پیام خطای مخفی -->
-                    <div id="login-error">دسترسی رد شد! برای ورود به دفتر اساتید نیاز به تلاش بیشتری داری شاگرد عزیز 😉🕵️‍♂️</div>
-                    
-                    <button class="auth-btn btn-teacher" onclick="verifyTeacher()">ورود به کلاس</button>
-                    <span class="back-link" style="display: block;" onclick="hideTeacherLogin()">بازگشت</span>
+                    <div id="login-error">دسترسی رد شد! نیاز به تلاش بیشتری داری 😉</div>
+                    <button class="auth-btn btn-teacher" onclick="verifyTeacher()">ورود به دفتر اساتید</button>
+                    <span class="back-link" style="display: block;" onclick="hideLogins()">بازگشت</span>
                 </div>
             </div>
         </div>
@@ -251,130 +165,252 @@
                 <span id="selection-count" style="font-weight: bold;">۱ پیام</span>
             </div>
             <div>
-                <button class="action-btn" id="pin-action-btn" onclick="pinSelectedMessage()">📌</button>
-                <button class="action-btn" onclick="deleteSelectedMessages()">🗑️</button>
+                <button class="action-btn" id="pin-action-btn" onclick="emitPinMessage()">📌</button>
+                <button class="action-btn" onclick="emitDeleteMessages()">🗑️</button>
             </div>
         </header>
 
         <div id="pinned-bar" class="pinned-bar">
             <span>📌</span>
             <div class="pinned-text-content"><strong style="margin-left: 5px;">سنجاق شده:</strong><span id="pinned-text"></span></div>
-            <button class="unpin-btn teacher-only" onclick="unpinMessage()">✖</button>
+            <button class="unpin-btn teacher-only" onclick="emitUnpinMessage()">✖</button>
         </div>
 
         <main class="chat-area" id="chat-box">
-            <div class="msg-row received" id="msg-1">
-                <div class="msg-wrapper teacher" oncontextmenu="return false;">
-                    <div class="sender-name">معلم (مدیر)</div>
-                    <div class="msg-bubble">سلام بچه‌ها! کلاس را شروع می‌کنیم. لطفاً آماده باشید.</div>
-                </div>
-            </div>
-
-            <div class="msg-row received" id="msg-2">
-                <div class="msg-wrapper" oncontextmenu="return false;">
-                    <div class="sender-name">آرش</div>
-                    <div class="msg-bubble">سلام استاد، آماده هستیم.</div>
-                </div>
-            </div>
+            <!-- Messages will be loaded from server here -->
         </main>
 
         <footer class="input-area">
             <div class="chat-muted-msg">استاد ارسال پیام را موقتاً بسته است 🔒</div>
             <input type="text" class="chat-input" placeholder="پیام خود را بنویسید..." id="msg-input">
-            <button class="send-btn" onclick="simulateSend()">
+            <button class="send-btn" onclick="sendMessageToServer()">
                 <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
             </button>
         </footer>
     </div>
 
-    <!-- Logic Script -->
+    <!-- App Logic & Server Connection -->
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const savedRole = localStorage.getItem("mantika_chat_role");
-            if (savedRole) applyRole(savedRole);
-        });
+        // ==========================================
+        // 1. SERVER CONNECTION (Socket.io)
+        // ==========================================
+        
+        // توجه: این آدرس فعلاً تستی است. بعداً لینک لیارا را اینجا می‌گذاریم.
+        const SERVER_URL = 'https://mantika-server.liara.run'; 
+        
+        let socket = null;
+        let myName = '';
+        let myRole = '';
 
-        function showTeacherLogin() {
-            document.getElementById('role-selection').style.display = 'none';
-            document.getElementById('teacher-login').style.display = 'flex';
-            document.getElementById('login-error').style.display = 'none'; // مخفی کردن ارور قبلی
+        function connectToServer() {
+            const statusDiv = document.getElementById('connection-status');
+            statusDiv.style.display = 'block';
+
+            // Connect to server
+            socket = io(SERVER_URL);
+
+            socket.on('connect', () => {
+                statusDiv.style.display = 'none'; // مخفی کردن پیام بعد از اتصال
+            });
+
+            socket.on('connect_error', () => {
+                statusDiv.innerText = 'سرور در حال حاضر آفلاین است (منتظر راه‌اندازی در Liara)';
+                statusDiv.style.background = '#ef4444';
+            });
+
+            // وقتی سرور پیام جدیدی پخش می‌کند
+            socket.on('receive_message', (msgData) => {
+                renderMessage(msgData);
+                scrollToBottom();
+            });
+
+            // بارگذاری کل تاریخچه چت هنگام ورود
+            socket.on('load_history', (historyArray) => {
+                document.getElementById('chat-box').innerHTML = ''; // پاک کردن صفحه
+                historyArray.forEach(msg => renderMessage(msg));
+                scrollToBottom();
+            });
+
+            // رویدادهای حذف و سنجاق از طرف سرور
+            socket.on('messages_deleted', (msgIdsArray) => {
+                msgIdsArray.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.remove();
+                });
+            });
+
+            socket.on('message_pinned', (text) => {
+                document.getElementById('pinned-text').innerText = text;
+                document.getElementById('pinned-bar').style.display = 'flex';
+            });
+
+            socket.on('message_unpinned', () => {
+                document.getElementById('pinned-bar').style.display = 'none';
+                document.getElementById('pinned-text').innerText = '';
+            });
         }
 
-        function hideTeacherLogin() {
-            document.getElementById('teacher-login').style.display = 'none';
-            document.getElementById('role-selection').style.display = 'block';
-            document.getElementById('username').value = '';
-            document.getElementById('password').value = '';
+        // ==========================================
+        // 2. AUTHENTICATION
+        // ==========================================
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedRole = localStorage.getItem("mantika_role");
+            const savedName = localStorage.getItem("mantika_name");
+            
+            if (savedRole && savedName) {
+                myName = savedName;
+                myRole = savedRole;
+                applyRole();
+            }
+        });
+
+        function showStudentLogin() { document.getElementById('role-selection').style.display = 'none'; document.getElementById('student-login').style.display = 'flex'; }
+        function showTeacherLogin() { document.getElementById('role-selection').style.display = 'none'; document.getElementById('teacher-login').style.display = 'flex'; document.getElementById('login-error').style.display = 'none'; }
+        function hideLogins() { document.getElementById('student-login').style.display = 'none'; document.getElementById('teacher-login').style.display = 'none'; document.getElementById('role-selection').style.display = 'block'; }
+
+        function loginStudent() {
+            const nameInput = document.getElementById('student-name').value.trim();
+            if(!nameInput) return alert('لطفاً نام خود را وارد کنید');
+            
+            myName = nameInput;
+            myRole = 'student';
+            saveAndLogin();
         }
 
         function verifyTeacher() {
-            // دریافت مقدار ورودی‌ها و تبدیل حروف به کوچک (برای جلوگیری از خطای بزرگ و کوچک بودن حروف)
             const user = document.getElementById('username').value.trim().toLowerCase();
             const pass = document.getElementById('password').value.trim().toLowerCase();
             const errorMsg = document.getElementById('login-error');
             
-            // بررسی نام کاربری و رمز عبور تاریخی
             if (user === 'kourosh' && pass === 'pasargad') {
                 errorMsg.style.display = 'none';
-                login('teacher');
+                myName = 'استاد (مدیر)';
+                myRole = 'teacher';
+                saveAndLogin();
             } else {
-                errorMsg.style.display = 'block'; // نمایش پیام خطای سرگرم کننده
+                errorMsg.style.display = 'block';
             }
         }
 
-        function login(role) {
-            localStorage.setItem("mantika_chat_role", role);
-            applyRole(role);
+        function saveAndLogin() {
+            localStorage.setItem("mantika_role", myRole);
+            localStorage.setItem("mantika_name", myName);
+            applyRole();
         }
 
-        function applyRole(role) {
-            document.body.className = role === 'teacher' ? 'logged-in is-teacher' : 'logged-in is-student';
+        function applyRole() {
+            document.body.className = myRole === 'teacher' ? 'logged-in is-teacher' : 'logged-in is-student';
             if (isMuted) document.body.classList.add('chat-is-muted');
+            
+            // به محض اینکه کاربر وارد شد، به سرور متصل می‌شویم
+            if(!socket) connectToServer();
+            
             setupLongPressLogic();
-            scrollToBottom();
         }
 
         function logout() {
-            localStorage.removeItem("mantika_chat_role");
+            localStorage.removeItem("mantika_role");
+            localStorage.removeItem("mantika_name");
             document.body.className = '';
-            hideTeacherLogin();
+            if(socket) socket.disconnect(); // قطع ارتباط با سرور
+            socket = null;
+            hideLogins();
         }
 
-        // --- Teacher Controls ---
+        // ==========================================
+        // 3. SENDING & RENDERING MESSAGES
+        // ==========================================
+        function sendMessageToServer() {
+            if (!socket || !socket.connected) {
+                alert('خطا: ارتباط با سرور قطع است.');
+                return;
+            }
+
+            const input = document.getElementById('msg-input');
+            const text = input.value.trim();
+            if(!text) return;
+
+            const msgData = {
+                id: 'msg-' + Date.now(), // آیدی یکتا برای هر پیام
+                text: text,
+                senderName: myName,
+                role: myRole,
+                socketId: socket.id // آیدی منحصر به فرد گوشی شما
+            };
+
+            // ارسال پیام واقعی به سرور Liara
+            socket.emit('send_message', msgData);
+            input.value = '';
+        }
+
+        function renderMessage(msgData) {
+            // آیا این پیام را خودم فرستادم یا شخص دیگری؟
+            const isMe = socket && (msgData.socketId === socket.id);
+            const rowClass = isMe ? 'sent' : 'received';
+            const roleClass = (msgData.role === 'teacher') ? 'teacher' : '';
+
+            const newMsgHtml = `
+            <div class="msg-row ${rowClass}" id="${msgData.id}">
+                <div class="msg-wrapper ${roleClass}" oncontextmenu="return false;">
+                    <div class="sender-name">${msgData.senderName}</div>
+                    <div class="msg-bubble">${msgData.text}</div>
+                </div>
+            </div>`;
+            
+            document.getElementById('chat-box').insertAdjacentHTML('beforeend', newMsgHtml);
+            setupLongPressLogic(); // Attach events to new message
+        }
+
+        document.getElementById('msg-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') sendMessageToServer();
+        });
+
+        function scrollToBottom() {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // ==========================================
+        // 4. TEACHER ACTIONS (Emit to Server)
+        // ==========================================
         let isMuted = false;
         function toggleMute() {
             isMuted = !isMuted;
             const muteBtn = document.querySelector('.mute-btn');
             if (isMuted) {
                 document.body.classList.add('chat-is-muted');
-                muteBtn.innerHTML = '🔔 باز کردن چت';
-                muteBtn.style.background = '#dcfce7'; muteBtn.style.color = '#16a34a'; muteBtn.style.borderColor = '#16a34a';
+                muteBtn.innerHTML = '🔔 باز کردن چت'; muteBtn.style.background = '#dcfce7'; muteBtn.style.color = '#16a34a';
             } else {
                 document.body.classList.remove('chat-is-muted');
-                muteBtn.innerHTML = '🔕 بستن چت';
-                muteBtn.style.background = '#fef2f2'; muteBtn.style.color = '#ef4444'; muteBtn.style.borderColor = '#ef4444';
+                muteBtn.innerHTML = '🔕 بستن چت'; muteBtn.style.background = '#fef2f2'; muteBtn.style.color = '#ef4444';
             }
+            // (بعدا میتوان این Mute را هم با Socket به همه شاگردها اعلام کرد)
         }
 
-        // --- Pinning ---
-        function pinSelectedMessage() {
-            if (selectedMessages.size === 1) {
-                const msgId = Array.from(selectedMessages)[0];
-                const msgBubble = document.querySelector(`#${msgId} .msg-bubble`);
-                if(msgBubble) {
-                    document.getElementById('pinned-text').innerText = msgBubble.innerText;
-                    document.getElementById('pinned-bar').style.display = 'flex';
-                }
-                cancelSelection();
+        function emitDeleteMessages() {
+            if (!socket) return;
+            const idsToDelete = Array.from(selectedMessages);
+            socket.emit('delete_messages', idsToDelete); // ارسال دستور پاک کردن به سرور
+            cancelSelection();
+        }
+
+        function emitPinMessage() {
+            if (!socket || selectedMessages.size !== 1) return;
+            const msgId = Array.from(selectedMessages)[0];
+            const msgBubble = document.querySelector(`#${msgId} .msg-bubble`);
+            if(msgBubble) {
+                socket.emit('pin_message', msgBubble.innerText); // ارسال به سرور
             }
+            cancelSelection();
         }
 
-        function unpinMessage() {
-            document.getElementById('pinned-bar').style.display = 'none';
-            document.getElementById('pinned-text').innerText = '';
+        function emitUnpinMessage() {
+            if (socket) socket.emit('unpin_message'); // ارسال به سرور
         }
 
-        // --- Long Press & Select ---
+        // ==========================================
+        // 5. LONG PRESS LOGIC (UI)
+        // ==========================================
         let isSelectionMode = false;
         let selectedMessages = new Set();
         let pressTimer;
@@ -383,31 +419,22 @@
             const messages = document.querySelectorAll('.msg-wrapper');
             const isTeacher = document.body.classList.contains('is-teacher');
 
-            messages.forEach(msg => {
-                msg.replaceWith(msg.cloneNode(true));
-            });
+            messages.forEach(msg => msg.replaceWith(msg.cloneNode(true)));
 
             document.querySelectorAll('.msg-wrapper').forEach(msg => {
                 msg.addEventListener('click', () => { if (isTeacher && isSelectionMode) toggleMessageSelection(msg); });
-                
                 msg.addEventListener('touchstart', () => {
                     if (!isTeacher) return;
                     pressTimer = setTimeout(() => {
-                        if (!isSelectionMode) {
-                            startSelectionMode(msg);
-                            if (navigator.vibrate) navigator.vibrate(50);
-                        }
+                        if (!isSelectionMode) { startSelectionMode(msg); if(navigator.vibrate) navigator.vibrate(50); }
                     }, 500);
                 });
-                msg.addEventListener('touchend', cancelTimer);
-                msg.addEventListener('touchmove', cancelTimer);
-                
+                msg.addEventListener('touchend', cancelTimer); msg.addEventListener('touchmove', cancelTimer);
                 msg.addEventListener('mousedown', () => {
                     if (!isTeacher) return;
                     pressTimer = setTimeout(() => { if (!isSelectionMode) startSelectionMode(msg); }, 500);
                 });
-                msg.addEventListener('mouseup', cancelTimer);
-                msg.addEventListener('mouseleave', cancelTimer);
+                msg.addEventListener('mouseup', cancelTimer); msg.addEventListener('mouseleave', cancelTimer);
             });
         }
 
@@ -423,76 +450,23 @@
         function toggleMessageSelection(msg) {
             const msgId = msg.parentElement.id;
             if (selectedMessages.has(msgId)) {
-                selectedMessages.delete(msgId);
-                msg.classList.remove('selected');
+                selectedMessages.delete(msgId); msg.classList.remove('selected');
             } else {
-                selectedMessages.add(msgId);
-                msg.classList.add('selected');
+                selectedMessages.add(msgId); msg.classList.add('selected');
             }
-            updateSelectionHeader();
-        }
-
-        function updateSelectionHeader() {
-            if (selectedMessages.size === 0) {
-                cancelSelection();
-            } else {
+            if (selectedMessages.size === 0) cancelSelection();
+            else {
                 document.getElementById('selection-count').innerText = `${selectedMessages.size} پیام`;
                 document.getElementById('pin-action-btn').style.display = (selectedMessages.size === 1) ? 'inline-block' : 'none';
             }
         }
 
         function cancelSelection() {
-            isSelectionMode = false;
-            selectedMessages.clear();
+            isSelectionMode = false; selectedMessages.clear();
             document.getElementById('normal-header').style.display = 'flex';
             document.getElementById('selection-header').style.display = 'none';
             document.querySelectorAll('.msg-wrapper.selected').forEach(el => el.classList.remove('selected'));
         }
-
-        function deleteSelectedMessages() {
-            selectedMessages.forEach(msgId => {
-                const element = document.getElementById(msgId);
-                if (element) {
-                    element.style.transition = 'opacity 0.3s, height 0.3s';
-                    element.style.opacity = '0';
-                    setTimeout(() => element.remove(), 300);
-                }
-            });
-            cancelSelection();
-        }
-
-        function scrollToBottom() {
-            const chatBox = document.getElementById('chat-box');
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        let msgCounter = 3;
-        function simulateSend() {
-            const input = document.getElementById('msg-input');
-            const text = input.value.trim();
-            if(!text) return;
-            
-            const isTeacher = document.body.classList.contains('is-teacher');
-            const roleClass = isTeacher ? 'teacher' : '';
-            const senderName = isTeacher ? 'معلم (مدیر)' : 'شما';
-            
-            const newMsg = `
-            <div class="msg-row sent" id="msg-${msgCounter++}">
-                <div class="msg-wrapper ${roleClass}" oncontextmenu="return false;">
-                    <div class="sender-name">${senderName}</div>
-                    <div class="msg-bubble">${text}</div>
-                </div>
-            </div>`;
-            
-            document.getElementById('chat-box').insertAdjacentHTML('beforeend', newMsg);
-            input.value = '';
-            setupLongPressLogic();
-            scrollToBottom();
-        }
-        
-        document.getElementById('msg-input').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') simulateSend();
-        });
     </script>
 </body>
 </html>
