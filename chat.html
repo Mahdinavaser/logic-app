@@ -27,7 +27,7 @@
             background-color: var(--bg-color);
             position: fixed; top: 0; bottom: 0; left: 0; right: 0;
             overflow: hidden; display: flex; flex-direction: column;
-            direction: rtl; /* تضمین راست‌چین بودن کل بدنه */
+            direction: rtl;
         }
 
         /* --- Screens --- */
@@ -44,7 +44,6 @@
         .auth-container { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
         .auth-card { background: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 350px; text-align: center; position: relative; }
         
-        /* دکمه بازگشت در صفحه ورود */
         .auth-back-btn { position: absolute; top: 20px; right: 20px; text-decoration: none; color: var(--text-muted); font-size: 1.5rem; font-weight: bold; }
         
         .auth-logo { font-size: 2.2rem; color: var(--primary-color); font-weight: 900; margin-top: 10px; margin-bottom: 20px; }
@@ -86,9 +85,8 @@
         .msg-wrapper { display: flex; flex-direction: column; max-width: 85%; transition: background 0.2s; position: relative; user-select: none; border-radius: 18px; }
         .msg-row { display: flex; align-items: flex-end; width: 100%; }
         
-        /* تنظیم دقیق راست‌چین بودن پیام‌ها */
-        .msg-row.sent { justify-content: flex-start; } /* پیام من سمت چپ می‌رود (استاندارد فارسی) */
-        .msg-row.received { justify-content: flex-end; } /* پیام دیگران سمت راست می‌رود */
+        .msg-row.sent { justify-content: flex-start; } 
+        .msg-row.received { justify-content: flex-end; } 
 
         .sender-name { font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; margin-right: 4px; margin-left: 4px; color: var(--text-muted); text-align: right; }
         .msg-bubble { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; line-height: 1.6; box-shadow: 0 1px 2px rgba(0,0,0,0.05); position: relative; text-align: right; direction: rtl; }
@@ -97,8 +95,13 @@
         .sent .msg-bubble { background-color: var(--primary-color); color: var(--white); border-bottom-left-radius: 4px; }
         .sent .sender-name { display: none; }
         
+        /* 🟢 اصلاح رنگ متن برای استاد 🟢 */
         .teacher .sender-name { color: #047857; }
-        .teacher .msg-bubble { background-color: var(--teacher-bg); border: 1px solid var(--teacher-border); }
+        .teacher .msg-bubble { 
+            background-color: var(--teacher-bg); 
+            border: 1px solid var(--teacher-border); 
+            color: #064e3b !important; /* سبز بسیار تیره و خوانا */
+        }
 
         .msg-wrapper.selected { background-color: rgba(79, 70, 229, 0.15); padding: 5px; border-radius: 22px; margin: -5px; }
         .msg-wrapper.selected::after { content: '✓'; position: absolute; bottom: 0; right: -10px; background: var(--primary-color); color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; border: 2px solid white; }
@@ -125,7 +128,6 @@
     <div id="auth-screen">
         <div class="auth-container">
             <div class="auth-card">
-                <!-- دکمه بازگشت به خانه در صفحه ورود -->
                 <a href="index.html" class="auth-back-btn">➔</a>
                 
                 <div class="auth-logo">منطیکا</div>
@@ -160,7 +162,6 @@
         
         <header class="chat-header" id="normal-header">
             <div class="header-right">
-                <!-- دکمه بازگشت به خانه در داخل چت روم -->
                 <a href="index.html" class="back-nav-btn">➔</a>
                 <div class="brand-name">منطیکا</div>
             </div>
@@ -188,9 +189,7 @@
             <button class="unpin-btn teacher-only" onclick="emitUnpinMessage()">✖</button>
         </div>
 
-        <main class="chat-area" id="chat-box">
-            <!-- Messages will be loaded here -->
-        </main>
+        <main class="chat-area" id="chat-box"></main>
 
         <footer class="input-area">
             <div class="chat-muted-msg">استاد ارسال پیام را موقتاً بسته است 🔒</div>
@@ -201,11 +200,6 @@
         </footer>
     </div>
 
-    <!-- 
-       رفع مشکل هنگ کردن:
-       فایل سوکت دقیقاً در انتهای صفحه قرار گرفت و مستقیماً از لیارا خوانده می‌شود. 
-       این کار باعث می‌شود ظاهر برنامه در یک صدم ثانیه لود شود!
-    -->
     <script src="https://mantika-chat-server.liara.run/socket.io/socket.io.js"></script>
 
     <script>
@@ -216,7 +210,6 @@
         let myRole = '';
 
         function connectToServer() {
-            // جلوگیری از ارور در صورت لود نشدن اسکریپت
             if (typeof io === 'undefined') {
                 const statusDiv = document.getElementById('connection-status');
                 statusDiv.style.display = 'block';
