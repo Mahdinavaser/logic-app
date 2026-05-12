@@ -80,6 +80,12 @@
         }
         .login-input:focus { border-color: var(--primary-color); }
         .back-link { color: var(--text-muted); font-size: 0.9rem; margin-top: 10px; cursor: pointer; display: none; }
+        
+        /* خطا برای رمز اشتباه */
+        #login-error {
+            color: var(--danger); font-size: 0.85rem; font-weight: bold;
+            display: none; margin: 5px 0; line-height: 1.4;
+        }
 
         /* --- Header --- */
         .chat-header {
@@ -123,7 +129,7 @@
             padding: 10px 20px;
             font-size: 0.85rem;
             border-bottom: 1px solid #ffeeba;
-            display: none; /* Hidden by default */
+            display: none; 
             align-items: center;
             gap: 10px;
             z-index: 20;
@@ -136,7 +142,7 @@
         .chat-area {
             flex: 1; overflow-y: auto; padding: 20px;
             display: flex; flex-direction: column; gap: 16px;
-            scroll-behavior: smooth; /* Smooth scrolling for new messages */
+            scroll-behavior: smooth;
         }
 
         .msg-wrapper {
@@ -161,7 +167,6 @@
         .teacher .sender-name { color: #047857; }
         .teacher .msg-bubble { background-color: var(--teacher-bg); border: 1px solid var(--teacher-border); }
 
-        /* Selected Message Styles */
         .msg-wrapper.selected {
             background-color: rgba(79, 70, 229, 0.15); padding: 5px; border-radius: 22px; margin: -5px;
         }
@@ -191,7 +196,6 @@
         }
         .send-btn svg { width: 20px; height: 20px; fill: currentColor; transform: translateX(-2px); }
 
-        /* Muted State for Students */
         .chat-muted-msg { display: none; flex: 1; text-align: center; color: var(--danger); font-weight: bold; padding: 14px; }
         body.is-student.chat-is-muted .chat-input,
         body.is-student.chat-is-muted .send-btn { display: none; }
@@ -214,8 +218,14 @@
 
                 <div id="teacher-login" class="login-form">
                     <p style="color: var(--text-muted); font-size: 0.9rem;">نام کاربری و رمز عبور را وارد کنید</p>
-                    <input type="text" id="username" class="login-input" placeholder="نام کاربری (admin)" dir="ltr">
-                    <input type="password" id="password" class="login-input" placeholder="رمز عبور (1234)" dir="ltr">
+                    
+                    <!-- فیلدها بدون راهنما (Hint) -->
+                    <input type="text" id="username" class="login-input" placeholder="نام کاربری" dir="ltr">
+                    <input type="password" id="password" class="login-input" placeholder="رمز عبور" dir="ltr">
+                    
+                    <!-- پیام خطای مخفی -->
+                    <div id="login-error">دسترسی رد شد! برای ورود به دفتر اساتید نیاز به تلاش بیشتری داری شاگرد عزیز 😉🕵️‍♂️</div>
+                    
                     <button class="auth-btn btn-teacher" onclick="verifyTeacher()">ورود به کلاس</button>
                     <span class="back-link" style="display: block;" onclick="hideTeacherLogin()">بازگشت</span>
                 </div>
@@ -226,18 +236,15 @@
     <!-- SCREEN 2: The Chatroom -->
     <div id="chat-screen">
         
-        <!-- Normal Header -->
         <header class="chat-header" id="normal-header">
             <div class="brand-name">منطیکا</div>
             <div class="header-actions">
                 <button class="mute-btn teacher-only" onclick="toggleMute()">🔕 بستن چت</button>
                 <span style="font-size: 0.8rem; font-weight: bold; color: var(--text-main);">اتاق گفتگو</span>
-                <!-- Exit button to reset memory -->
                 <button class="logout-btn" onclick="logout()">خروج</button>
             </div>
         </header>
 
-        <!-- Selection Mode Header (Appears on Long Press) -->
         <header class="chat-header selection-mode" id="selection-header" style="display: none;">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <button style="background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer;" onclick="cancelSelection()">✖</button>
@@ -249,16 +256,13 @@
             </div>
         </header>
 
-        <!-- Pinned Message Area -->
         <div id="pinned-bar" class="pinned-bar">
             <span>📌</span>
             <div class="pinned-text-content"><strong style="margin-left: 5px;">سنجاق شده:</strong><span id="pinned-text"></span></div>
             <button class="unpin-btn teacher-only" onclick="unpinMessage()">✖</button>
         </div>
 
-        <!-- Chat Area -->
         <main class="chat-area" id="chat-box">
-            
             <div class="msg-row received" id="msg-1">
                 <div class="msg-wrapper teacher" oncontextmenu="return false;">
                     <div class="sender-name">معلم (مدیر)</div>
@@ -272,10 +276,8 @@
                     <div class="msg-bubble">سلام استاد، آماده هستیم.</div>
                 </div>
             </div>
-
         </main>
 
-        <!-- Input Area -->
         <footer class="input-area">
             <div class="chat-muted-msg">استاد ارسال پیام را موقتاً بسته است 🔒</div>
             <input type="text" class="chat-input" placeholder="پیام خود را بنویسید..." id="msg-input">
@@ -287,7 +289,6 @@
 
     <!-- Logic Script -->
     <script>
-        // --- 1. Authentication Logic ---
         document.addEventListener("DOMContentLoaded", () => {
             const savedRole = localStorage.getItem("mantika_chat_role");
             if (savedRole) applyRole(savedRole);
@@ -296,20 +297,28 @@
         function showTeacherLogin() {
             document.getElementById('role-selection').style.display = 'none';
             document.getElementById('teacher-login').style.display = 'flex';
+            document.getElementById('login-error').style.display = 'none'; // مخفی کردن ارور قبلی
         }
 
         function hideTeacherLogin() {
             document.getElementById('teacher-login').style.display = 'none';
             document.getElementById('role-selection').style.display = 'block';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
         }
 
         function verifyTeacher() {
-            const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
-            if (user === 'admin' && pass === '1234') {
+            // دریافت مقدار ورودی‌ها و تبدیل حروف به کوچک (برای جلوگیری از خطای بزرگ و کوچک بودن حروف)
+            const user = document.getElementById('username').value.trim().toLowerCase();
+            const pass = document.getElementById('password').value.trim().toLowerCase();
+            const errorMsg = document.getElementById('login-error');
+            
+            // بررسی نام کاربری و رمز عبور تاریخی
+            if (user === 'kourosh' && pass === 'pasargad') {
+                errorMsg.style.display = 'none';
                 login('teacher');
             } else {
-                alert('نام کاربری یا رمز عبور اشتباه است!');
+                errorMsg.style.display = 'block'; // نمایش پیام خطای سرگرم کننده
             }
         }
 
@@ -331,7 +340,7 @@
             hideTeacherLogin();
         }
 
-        // --- 2. Teacher Chat Controls ---
+        // --- Teacher Controls ---
         let isMuted = false;
         function toggleMute() {
             isMuted = !isMuted;
@@ -347,7 +356,7 @@
             }
         }
 
-        // --- 3. Pinning Logic ---
+        // --- Pinning ---
         function pinSelectedMessage() {
             if (selectedMessages.size === 1) {
                 const msgId = Array.from(selectedMessages)[0];
@@ -365,7 +374,7 @@
             document.getElementById('pinned-text').innerText = '';
         }
 
-        // --- 4. Long Press & Delete Logic ---
+        // --- Long Press & Select ---
         let isSelectionMode = false;
         let selectedMessages = new Set();
         let pressTimer;
@@ -375,13 +384,12 @@
             const isTeacher = document.body.classList.contains('is-teacher');
 
             messages.forEach(msg => {
-                msg.replaceWith(msg.cloneNode(true)); // reset listeners
+                msg.replaceWith(msg.cloneNode(true));
             });
 
             document.querySelectorAll('.msg-wrapper').forEach(msg => {
                 msg.addEventListener('click', () => { if (isTeacher && isSelectionMode) toggleMessageSelection(msg); });
                 
-                // Touch events for mobile
                 msg.addEventListener('touchstart', () => {
                     if (!isTeacher) return;
                     pressTimer = setTimeout(() => {
@@ -394,7 +402,6 @@
                 msg.addEventListener('touchend', cancelTimer);
                 msg.addEventListener('touchmove', cancelTimer);
                 
-                // Mouse events for testing on PC
                 msg.addEventListener('mousedown', () => {
                     if (!isTeacher) return;
                     pressTimer = setTimeout(() => { if (!isSelectionMode) startSelectionMode(msg); }, 500);
@@ -430,7 +437,6 @@
                 cancelSelection();
             } else {
                 document.getElementById('selection-count').innerText = `${selectedMessages.size} پیام`;
-                // Show PIN button only if exactly 1 message is selected
                 document.getElementById('pin-action-btn').style.display = (selectedMessages.size === 1) ? 'inline-block' : 'none';
             }
         }
@@ -455,13 +461,11 @@
             cancelSelection();
         }
 
-        // --- 5. Scroll and Send Logic (For UI feeling) ---
         function scrollToBottom() {
             const chatBox = document.getElementById('chat-box');
             chatBox.scrollTop = chatBox.scrollHeight;
         }
 
-        // Simulate sending a message just to see the scroll work
         let msgCounter = 3;
         function simulateSend() {
             const input = document.getElementById('msg-input');
@@ -482,11 +486,10 @@
             
             document.getElementById('chat-box').insertAdjacentHTML('beforeend', newMsg);
             input.value = '';
-            setupLongPressLogic(); // re-attach listeners to new message
+            setupLongPressLogic();
             scrollToBottom();
         }
         
-        // Send by hitting Enter
         document.getElementById('msg-input').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') simulateSend();
         });
