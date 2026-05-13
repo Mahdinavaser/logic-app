@@ -23,7 +23,6 @@
             --pin-text: #856404;
         }
 
-        /* استفاده از فونت‌های ۱۰۰٪ آفلاین و سیستمی */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, Arial, Helvetica, sans-serif; -webkit-tap-highlight-color: transparent; }
 
         body {
@@ -41,8 +40,6 @@
         }
         #chat-screen { z-index: 5; opacity: 0; pointer-events: none; }
         body.logged-in #auth-screen { opacity: 0; pointer-events: none; }
-        
-        /* 🟢 حذف عکس خارجی پس‌زمینه برای رفع مشکل فریز شدن */
         body.logged-in #chat-screen { opacity: 1; pointer-events: auto; z-index: 20; background-color: #f3f4f6; }
 
         /* --- Auth Styles --- */
@@ -55,7 +52,12 @@
         .btn-student { background: #f3f4f6; color: var(--text-main); border: 2px solid #e5e7eb; }
         .btn-teacher { background: var(--primary-color); color: white; }
         .login-form { display: none; flex-direction: column; gap: 12px; margin-top: 15px; }
-        .login-input { padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; outline: none; text-align: right; }
+        
+        /* 🟢 FIX: Ensure inputs allow copy/paste normally */
+        .login-input { 
+            padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; outline: none; text-align: right; 
+            -webkit-user-select: auto !important; user-select: auto !important;
+        }
         .login-input:focus { border-color: var(--primary-color); }
         .back-link { color: var(--text-muted); font-size: 0.9rem; margin-top: 10px; cursor: pointer; display: none; }
         #login-error { color: var(--danger); font-size: 0.85rem; font-weight: bold; display: none; margin: 5px 0; line-height: 1.4; }
@@ -96,7 +98,10 @@
 
         /* --- Chat Area --- */
         .chat-area { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
-        .msg-wrapper { display: flex; flex-direction: column; max-width: 85%; transition: background 0.2s; position: relative; user-select: none; border-radius: 18px; }
+        
+        /* Only apply user-select:none to the bubble wrapper to avoid native copy menus during long press */
+        .msg-wrapper { display: flex; flex-direction: column; max-width: 85%; transition: background 0.2s; position: relative; border-radius: 18px; user-select: none; -webkit-user-select: none; }
+        
         .msg-row { display: flex; align-items: flex-end; width: 100%; margin-bottom: 4px; }
         .msg-row.sent { justify-content: flex-start; } 
         .msg-row.received { justify-content: flex-end; } 
@@ -126,9 +131,11 @@
         /* --- Input Area --- */
         .input-area { background-color: var(--white); padding: 10px 16px; padding-bottom: max(10px, env(safe-area-inset-bottom)); display: flex; gap: 10px; align-items: flex-end; box-shadow: 0 -2px 10px rgba(0,0,0,0.03); z-index: 10; }
         
+        /* 🟢 FIX: Ensure textarea allows paste menu */
         .chat-input { 
             flex: 1; background-color: #f3f4f6; border: 1px solid transparent; padding: 12px 16px; border-radius: 20px; 
             font-size: 16px; outline: none; text-align: right; direction: rtl; resize: none; min-height: 44px; max-height: 120px; line-height: 1.4; overflow-y: auto; transition: border 0.2s;
+            -webkit-user-select: auto !important; user-select: auto !important;
         }
         .chat-input:focus { border: 1px solid #d1d5db; background-color: white; }
 
@@ -222,7 +229,7 @@
         </footer>
     </div>
 
-    <!-- اسکریپت سوکت فقط از سرور ایرانی خودتان خوانده می‌شود -->
+    <!-- اسکریپت سوکت از سرور ایرانی -->
     <script src="https://mantika-chat-server.liara.run/socket.io/socket.io.js" defer></script>
 
     <script>
@@ -404,6 +411,7 @@
             
             input.value = '';
             input.style.height = 'auto'; 
+            input.focus(); // Keep focus after sending
         }
 
         function renderMessage(msgData) {
