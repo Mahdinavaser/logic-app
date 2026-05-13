@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>منطیکا - اتاق گفتگو</title>
     <style>
-        @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+        /* 
+         * 🟢 حذف مطلق هرگونه @import خارجی برای تضمین باز شدن سریع در اینترنت ملی 
+         */
 
         :root {
             --primary-color: #4f46e5; 
@@ -21,6 +23,7 @@
             --pin-text: #856404;
         }
 
+        /* استفاده از فونت‌های ۱۰۰٪ آفلاین و سیستمی */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, Arial, Helvetica, sans-serif; -webkit-tap-highlight-color: transparent; }
 
         body {
@@ -38,7 +41,9 @@
         }
         #chat-screen { z-index: 5; opacity: 0; pointer-events: none; }
         body.logged-in #auth-screen { opacity: 0; pointer-events: none; }
-        body.logged-in #chat-screen { opacity: 1; pointer-events: auto; z-index: 20; background: url('https://www.transparenttextures.com/patterns/cubes.png') #f3f4f6; }
+        
+        /* 🟢 حذف عکس خارجی پس‌زمینه برای رفع مشکل فریز شدن */
+        body.logged-in #chat-screen { opacity: 1; pointer-events: auto; z-index: 20; background-color: #f3f4f6; }
 
         /* --- Auth Styles --- */
         .auth-container { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
@@ -50,7 +55,7 @@
         .btn-student { background: #f3f4f6; color: var(--text-main); border: 2px solid #e5e7eb; }
         .btn-teacher { background: var(--primary-color); color: white; }
         .login-form { display: none; flex-direction: column; gap: 12px; margin-top: 15px; }
-        .login-input { padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; outline: none; font-family: Tahoma; text-align: right; }
+        .login-input { padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; outline: none; text-align: right; }
         .login-input:focus { border-color: var(--primary-color); }
         .back-link { color: var(--text-muted); font-size: 0.9rem; margin-top: 10px; cursor: pointer; display: none; }
         #login-error { color: var(--danger); font-size: 0.85rem; font-weight: bold; display: none; margin: 5px 0; line-height: 1.4; }
@@ -63,7 +68,6 @@
         .header-right { display: flex; align-items: center; gap: 12px; }
         .back-nav-btn { text-decoration: none; color: var(--primary-color); font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; justify-content: center; }
         
-        /* 🟢 Online Status in Header */
         .brand-info { display: flex; flex-direction: column; }
         .brand-name { font-size: 1.3rem; font-weight: 800; color: var(--primary-color); line-height: 1.2; }
         .online-count { font-size: 0.7rem; color: #10b981; font-weight: bold; display: flex; align-items: center; gap: 4px; }
@@ -73,7 +77,6 @@
         .teacher-only { display: none; }
         body.is-teacher .teacher-only { display: inline-block; }
         
-        /* 🟢 Online Users Button & List for Teacher */
         .view-users-btn { background: #e0e7ff; color: var(--primary-color); border: none; padding: 5px 8px; border-radius: 12px; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
         .online-users-dropdown { display: none; position: absolute; top: 100%; left: 20px; background: white; border-radius: 0 0 12px 12px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); width: 200px; max-height: 300px; overflow-y: auto; z-index: 40; border: 1px solid #eee; border-top: none; }
         .online-users-dropdown.show { display: flex; flex-direction: column; }
@@ -100,7 +103,6 @@
         
         .sender-name { font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; margin-right: 4px; margin-left: 4px; color: var(--text-muted); text-align: right; }
         
-        /* Bubble Styles */
         .msg-bubble { 
             padding: 10px 14px; border-radius: 18px; font-size: 0.95rem; line-height: 1.5; 
             box-shadow: 0 1px 2px rgba(0,0,0,0.08); position: relative; text-align: right; direction: rtl; 
@@ -126,7 +128,7 @@
         
         .chat-input { 
             flex: 1; background-color: #f3f4f6; border: 1px solid transparent; padding: 12px 16px; border-radius: 20px; 
-            font-size: 16px; outline: none; text-align: right; direction: rtl; resize: none; min-height: 44px; max-height: 120px; line-height: 1.4; font-family: Tahoma; overflow-y: auto; transition: border 0.2s;
+            font-size: 16px; outline: none; text-align: right; direction: rtl; resize: none; min-height: 44px; max-height: 120px; line-height: 1.4; overflow-y: auto; transition: border 0.2s;
         }
         .chat-input:focus { border: 1px solid #d1d5db; background-color: white; }
 
@@ -145,7 +147,7 @@
 
     <div id="connection-status">در حال اتصال به سرور چت...</div>
 
-    <!-- SCREEN 1: Role Selection -->
+    <!-- SCREEN 1: Role Selection & Login -->
     <div id="auth-screen">
         <div class="auth-container">
             <div class="auth-card">
@@ -181,20 +183,15 @@
                 <a href="index.html" class="back-nav-btn">➔</a>
                 <div class="brand-info">
                     <div class="brand-name">منطیکا</div>
-                    <!-- نمایش تعداد آنلاین‌ها -->
                     <div class="online-count"><span class="online-dot"></span> <span id="online-number">۰</span> آنلاین</div>
                 </div>
             </div>
             <div class="header-actions">
-                <!-- دکمه مشاهده لیست آنلاین‌ها (فقط استاد) -->
                 <button class="view-users-btn teacher-only" onclick="toggleUsersList()">👁‍🗨</button>
                 <button class="mute-btn teacher-only" onclick="toggleMute()">🔕 بستن چت</button>
                 <button class="logout-btn" onclick="logout()">خروج</button>
             </div>
-            <!-- منوی کشویی لیست افراد آنلاین -->
-            <div class="online-users-dropdown" id="online-users-list">
-                <!-- کاربران اینجا لود می‌شوند -->
-            </div>
+            <div class="online-users-dropdown" id="online-users-list"></div>
         </header>
 
         <header class="chat-header selection-mode" id="selection-header" style="display: none;">
@@ -225,6 +222,7 @@
         </footer>
     </div>
 
+    <!-- اسکریپت سوکت فقط از سرور ایرانی خودتان خوانده می‌شود -->
     <script src="https://mantika-chat-server.liara.run/socket.io/socket.io.js" defer></script>
 
     <script>
@@ -262,7 +260,6 @@
             
             socket.on('connect', () => { 
                 statusDiv.style.display = 'none'; 
-                // 🟢 ارسال اسم به سرور برای لیست آنلاین‌ها
                 socket.emit('user_joined', { name: myName, role: myRole });
             });
             
@@ -294,28 +291,23 @@
                 document.getElementById('pinned-bar').style.display = 'none'; document.getElementById('pinned-text').innerText = '';
             });
 
-            // 🟢 دریافت آپدیت لیست آنلاین‌ها از سرور
             socket.on('online_users_updated', (usersArray) => {
                 document.getElementById('online-number').innerText = usersArray.length;
                 renderOnlineUsersList(usersArray);
             });
         }
 
-        // 🟢 رندر کردن لیست حضور و غیاب برای استاد
         function renderOnlineUsersList(users) {
             const listDiv = document.getElementById('online-users-list');
             listDiv.innerHTML = '';
-            
             if(users.length === 0) {
                 listDiv.innerHTML = '<div class="online-user-item">کلاس خالی است</div>';
                 return;
             }
-
             users.forEach(user => {
                 const safeName = escapeHTML(user.name);
                 const roleText = user.role === 'teacher' ? 'استاد' : 'شاگرد';
                 const roleClass = user.role === 'teacher' ? 'teacher' : '';
-                
                 listDiv.innerHTML += `
                     <div class="online-user-item">
                         <span class="online-dot"></span>
@@ -331,11 +323,10 @@
             listDiv.classList.toggle('show');
         }
 
-        // مخفی کردن لیست افراد با کلیک روی هر جای دیگر صفحه
         document.addEventListener('click', function(event) {
             const listDiv = document.getElementById('online-users-list');
             const btn = document.querySelector('.view-users-btn');
-            if(listDiv.classList.contains('show') && !listDiv.contains(event.target) && event.target !== btn) {
+            if(listDiv && listDiv.classList.contains('show') && !listDiv.contains(event.target) && event.target !== btn) {
                 listDiv.classList.remove('show');
             }
         });
@@ -347,10 +338,12 @@
             if (savedRole && savedName) { myName = savedName; myRole = savedRole; applyRole(); }
             
             const tx = document.getElementById('msg-input');
-            tx.addEventListener("input", function() {
-                this.style.height = 'auto'; 
-                this.style.height = (this.scrollHeight) + 'px'; 
-            });
+            if(tx) {
+                tx.addEventListener("input", function() {
+                    this.style.height = 'auto'; 
+                    this.style.height = (this.scrollHeight) + 'px'; 
+                });
+            }
         });
 
         function showStudentLogin() { document.getElementById('role-selection').style.display = 'none'; document.getElementById('student-login').style.display = 'flex'; }
