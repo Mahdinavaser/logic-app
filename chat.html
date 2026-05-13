@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>منطیکا - اتاق گفتگو</title>
     <style>
-        @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
-
+        /* 
+         * 🟢 تغییر مهم: حذف فونت خارجی (jsdelivr) برای جلوگیری از فریز شدن در اینترنت ایران 
+         * استفاده از فونت‌های سیستمی و پیش‌فرض برای سرعت لود صفر ثانیه 
+         */
         :root {
             --primary-color: #4f46e5; 
             --primary-dark: #4338ca;
@@ -21,7 +23,14 @@
             --pin-text: #856404;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', Tahoma, sans-serif; -webkit-tap-highlight-color: transparent; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            /* استفاده از فونت استاندارد آفلاین */
+            font-family: Tahoma, Arial, Helvetica, sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+        }
 
         body {
             background-color: var(--bg-color);
@@ -95,13 +104,8 @@
         .sent .msg-bubble { background-color: var(--primary-color); color: var(--white); border-bottom-left-radius: 4px; }
         .sent .sender-name { display: none; }
         
-        /* 🟢 اصلاح رنگ متن برای استاد 🟢 */
         .teacher .sender-name { color: #047857; }
-        .teacher .msg-bubble { 
-            background-color: var(--teacher-bg); 
-            border: 1px solid var(--teacher-border); 
-            color: #064e3b !important; /* سبز بسیار تیره و خوانا */
-        }
+        .teacher .msg-bubble { background-color: var(--teacher-bg); border: 1px solid var(--teacher-border); color: #064e3b !important; }
 
         .msg-wrapper.selected { background-color: rgba(79, 70, 229, 0.15); padding: 5px; border-radius: 22px; margin: -5px; }
         .msg-wrapper.selected::after { content: '✓'; position: absolute; bottom: 0; right: -10px; background: var(--primary-color); color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; border: 2px solid white; }
@@ -200,7 +204,8 @@
         </footer>
     </div>
 
-    <script src="https://mantika-chat-server.liara.run/socket.io/socket.io.js"></script>
+    <!-- 🟢 تغییر مهم: افزودن defer تا اسکریپت باعث توقف لود صفحه نشود -->
+    <script src="https://mantika-chat-server.liara.run/socket.io/socket.io.js" defer></script>
 
     <script>
         const SERVER_URL = 'https://mantika-chat-server.liara.run'; 
@@ -213,8 +218,11 @@
             if (typeof io === 'undefined') {
                 const statusDiv = document.getElementById('connection-status');
                 statusDiv.style.display = 'block';
-                statusDiv.innerText = 'خطا در ارتباط با سرور. لطفاً اینترنت را بررسی کنید.';
-                statusDiv.style.background = '#ef4444';
+                statusDiv.innerText = 'در حال اتصال به سرور داخلی...';
+                statusDiv.style.background = '#f59e0b';
+                
+                // تلاش مجدد برای اتصال بعد از 2 ثانیه
+                setTimeout(connectToServer, 2000);
                 return;
             }
 
