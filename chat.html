@@ -38,7 +38,7 @@
         }
         #chat-screen { z-index: 5; opacity: 0; pointer-events: none; }
         body.logged-in #auth-screen { opacity: 0; pointer-events: none; }
-        body.logged-in #chat-screen { opacity: 1; pointer-events: auto; z-index: 20; background: url('https://www.transparenttextures.com/patterns/cubes.png') #f3f4f6; } /* اضافه کردن یک پترن نامحسوس و زیبا به پس‌زمینه چت */
+        body.logged-in #chat-screen { opacity: 1; pointer-events: auto; z-index: 20; background: url('https://www.transparenttextures.com/patterns/cubes.png') #f3f4f6; }
 
         /* --- Auth Styles --- */
         .auth-container { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
@@ -50,23 +50,38 @@
         .btn-student { background: #f3f4f6; color: var(--text-main); border: 2px solid #e5e7eb; }
         .btn-teacher { background: var(--primary-color); color: white; }
         .login-form { display: none; flex-direction: column; gap: 12px; margin-top: 15px; }
-        
-        /* قفل کردن سایز روی 16px برای جلوگیری از زوم شدن در آیفون */
         .login-input { padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; outline: none; font-family: Tahoma; text-align: right; }
         .login-input:focus { border-color: var(--primary-color); }
         .back-link { color: var(--text-muted); font-size: 0.9rem; margin-top: 10px; cursor: pointer; display: none; }
         #login-error { color: var(--danger); font-size: 0.85rem; font-weight: bold; display: none; margin: 5px 0; line-height: 1.4; }
 
         /* --- Header --- */
-        .chat-header { background-color: var(--white); padding: 12px 20px; padding-top: max(12px, env(safe-area-inset-top)); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 30; transition: background 0.2s, color 0.2s; }
+        .chat-header { background-color: var(--white); padding: 12px 20px; padding-top: max(12px, env(safe-area-inset-top)); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 30; transition: background 0.2s, color 0.2s; position: relative; }
         .chat-header.selection-mode { background-color: var(--primary-color); color: white; }
-        .chat-header.selection-mode .brand-name, .chat-header.selection-mode .header-actions span { color: white !important; }
+        .chat-header.selection-mode .brand-info, .chat-header.selection-mode .header-actions span { color: white !important; }
+        
         .header-right { display: flex; align-items: center; gap: 12px; }
         .back-nav-btn { text-decoration: none; color: var(--primary-color); font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; justify-content: center; }
-        .brand-name { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); }
+        
+        /* 🟢 Online Status in Header */
+        .brand-info { display: flex; flex-direction: column; }
+        .brand-name { font-size: 1.3rem; font-weight: 800; color: var(--primary-color); line-height: 1.2; }
+        .online-count { font-size: 0.7rem; color: #10b981; font-weight: bold; display: flex; align-items: center; gap: 4px; }
+        .online-dot { width: 6px; height: 6px; background-color: #10b981; border-radius: 50%; display: inline-block; }
+
         .header-actions { display: flex; align-items: center; gap: 10px; }
         .teacher-only { display: none; }
         body.is-teacher .teacher-only { display: inline-block; }
+        
+        /* 🟢 Online Users Button & List for Teacher */
+        .view-users-btn { background: #e0e7ff; color: var(--primary-color); border: none; padding: 5px 8px; border-radius: 12px; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .online-users-dropdown { display: none; position: absolute; top: 100%; left: 20px; background: white; border-radius: 0 0 12px 12px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); width: 200px; max-height: 300px; overflow-y: auto; z-index: 40; border: 1px solid #eee; border-top: none; }
+        .online-users-dropdown.show { display: flex; flex-direction: column; }
+        .online-user-item { padding: 10px 15px; border-bottom: 1px solid #f3f4f6; font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
+        .online-user-item:last-child { border-bottom: none; }
+        .user-role-badge { font-size: 0.65rem; padding: 2px 6px; border-radius: 8px; background: #f3f4f6; color: var(--text-muted); }
+        .user-role-badge.teacher { background: #dcfce7; color: #065f46; }
+
         .mute-btn { background: #fef2f2; color: var(--danger); border: 1px solid var(--danger); padding: 4px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; font-weight: bold; }
         .action-btn { background: transparent; color: white; border: none; font-size: 1.4rem; cursor: pointer; padding: 0 5px; }
         .logout-btn { font-size: 0.8rem; color: var(--text-muted); cursor: pointer; border: 1px solid #ccc; padding: 4px 10px; border-radius: 12px; background: white; font-weight: bold; }
@@ -94,8 +109,6 @@
         }
         
         .msg-text { margin-bottom: 2px; }
-        
-        /* استایل ساعت پیام (مثل واتس‌اپ) */
         .msg-time { font-size: 0.65rem; opacity: 0.6; align-self: flex-end; margin-top: 2px; margin-right: -4px; }
 
         .received .msg-bubble { background-color: var(--white); color: var(--text-main); border-bottom-right-radius: 4px; }
@@ -113,8 +126,7 @@
         
         .chat-input { 
             flex: 1; background-color: #f3f4f6; border: 1px solid transparent; padding: 12px 16px; border-radius: 20px; 
-            font-size: 16px; /* جلوگیری قطعی از زوم iOS */
-            outline: none; text-align: right; direction: rtl; resize: none; min-height: 44px; max-height: 120px; line-height: 1.4; font-family: Tahoma; overflow-y: auto; transition: border 0.2s;
+            font-size: 16px; outline: none; text-align: right; direction: rtl; resize: none; min-height: 44px; max-height: 120px; line-height: 1.4; font-family: Tahoma; overflow-y: auto; transition: border 0.2s;
         }
         .chat-input:focus { border: 1px solid #d1d5db; background-color: white; }
 
@@ -167,11 +179,21 @@
         <header class="chat-header" id="normal-header">
             <div class="header-right">
                 <a href="index.html" class="back-nav-btn">➔</a>
-                <div class="brand-name">منطیکا</div>
+                <div class="brand-info">
+                    <div class="brand-name">منطیکا</div>
+                    <!-- نمایش تعداد آنلاین‌ها -->
+                    <div class="online-count"><span class="online-dot"></span> <span id="online-number">۰</span> آنلاین</div>
+                </div>
             </div>
             <div class="header-actions">
+                <!-- دکمه مشاهده لیست آنلاین‌ها (فقط استاد) -->
+                <button class="view-users-btn teacher-only" onclick="toggleUsersList()">👁‍🗨</button>
                 <button class="mute-btn teacher-only" onclick="toggleMute()">🔕 بستن چت</button>
                 <button class="logout-btn" onclick="logout()">خروج</button>
+            </div>
+            <!-- منوی کشویی لیست افراد آنلاین -->
+            <div class="online-users-dropdown" id="online-users-list">
+                <!-- کاربران اینجا لود می‌شوند -->
             </div>
         </header>
 
@@ -211,14 +233,12 @@
         let myName = '';
         let myRole = '';
 
-        // 🟢 تابع امنیتی برای جلوگیری از هک شدن چت (XSS Protection)
         function escapeHTML(str) {
             let div = document.createElement('div');
             div.innerText = str;
             return div.innerHTML;
         }
 
-        // 🟢 تولید ساعت کنونی (مثال: 14:35)
         function getCurrentTime() {
             const now = new Date();
             const h = now.getHours().toString().padStart(2, '0');
@@ -237,9 +257,15 @@
             }
             const statusDiv = document.getElementById('connection-status');
             statusDiv.style.display = 'block';
+            
             socket = io(SERVER_URL);
             
-            socket.on('connect', () => { statusDiv.style.display = 'none'; });
+            socket.on('connect', () => { 
+                statusDiv.style.display = 'none'; 
+                // 🟢 ارسال اسم به سرور برای لیست آنلاین‌ها
+                socket.emit('user_joined', { name: myName, role: myRole });
+            });
+            
             socket.on('connect_error', () => {
                 statusDiv.innerText = 'در حال ارتباط با شبکه...';
                 statusDiv.style.background = '#ef4444';
@@ -247,13 +273,13 @@
             
             socket.on('receive_message', (msgData) => { 
                 renderMessage(msgData); 
-                scrollToBottom(true); // Smooth scroll برای پیام جدید
+                scrollToBottom(true); 
             });
             
             socket.on('load_history', (historyArray) => {
                 document.getElementById('chat-box').innerHTML = ''; 
                 historyArray.forEach(msg => renderMessage(msg));
-                scrollToBottom(false); // Instant scroll برای لود اولیه تاریخچه
+                scrollToBottom(false); 
             });
             
             socket.on('messages_deleted', (msgIdsArray) => {
@@ -267,7 +293,52 @@
             socket.on('message_unpinned', () => {
                 document.getElementById('pinned-bar').style.display = 'none'; document.getElementById('pinned-text').innerText = '';
             });
+
+            // 🟢 دریافت آپدیت لیست آنلاین‌ها از سرور
+            socket.on('online_users_updated', (usersArray) => {
+                document.getElementById('online-number').innerText = usersArray.length;
+                renderOnlineUsersList(usersArray);
+            });
         }
+
+        // 🟢 رندر کردن لیست حضور و غیاب برای استاد
+        function renderOnlineUsersList(users) {
+            const listDiv = document.getElementById('online-users-list');
+            listDiv.innerHTML = '';
+            
+            if(users.length === 0) {
+                listDiv.innerHTML = '<div class="online-user-item">کلاس خالی است</div>';
+                return;
+            }
+
+            users.forEach(user => {
+                const safeName = escapeHTML(user.name);
+                const roleText = user.role === 'teacher' ? 'استاد' : 'شاگرد';
+                const roleClass = user.role === 'teacher' ? 'teacher' : '';
+                
+                listDiv.innerHTML += `
+                    <div class="online-user-item">
+                        <span class="online-dot"></span>
+                        <span style="flex: 1; text-align: right;">${safeName}</span>
+                        <span class="user-role-badge ${roleClass}">${roleText}</span>
+                    </div>
+                `;
+            });
+        }
+
+        function toggleUsersList() {
+            const listDiv = document.getElementById('online-users-list');
+            listDiv.classList.toggle('show');
+        }
+
+        // مخفی کردن لیست افراد با کلیک روی هر جای دیگر صفحه
+        document.addEventListener('click', function(event) {
+            const listDiv = document.getElementById('online-users-list');
+            const btn = document.querySelector('.view-users-btn');
+            if(listDiv.classList.contains('show') && !listDiv.contains(event.target) && event.target !== btn) {
+                listDiv.classList.remove('show');
+            }
+        });
 
         // ================== AUTH ==================
         document.addEventListener("DOMContentLoaded", () => {
@@ -289,10 +360,9 @@
         function loginStudent() {
             const nameInput = document.getElementById('student-name').value.trim();
             if(!nameInput) return alert('لطفاً نام خود را وارد کنید');
-            // جلوگیری از انتخاب نام‌های رزرو شده
             if(nameInput.includes('استاد') || nameInput.includes('مدیر')) return alert('استفاده از این نام مجاز نیست.');
             
-            myName = escapeHTML(nameInput); // Sanitize Name
+            myName = escapeHTML(nameInput); 
             myRole = 'student'; saveAndLogin();
         }
 
@@ -326,16 +396,15 @@
             const rawText = input.value.trim();
             if(!rawText) return;
 
-            // 🟢 تولید ID غیرقابل تداخل
             const uniqueId = 'msg-' + Date.now() + '-' + Math.random().toString(36).substring(2, 7);
 
             const msgData = { 
                 id: uniqueId, 
-                text: rawText, // ذخیره در سرور (متن در زمان رندر امن می‌شود)
+                text: rawText, 
                 senderName: myName, 
                 role: myRole, 
                 socketId: socket.id,
-                time: getCurrentTime() // اضافه کردن زمان به پیام
+                time: getCurrentTime() 
             };
             
             socket.emit('send_message', msgData);
@@ -349,7 +418,6 @@
             const rowClass = isMe ? 'sent' : 'received';
             const roleClass = (msgData.role === 'teacher') ? 'teacher' : '';
             
-            // 🟢 ایمن‌سازی متن و نام فرستنده در برابر حملات (Sanitization)
             const safeText = escapeHTML(msgData.text);
             const safeName = escapeHTML(msgData.senderName);
             const msgTime = msgData.time || '';
@@ -376,20 +444,14 @@
             }
         });
 
-        // 🟢 اسکرول هوشمند
         function scrollToBottom(smooth = false) {
             const chatBox = document.getElementById('chat-box'); 
-            chatBox.scrollTo({
-                top: chatBox.scrollHeight,
-                behavior: smooth ? 'smooth' : 'auto'
-            });
+            chatBox.scrollTo({ top: chatBox.scrollHeight, behavior: smooth ? 'smooth' : 'auto' });
         }
 
         // ================== TEACHER ACTIONS ==================
         let isMuted = false;
         function toggleMute() {
-            // نکته: برای اعمال این محدودیت به بقیه شاگردان به صورت زنده، در آپدیت‌های بعدی باید در سرور Node.js نیز کد آن نوشته شود. 
-            // در حال حاضر این دکمه ظاهر سمت استاد را تغییر می‌دهد.
             isMuted = !isMuted; const muteBtn = document.querySelector('.mute-btn');
             if (isMuted) { document.body.classList.add('chat-is-muted'); muteBtn.innerHTML = '🔔 باز کردن چت'; muteBtn.style.background = '#dcfce7'; muteBtn.style.color = '#16a34a'; } 
             else { document.body.classList.remove('chat-is-muted'); muteBtn.innerHTML = '🔕 بستن چت'; muteBtn.style.background = '#fef2f2'; muteBtn.style.color = '#ef4444'; }
@@ -403,13 +465,12 @@
         function emitPinMessage() {
             if (!socket || selectedMessages.size !== 1) return;
             const msgId = Array.from(selectedMessages)[0];
-            const msgTextDiv = document.querySelector(`#${msgId} .msg-text`); // فقط متن پین شود نه ساعت
+            const msgTextDiv = document.querySelector(`#${msgId} .msg-text`);
             if(msgTextDiv) socket.emit('pin_message', msgTextDiv.innerText); cancelSelection();
         }
 
         function emitUnpinMessage() { if (socket) socket.emit('unpin_message'); }
 
-        // با کلیک روی پیام پین شده، صفحه به پایین اسکرول شود
         document.getElementById('pinned-bar').addEventListener('click', function(e) {
             if(!e.target.classList.contains('unpin-btn')) scrollToBottom(true);
         });
