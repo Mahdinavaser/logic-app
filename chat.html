@@ -119,18 +119,78 @@
         .msg-wrapper.selected { background-color: rgba(79, 70, 229, 0.15); padding: 5px; border-radius: 22px; margin: -5px; }
         .msg-wrapper.selected::after { content: '✓'; position: absolute; bottom: 0; right: -10px; background: var(--primary-color); color: white; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
 
-        /* --- Input Area --- */
+        /* --- Input Area (حرفه‌ای) --- */
         .input-area { background-color: var(--white); padding: 10px 16px; padding-bottom: max(10px, env(safe-area-inset-bottom)); display: flex; gap: 10px; align-items: flex-end; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); }
         
-        .chat-input { 
-            flex: 1; background-color: #f3f4f6; border: 1px solid transparent; padding: 12px 16px; border-radius: 20px; 
-            font-size: 16px; outline: none; text-align: right; direction: rtl; resize: none; min-height: 44px; max-height: 120px; line-height: 1.4; overflow-y: auto; transition: border 0.2s;
-            -webkit-user-select: auto !important; user-select: auto !important; -webkit-appearance: none; appearance: none;
+        .textarea-container {
+            flex: 1;
+            position: relative;
         }
-        .chat-input:focus { border: 1px solid #d1d5db; background-color: white; }
+
+        /* Hidden mirror textarea for height calculation */
+        .textarea-mirror {
+            position: absolute;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            pointer-events: none;
+            border: 1px solid transparent;
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 16px;
+            font-family: Tahoma, Arial, Helvetica, sans-serif;
+            outline: none;
+            text-align: right;
+            direction: rtl;
+            resize: none;
+            min-height: 44px;
+            max-height: 120px;
+            line-height: 1.4;
+            overflow-y: auto;
+            transition: all 0.2s;
+            -webkit-user-select: text;
+            user-select: text;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .chat-input:focus {
+            border: 2px solid #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .chat-input::placeholder {
+            color: #9ca3af;
+        }
+
+        /* Webkit scrollbar styling */
+        .chat-input::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-input::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-input::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 3px;
+        }
+
+        .chat-input::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
 
         .send-btn { background: var(--primary-color); color: var(--white); border: none; width: 44px; height: 44px; border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; cursor: pointer; transition: transform 0.1s; }
         .send-btn:active { transform: scale(0.9); }
+        .send-btn:disabled { background: #d1d5db; cursor: not-allowed; }
         .send-btn svg { width: 20px; height: 20px; fill: currentColor; transform: translateX(-2px); }
         
         .chat-muted-msg { display: none; flex: 1; text-align: center; color: var(--danger); font-weight: bold; padding: 14px; }
@@ -226,7 +286,16 @@
 
         <footer class="input-area">
             <div class="chat-muted-msg">استاد ارسال پیام را موقتاً بسته است 🔒</div>
-            <textarea class="chat-input" placeholder="پیام خود را بنویسید..." id="msg-input" rows="1"></textarea>
+            <div class="textarea-container">
+                <textarea 
+                    class="chat-input" 
+                    placeholder="پیام خود را بنویسید... (Shift+Enter = سطر جدید)"
+                    id="msg-input" 
+                    rows="1"
+                    spellcheck="true"
+                ></textarea>
+                <div class="textarea-mirror" id="textarea-mirror"></div>
+            </div>
             <button class="send-btn" onclick="sendMessageToServer()">
                 <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
             </button>
@@ -257,6 +326,8 @@
         let myName = '';
         let myRole = '';
         let teacherCredentials = { username: 'ahvaz', password: 'logic' };
+        const MAX_CHARS = 1000;
+        const MAX_HEIGHT = 120;
 
         function escapeHTML(str) {
             let div = document.createElement('div');
@@ -419,6 +490,101 @@
             }
         });
 
+        // ================== TEXTAREA MAGIC (حرفه‌ای) ==================
+        function setupTextareaHandlers() {
+            const textarea = document.getElementById('msg-input');
+            const mirror = document.getElementById('textarea-mirror');
+
+            // Mirror styles sync
+            function syncMirrorStyles() {
+                const computed = window.getComputedStyle(textarea);
+                [
+                    'direction', 'textAlign', 'fontFamily', 'fontSize',
+                    'fontWeight', 'letterSpacing', 'lineHeight', 'padding',
+                    'border', 'boxSizing', 'width'
+                ].forEach(prop => {
+                    mirror.style[prop] = computed[prop];
+                });
+            }
+
+            // Auto-resize بدون cursor jump
+            function autoResize() {
+                mirror.textContent = textarea.value || textarea.placeholder;
+                let height = mirror.scrollHeight;
+                height = Math.max(44, height);
+                height = Math.min(height, MAX_HEIGHT);
+                textarea.style.height = height + 'px';
+            }
+
+            // Cursor preservation
+            function preserveCursorOnInput(callback) {
+                const start = textarea.selectionStart;
+                const end = textarea.selectionEnd;
+                callback();
+                requestAnimationFrame(() => {
+                    textarea.setSelectionRange(start, end);
+                });
+            }
+
+            // Input event
+            textarea.addEventListener('input', (e) => {
+                preserveCursorOnInput(() => {
+                    if (textarea.value.length > MAX_CHARS) {
+                        textarea.value = textarea.value.substring(0, MAX_CHARS);
+                    }
+                    autoResize();
+                    updateSendBtn();
+                });
+            });
+
+            // Paste handling
+            textarea.addEventListener('paste', (e) => {
+                e.preventDefault();
+                const text = (e.clipboardData || window.clipboardData).getData('text');
+                const start = textarea.selectionStart;
+                const end = textarea.selectionEnd;
+                const before = textarea.value.substring(0, start);
+                const after = textarea.value.substring(end);
+                const newValue = (before + text + after).substring(0, MAX_CHARS);
+                textarea.value = newValue;
+                const newCursorPos = Math.min(start + text.length, newValue.length);
+                requestAnimationFrame(() => {
+                    textarea.setSelectionRange(newCursorPos, newCursorPos);
+                    autoResize();
+                    updateSendBtn();
+                });
+            });
+
+            // Cut handling
+            textarea.addEventListener('cut', () => {
+                setTimeout(() => {
+                    autoResize();
+                    updateSendBtn();
+                }, 0);
+            });
+
+            // Keyboard shortcuts
+            textarea.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessageToServer();
+                }
+            });
+
+            // Initial setup
+            syncMirrorStyles();
+            autoResize();
+            updateSendBtn();
+            window.addEventListener('resize', syncMirrorStyles);
+        }
+
+        function updateSendBtn() {
+            const textarea = document.getElementById('msg-input');
+            const isEmpty = textarea.value.trim() === '';
+            const sendBtn = document.querySelector('.send-btn');
+            sendBtn.disabled = isEmpty;
+        }
+
         // ================== AUTH ==================
         document.addEventListener("DOMContentLoaded", () => {
             const savedRole = localStorage.getItem("mantika_role");
@@ -428,38 +594,6 @@
             const savedPassword = localStorage.getItem('mantika_teacher_password');
             if (savedPassword) {
                 teacherCredentials.password = savedPassword;
-            }
-            
-            // 🟢 FIX FOR CURSOR JUMP BUG + TEXT SELECTION + PASTE 🟢
-            const tx = document.getElementById('msg-input');
-            if(tx) {
-                tx.addEventListener("input", function() {
-                    const cursorStart = this.selectionStart;
-                    const cursorEnd = this.selectionEnd;
-                    
-                    this.style.height = 'auto'; 
-                    this.style.height = (this.scrollHeight) + 'px'; 
-                    
-                    this.setSelectionRange(cursorStart, cursorEnd);
-                });
-
-                // Allow paste
-                tx.addEventListener('paste', function(e) {
-                    e.preventDefault();
-                    const text = (e.clipboardData || window.clipboardData).getData('text');
-                    const start = this.selectionStart;
-                    const end = this.selectionEnd;
-                    const before = this.value.substring(0, start);
-                    const after = this.value.substring(end);
-                    
-                    this.value = before + text + after;
-                    
-                    setTimeout(() => {
-                        this.selectionStart = this.selectionEnd = start + text.length;
-                        this.style.height = 'auto';
-                        this.style.height = (this.scrollHeight) + 'px';
-                    }, 0);
-                });
             }
         });
 
@@ -492,6 +626,7 @@
             if (isMuted) document.body.classList.add('chat-is-muted');
             if(!socket) connectToServer();
             setupLongPressLogic();
+            setupTextareaHandlers();
         }
 
         function logout() {
@@ -520,7 +655,8 @@
             socket.emit('send_message', msgData);
             
             input.value = '';
-            input.style.height = 'auto'; 
+            input.style.height = 'auto';
+            updateSendBtn();
         }
 
         function renderMessage(msgData) {
@@ -546,13 +682,6 @@
             document.getElementById('chat-box').insertAdjacentHTML('beforeend', newMsgHtml);
             setupLongPressLogic(); 
         }
-
-        document.getElementById('msg-input').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter' && !e.shiftKey) { 
-                e.preventDefault(); 
-                sendMessageToServer(); 
-            }
-        });
 
         function scrollToBottom(smooth = false) {
             const chatBox = document.getElementById('chat-box'); 
